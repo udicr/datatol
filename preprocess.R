@@ -236,7 +236,7 @@ f_frame_slow <- function(df){
   return(df)
 }
 
-df_pb1 <- f_frame(df_pb1)
+df_pb1 <- f_frame_slow(df_pb1)
 
 f_video <- function(df) {
   df %>% mutate(video = case_when(grepl("20_tol2_8", df$video_file) ~ "Spot1", 
