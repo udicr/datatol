@@ -5,7 +5,7 @@ import re
 from distutils.dir_util import copy_tree
 import sys
 
-pb = 12
+pb = 1
 
 
 def run():
@@ -14,8 +14,7 @@ def run():
     :return: output
     '''
     output = []
-    strt = "Rscript -e rmarkdown::render(\'preprocess.Rmd\', params = list(pb = " + str(pb) + "))"
-    strt2 = "time"
+    strt = "Rscript preprocess.R "+str(pb)
     process = subprocess.Popen(strt, cwd=".",
                                stdout=subprocess.PIPE, shell=True)  # .stdout.decode('utf-8')
     for line in iter(process.stdout.readline, b''):
