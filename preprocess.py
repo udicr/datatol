@@ -6,7 +6,7 @@ from distutils.dir_util import copy_tree
 import sys
 from multiprocessing.dummy import Pool as ThreadPool
 
-#pool = ThreadPool(4)
+pool = ThreadPool(4)
 pbns = [i for i in range(1,54) if i not in [6,23,50,53]]
 print(pbns)
 
@@ -28,6 +28,10 @@ def run(pb):
     return output
 
 if __name__ == "__main__":
-    #results = pool.map(run,pbns)
-    for pbn in pbns:
-        a = run(pbn)
+    results = pool.map(run,pbns)
+    with open("preprocess_log.txt","w") as file:
+        for res in results:
+            for r in res:
+                file.write(r + "\n")
+
+
