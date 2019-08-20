@@ -135,7 +135,7 @@ Control6 <- f_cut(Control6, "Control6")
 Control7 <- f_cut(Control7, "Control7")
 Control8 <- f_cut(Control8, "Control8")
 
-df_pb1 <- read_delim(srfile,"\t", escape_double = FALSE, locale = 
+df_pb <- read_delim(srfile,"\t", escape_double = FALSE, locale =
                        locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
 
 f_num_2 <- function(df, video) {
@@ -235,8 +235,17 @@ f_frame_slow <- function(df){
   df$frame <- FNO[2:length(FNO)]
   return(df)
 }
+pbnno <- as.numeric(pbn)
+if ((pbnno %% 2) == 0){
+    df_pb <- f_frame_slow(df_pb)
+    print("SLOW VISUAL")
+}
+if ((pbnno %% 2) == 1){
+    df_pb <- f_frame(df_pb)
+    print("FAST VISUAL")
+}
 
-df_pb1 <- f_frame_slow(df_pb1)
+
 
 f_video <- function(df) {
   df %>% mutate(video = case_when(grepl("20_tol2_8", df$video_file) ~ "Spot1", 
@@ -277,12 +286,12 @@ f_video <- function(df) {
 
 
 
-df_pb1 <- f_video(df_pb1)
-fr_pb1 <- read_delim(frfile,"\t", escape_double = FALSE, locale = 
+df_pb <- f_video(df_pb)
+fr_pb <- read_delim(frfile,"\t", escape_double = FALSE, locale =
                        locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
 
 FIX_ID_df <- function(df) {
-  if (any(as.numeric(df$RIGHT_PUPIL_SIZE)>0)) {
+  if (any(!(is.na(as.numeric(df$RIGHT_PUPIL_SIZE))) && (as.numeric(df$RIGHT_PUPIL_SIZE)>0))) {
     df$CURRENT_FIX_INDEX <- as.numeric(df$RIGHT_FIX_INDEX)
   }
   else {
@@ -302,8 +311,8 @@ f.merge0 <- function(df, fr) {
   df.temp<- df.temp[index,]  
   df.temp                    
 }
-df_pb1 <- FIX_ID_df(df_pb1)
-df_pb1 <- f.merge0(df_pb1, fr_pb1)
+df_pb <- FIX_ID_df(df_pb)
+df_pb <- f.merge0(df_pb, fr_pb)
 
 f.merge <- function(df) {
   df.temp <- merge(df, df_vidco, by.x = c("video", "frame"), by.y = c("video", "frames2"), all.x = TRUE)
@@ -312,9 +321,9 @@ f.merge <- function(df) {
   df.temp
 }
 
-m.df_pb1 <- f.merge(df_pb1)
+m.df_pb <- f.merge(df_pb)
 
-save(m.df_pb1, file = outfile)
+save(m.df_pb, file = outfile)
 rm(list=ls())
 gc()
 print("Preprocess done")
