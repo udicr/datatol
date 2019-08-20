@@ -1,0 +1,874 @@
+---
+title: "prepare files"
+output: html_notebook
+---
+
+Zu Analyse der Übereinstimmung von Video und Blickbewegungen müssen die Daten aus den jeweiligen Dateien extrahiert werden.
+
+Im ersten Schritt sollen dfs pro Video erstellt werden ausgehend von Tims Daten
+
+# Lade Bibliotheken
+```{r}
+library(readxl)
+library(dplyr)
+library(readr)
+```
+
+# Lade Datei mit Übersicht über Videos und die gewünschten Frames + Positiondateien Videos
+
+```{r}
+df_vs <- read_excel("data/selectedVideos_181219.xlsx")
+df_vs$Name_f <- as.factor(df_vs$Name)
+df_01_15 <- read.csv("data/daten_01_TOL4_15.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_04_4 <- read.csv("data/daten_04_tol2_4.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_06_4 <- read.csv("data/daten_06_tol1_4.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_06_11 <- read.csv("data/daten_06_tol1_11.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_07_7 <- read.csv("data/daten_07_tol3_7.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_07_8 <- read.csv("data/daten_07_tol3_8.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_07_15 <- read.csv("data/daten_07_tol3_15.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_09_3 <- read.csv("data/daten_09_tol2_3.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_12_2 <- read.csv("data/daten_12_tol1_2.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_12_5 <- read.csv("data/daten_12_tol1_5.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_13_1 <- read.csv("data/daten_07_tol3_15.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_14_6 <- read.csv("data/daten_14_tol2_6.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_15_11 <- read.csv("data/daten_15_tol3_11.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_16_13 <- read.csv("data/daten_16_tol2_13.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_16_14 <- read.csv("data/daten_16_tol2_14.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_17_7 <- read.csv("data/daten_17_tol1_7.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_18_2 <- read.csv("data/daten_18_tol1_2.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_19_2 <- read.csv("data/daten_19_tol3_2.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_19_5 <- read.csv("data/daten_19_tol3_5.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_20_8 <- read.csv("data/daten_20_tol2_8.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_21_11 <- read.csv("data/daten_21_tol3_11.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_21_12 <- read.csv("data/daten_21_tol3_12.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_22_8 <- read.csv("data/daten_22_tol2_8.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_23_10 <- read.csv("data/daten_23_tol1_10.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_26_7 <- read.csv("data/daten_26_tol2_7.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_26_8 <- read.csv("data/daten_26_tol2_8.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_26_12 <- read.csv("data/daten_26_tol2_12.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_27_9 <- read.csv("data/daten_27_tol2_9.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_27_15 <- read.csv("data/daten_27_tol2_15.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_28_6 <- read.csv("data/daten_28_tol3_6.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_29_6 <- read.csv("data/daten_29_tol1_6.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+df_31_7 <- read.csv("data/daten_31_tol3_7.txt", header = FALSE, col.names = c("x_coord","y_coord"))
+```
+
+## Füge Nummerierung der Zeilen hinzu
+
+```{r}
+f_num <- function(df) {
+  df$frames <- c(1:length(df$x_coord))
+  return(df)
+}
+Spot1 <- f_num(df_20_8)
+Spot2 <- f_num(df_19_5)
+Spot3 <- f_num(df_28_6)
+Spot4 <- f_num(df_27_15)
+Spot5 <- f_num(df_27_9)
+Spot6 <- f_num(df_29_6)
+Spot7 <- f_num(df_26_12)
+Spot8 <- f_num(df_14_6)
+GL1 <- f_num(df_31_7)
+GL2 <- f_num(df_22_8)
+GL3 <- f_num(df_17_7)
+GL4 <- f_num(df_19_2)
+GL5 <- f_num(df_26_7)
+GL6 <- f_num(df_06_11)
+GL7 <- f_num(df_06_4)
+GL8 <- f_num(df_26_8)
+BGL1 <- f_num(df_07_8)
+BGL2 <- f_num(df_15_11)
+BGL3 <- f_num(df_07_15)
+BGL4 <- f_num(df_09_3)
+BGL5 <- f_num(df_16_13)
+BGL6 <- f_num(df_16_14)
+BGL7 <- f_num(df_04_4)
+BGL8 <- f_num(df_18_2)
+Control1 <- f_num(df_21_12)
+Control2 <- f_num(df_21_11)
+Control3 <- f_num(df_07_7)
+Control4 <- f_num(df_01_15)
+Control5 <- f_num(df_13_1)
+Control6 <- f_num(df_12_5)
+Control7 <- f_num(df_12_2)
+Control8 <- f_num(df_23_10)
+```
+
+
+## Positionsdaten aus der Gesamtdatei schneiden
+- richtige Zeile aus df_vs auswählen
+
+```{r message=FALSE, warning=FALSE}
+f_cut <- function(x,y){
+  sub = df_vs[df_vs$Name == y, ]
+  first = sub$first
+  last = sub$last
+  df = subset(x, frames >= first & frames <= last)
+}
+Spot1 <- f_cut(Spot1, "Spot1")
+Spot2 <- f_cut(Spot2, "Spot2")
+Spot3 <- f_cut(Spot3, "Spot3")
+Spot4 <- f_cut(Spot4, "Spot4")
+Spot5 <- f_cut(Spot5, "Spot5")
+Spot6 <- f_cut(Spot6, "Spot6")
+Spot7 <- f_cut(Spot7, "Spot7")
+Spot8 <- f_cut(Spot8, "Spot8")
+
+GL1 <- f_cut(GL1, "GL1")
+GL2 <- f_cut(GL2, "GL2")
+GL3 <- f_cut(GL3, "GL3")
+GL4 <- f_cut(GL4, "GL4")
+GL5 <- f_cut(GL5, "GL5")
+GL6 <- f_cut(GL6, "GL6")
+GL7 <- f_cut(GL7, "GL7")
+GL8 <- f_cut(GL8, "GL8")
+
+BGL1 <- f_cut(BGL1, "BGL1")
+BGL2 <- f_cut(BGL2, "BGL2")
+BGL3 <- f_cut(BGL3, "BGL3")
+BGL4 <- f_cut(BGL4, "BGL4")
+BGL5 <- f_cut(BGL5, "BGL5")
+BGL6 <- f_cut(BGL6, "BGL6")
+BGL7 <- f_cut(BGL7, "BGL7")
+BGL8 <- f_cut(BGL8, "BGL8")
+
+Control1 <- f_cut(Control1, "Control1")
+Control2 <- f_cut(Control2, "Control2")
+Control3 <- f_cut(Control3, "Control3")
+Control4 <- f_cut(Control4, "Control4")
+Control5 <- f_cut(Control5, "Control5")
+Control6 <- f_cut(Control6, "Control6")
+Control7 <- f_cut(Control7, "Control7")
+Control8 <- f_cut(Control8, "Control8")
+```
+
+# Sample report laden
+Sample Report wurde auf 500 Hz heruntergebrochen um künstliche Genauigkeit zu verringern (Videos sind nur mit 15 Hz aufgenommen)
+
+```{r message=FALSE, warning=FALSE}
+df_pb1 <- read_delim("data/sr_1.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+
+df_pb2 <- read_delim("data/sr_2.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb3 <- read_delim("data/sr_3.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb4 <- read_delim("data/sr_4.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb5 <- read_delim("data/sr_5.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+'''
+# df_pb6 <- read_delim("data/sr_6.xls")
+df_pb7 <- read_delim("data/sr_7.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb8 <- read_delim("data/sr_8.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb9 <- read_delim("data/sr_9.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb10 <- read_delim("data/sr_10.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb11 <- read_delim("data/sr_11.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb12 <- read_delim("data/sr_12.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb13 <- read_delim("data/sr_13.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb14 <- read_delim("data/sr_14.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb15 <- read_delim("data/sr_15.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb16 <- read_delim("data/sr_16.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb17 <- read_delim("data/sr_17.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb18 <- read_delim("data/sr_18.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb19 <- read_delim("data/sr_19.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb20 <- read_delim("data/sr_20.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb21 <- read_delim("data/sr_21.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb22 <- read_delim("data/sr_22.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+#df_pb23 <- read_delim("data/sr_23.xls","\t", escape_double = FALSE, locale = #locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb24 <- read_delim("data/sr_24.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb25 <- read_delim("data/sr_25.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb26 <- read_delim("data/sr_26.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb27 <- read_delim("data/sr_27.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb28 <- read_delim("data/sr_28.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb29 <- read_delim("data/sr_29.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb30 <- read_delim("data/sr_30.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb31 <- read_delim("data/sr_31.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb32 <- read_delim("data/sr_32.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb33 <- read_delim("data/sr_33.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb34 <- read_delim("data/sr_34.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb35 <- read_delim("data/sr_35.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb36 <- read_delim("data/sr_36.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb37 <- read_delim("data/sr_37.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb38 <- read_delim("data/sr_38.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb39 <- read_delim("data/sr_39.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb40 <- read_delim("data/sr_40.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb41 <- read_delim("data/sr_41.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb42 <- read_delim("data/sr_42.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb43 <- read_delim("data/sr_43.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb44 <- read_delim("data/sr_44.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb45 <- read_delim("data/sr_45.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb46 <- read_delim("data/sr_46.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb47 <- read_delim("data/sr_47.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb48 <- read_delim("data/sr_48.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb49 <- read_delim("data/sr_49.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb50 <- read_delim("data/sr_50.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb51 <- read_delim("data/sr_51.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb52 <- read_delim("data/sr_52.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb53 <- read_delim("data/sr_53.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+```
+
+zwei Probleme sind zu lösen:
+1. Wie binde ich die richtigen x und y Positionen an die sample Datei in den richtigen Abständen?
+2. Wie identifiziere ich die richtigen Videos?
+
+zu 1.: 
+Match könnte funktieren über die Framenummer - beide Dateien jeweils von 1 an durchnummerieren pro Trial (und Interest Period), wobei Zeilen für die Dateien der Videos dupliziert werden müssen, weil Ursprungsvideos von 15Hz auf 30Hz skaliert wurden (jeder frame wird 2x gezeigt)
+
+```{r}
+f_num_2 <- function(df, video) {
+  df <- df[rep(1:nrow(df),each=2),] 
+  df$frames2 <- c(1:length(df$x_coord))
+  df$video <- video
+  return(df)
+}
+
+Spot1 <- f_num_2(Spot1, "Spot1")
+Spot2 <- f_num_2(Spot2, "Spot2")
+Spot3 <- f_num_2(Spot3, "Spot3")
+Spot4 <- f_num_2(Spot4, "Spot4")
+Spot5 <- f_num_2(Spot5, "Spot5")
+Spot6 <- f_num_2(Spot6, "Spot6")
+Spot7 <- f_num_2(Spot7, "Spot7")
+Spot8 <- f_num_2(Spot8, "Spot8")
+
+GL1 <- f_num_2(GL1, "GL1")
+GL2 <- f_num_2(GL2, "GL2")
+GL3 <- f_num_2(GL3, "GL3")
+GL4 <- f_num_2(GL4, "GL4")
+GL5 <- f_num_2(GL5, "GL5")
+GL6 <- f_num_2(GL6, "GL6")
+GL7 <- f_num_2(GL7, "GL7")
+GL8 <- f_num_2(GL8, "GL8")
+
+BGL1 <- f_num_2(BGL1, "BGL1")
+BGL2 <- f_num_2(BGL2, "BGL2")
+BGL3 <- f_num_2(BGL3, "BGL3")
+BGL4 <- f_num_2(BGL4, "BGL4")
+BGL5 <- f_num_2(BGL5, "BGL5")
+BGL6 <- f_num_2(BGL6, "BGL6")
+BGL7 <- f_num_2(BGL7, "BGL7")
+BGL8 <- f_num_2(BGL8, "BGL8")
+
+Control1 <- f_num_2(Control1, "Control1")
+Control2 <- f_num_2(Control2, "Control2")
+Control3 <- f_num_2(Control3, "Control3")
+Control4 <- f_num_2(Control4, "Control4")
+Control5 <- f_num_2(Control5, "Control5")
+Control6 <- f_num_2(Control6, "Control6")
+Control7 <- f_num_2(Control7, "Control7")
+Control8 <- f_num_2(Control8, "Control8")
+
+df_vidco <- rbind(Spot1, Spot2, Spot3, Spot4, Spot5, Spot6, Spot7, Spot8, GL1, GL2, GL3, GL4, GL5, GL6, GL7, GL8, BGL1, BGL2, BGL3, BGL4, BGL5, BGL6, BGL7, BGL8,  Control1, Control2, Control3, Control4, Control5, Control6, Control7, Control8)
+```
+
+
+Die Nummer des gezeigten Frames wird aus den SAMPLE_MESSAGE Strings extrahiert, wenn keine Message vorhanden ist, wird Zelle auf NA gesetzt
+Pro Trial und pro Interest Period (war es das erste oder das zweite Video), wird von vorne begonnen zu zählen
+Framenummer wird jeweils für alle Zeilen fortgeschrieben, bis eine neue Sample Message auftaucht
+Für die Trials in der langsamen Gruppe wurde das Video nur einmal gezeigt, weshalb Interest Period Abgleich wegfallen kann
+```{r message=FALSE, warning=FALSE}
+f_frame <- function(df){
+  df$SAMPLE_MESSAGE[df$SAMPLE_MESSAGE == "."] <- NA
+  FNO <- 0
+
+  for (t in 1:32) {
+    sub_data <- subset(df, TRIAL_INDEX == t)
+    
+    for (ip in 1:2) {
+      sub2_data <- subset(sub_data, IP_INDEX == ip)
+      x <- 0
+      condition <- !is.na(sub2_data$SAMPLE_MESSAGE)
+      frameNo <- character(nrow(sub2_data))
+      for (i in 1:nrow(sub2_data)[condition]) {
+        if (condition[i]) {
+          frameNo[i] <- x+1
+          x <- x+1
+          } 
+        else {
+          frameNo[i] <- x
+          }      
+      }
+      FNO <- append(FNO, frameNo)
+    }
+  } 
+    df$frame <- FNO[2:length(FNO)]
+  return(df)
+  }
+
+f_frame_slow <- function(df){
+  df$SAMPLE_MESSAGE[df$SAMPLE_MESSAGE == "."] <- NA
+  FNO <- 0
+
+  for (t in 1:32) {
+    sub_data <- subset(df, TRIAL_INDEX == t)
+      x <- 0
+      condition <- !is.na(sub_data$SAMPLE_MESSAGE)
+      frameNo <- character(nrow(sub_data))
+      for (i in 1:nrow(sub_data)[condition]) {
+        if (condition[i]) {
+          frameNo[i] <- x+1
+          x <- x+1
+          } 
+        else {
+          frameNo[i] <- x
+        } 
+        }     
+      FNO <- append(FNO, frameNo)
+    } 
+  df$frame <- FNO[2:length(FNO)]
+  return(df)
+  }
+
+# Zum Testen der Schleife
+# df_pb2$SAMPLE_MESSAGE[df_pb2$SAMPLE_MESSAGE == "."] <- NA
+#   FNO <- 0
+# 
+#   for (t in 1:32) {
+#     sub_data <- subset(df_pb2, TRIAL_INDEX == 1)
+#       x <- 0
+#       condition <- !is.na(sub_data$SAMPLE_MESSAGE)
+#       frameNo <- character(nrow(sub_data))
+#       for (i in 1:nrow(sub_data)[condition]) {
+#         if (condition[i]) {
+#           frameNo[i] <- x+1
+#           x <- x+1
+#           } 
+#         else {
+#           frameNo[i] <- x
+#           }      
+#       FNO <- append(FNO, frameNo)
+#     }
+#   df$frame <- FNO[2:length(FNO)]
+#   return(df)
+#   }
+
+# files <- lapply(1:53, function(x){paste0("df_pb", x)})
+
+df_pb1 <- f_frame(df_pb1)
+df_pb2 <- f_frame_slow(df_pb2)
+df_pb3 <- f_frame(df_pb3)
+df_pb4 <- f_frame_slow(df_pb4)
+df_pb5 <- f_frame(df_pb5)
+'''
+#df_pb6 <- f_frame(df_pb6)
+df_pb7 <- f_frame(df_pb7)
+df_pb8 <- f_frame_slow(df_pb8)
+df_pb9 <- f_frame(df_pb9)
+df_pb10 <- f_frame_slow(df_pb10)
+df_pb11 <- f_frame(df_pb11)
+df_pb12 <- f_frame_slow(df_pb12)
+df_pb13 <- f_frame(df_pb13) 
+df_pb14 <- f_frame_slow(df_pb14)
+df_pb15 <- f_frame(df_pb15)
+df_pb16 <- f_frame_slow(df_pb16)
+df_pb17 <- f_frame(df_pb17)
+df_pb18 <- f_frame_slow(df_pb18)
+df_pb19 <- f_frame(df_pb19)
+df_pb20 <- f_frame_slow(df_pb20)
+df_pb21 <- f_frame(df_pb21)
+df_pb22 <- f_frame_slow(df_pb22)
+#df_pb23 <- f_frame(df_pb23)
+df_pb24 <- f_frame_slow(df_pb24)
+df_pb25 <- f_frame(df_pb25)
+df_pb26 <- f_frame_slow(df_pb26)
+df_pb27 <- f_frame(df_pb27)
+df_pb28 <- f_frame_slow(df_pb28)
+df_pb29 <- f_frame(df_pb29)
+df_pb30 <- f_frame_slow(df_pb30)
+df_pb31 <- f_frame(df_pb31)
+df_pb32 <- f_frame_slow(df_pb32)
+df_pb33 <- f_frame(df_pb33)
+df_pb34 <- f_frame_slow(df_pb34)
+df_pb35 <- f_frame(df_pb35)
+df_pb36 <- f_frame_slow(df_pb36)
+df_pb37 <- f_frame(df_pb37)
+df_pb38 <- f_frame_slow(df_pb38)
+```
+
+
+zu 2.: Sampledatei enthält Info zum Trial, zum Block und zum Probanden sowie zum Namen der Videodatei
+Aus dem Namen der Datei kann das Video extrahiert werden
+
+```{r}
+f_video <- function(df) {
+  df %>% mutate(video = case_when(grepl("20_tol2_8", df$video_file) ~ "Spot1", 
+                        grepl("19_tol3_5", df$video_file) ~ "Spot2", 
+                        grepl("28_tol3_6", df$video_file) ~ "Spot3",
+                        grepl("27_tol2_15", df$video_file) ~ "Spot4",
+                        grepl("27_tol2_9", df$video_file) ~ "Spot5",
+                        grepl("29_tol1_6", df$video_file) ~ "Spot6",
+                        grepl("26_tol2_12", df$video_file) ~ "Spot7",
+                        grepl("14_tol2_6", df$video_file) ~ "Spot8",
+                        grepl("31_tol3_7", df$video_file) ~ "GL1", 
+                        grepl("22_tol2_8", df$video_file) ~ "GL2",
+                        grepl("17_tol1_7", df$video_file) ~ "GL3",
+                        grepl("19_tol3_2", df$video_file) ~ "GL4",
+                        grepl("26_tol2_7", df$video_file) ~ "GL5",
+                        grepl("06_tol1_11", df$video_file) ~ "GL6",
+                        grepl("06_tol1_4", df$video_file) ~ "GL7",
+                        grepl("26_tol2_8", df$video_file) ~ "GL8",
+                        grepl("07_tol3_8", df$video_file) ~ "BGL1",
+                        grepl("15_tol3_11", df$video_file) ~ "BGL2",
+                        grepl("07_tol3_15", df$video_file) ~ "BGL3",
+                        grepl("09_tol2_3", df$video_file) ~ "BGL4",
+                        grepl("16_tol2_13", df$video_file) ~ "BGL5",
+                        grepl("16_tol2_14", df$video_file) ~ "BGL6",
+                        grepl("04_tol2_4", df$video_file) ~ "BGL7",
+                        grepl("18_tol1_2", df$video_file) ~ "BGL8", 
+                        grepl("21_tol3_12", df$video_file) ~ "Control1", 
+                        grepl("21_tol3_11", df$video_file) ~ "Control2", 
+                        grepl("07_tol3_7", df$video_file) ~ "Control3",
+                        grepl("01_TOL4_15", df$video_file) ~ "Control4", 
+                        grepl("13_tol3_1", df$video_file) ~ "Control5", 
+                        grepl("12_tol1_5", df$video_file) ~ "Control6", 
+                        grepl("12_tol1_2", df$video_file) ~ "Control7", 
+                        grepl("23_tol1_10", df$video_file) ~ "Control8",TRUE ~ "m"),
+                video_f = as.factor(video))
+}
+ 
+
+
+
+df_pb1 <- f_video(df_pb1)
+df_pb2 <- f_video(df_pb2)
+df_pb3 <- f_video(df_pb3)
+df_pb4 <- f_video(df_pb4)
+df_pb5 <- f_video(df_pb5)
+'''
+#df_pb6 <- f_video(df_pb6)
+df_pb7 <- f_video(df_pb7)
+df_pb8 <- f_video(df_pb8)
+df_pb9 <- f_video(df_pb9)
+df_pb10 <- f_video(df_pb10)
+df_pb11 <- f_video(df_pb11)
+df_pb12 <- f_video(df_pb12)
+df_pb13 <- f_video(df_pb13) 
+df_pb14 <- f_video(df_pb14)
+df_pb15 <- f_video(df_pb15)
+df_pb16 <- f_video(df_pb16)
+df_pb17 <- f_video(df_pb17)
+df_pb18 <- f_video(df_pb18)
+df_pb19 <- f_video(df_pb19)
+df_pb20 <- f_video(df_pb20)
+df_pb21 <- f_video(df_pb21)
+df_pb22 <- f_video(df_pb22)
+#df_pb23 <- f_video(df_pb23)
+df_pb24 <- f_video(df_pb24)
+df_pb25 <- f_video(df_pb25)
+df_pb26 <- f_video(df_pb26)
+df_pb27 <- f_video(df_pb27)
+df_pb28 <- f_video(df_pb28)
+df_pb29 <- f_video(df_pb29)
+df_pb30 <- f_video(df_pb30)
+df_pb31 <- f_video(df_pb31)
+df_pb32 <- f_video(df_pb32)
+df_pb33 <- f_video(df_pb33)
+df_pb34 <- f_video(df_pb34)
+df_pb35 <- f_video(df_pb35)
+df_pb36 <- f_video(df_pb36)
+df_pb37 <- f_video(df_pb37)
+df_pb38 <- f_video(df_pb38)
+df_pb39 <- f_video(df_pb39)
+df_pb40 <- f_video(df_pb40)
+df_pb41 <- f_video(df_pb41)
+df_pb42 <- f_video(df_pb42)
+df_pb43 <- f_video(df_pb43)
+df_pb44 <- f_video(df_pb44)
+df_pb45 <- f_video(df_pb45)
+df_pb46 <- f_video(df_pb46)
+df_pb47 <- f_video(df_pb47)
+df_pb48 <- f_video(df_pb48)
+df_pb49 <- f_video(df_pb49)
+df_pb50 <- f_video(df_pb50)
+df_pb51 <- f_video(df_pb51)
+df_pb52 <- f_video(df_pb52)
+df_pb53 <- f_video(df_pb53)
+
+```
+
+# Einfügen der Fixationsposition
+##Fixation reports laden
+
+```{r}
+fr_pb1 <- read_delim("data/fr_1.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb2 <- read_delim("data/fr_2.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb3 <- read_delim("data/fr_3.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb4 <- read_delim("data/fr_4.xls","\t", escape_double = FALSE, locale = locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb5<- read_delim("data/fr_5.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+'''
+#fr_pb6<- read_delim("data/fr_6.xls","	", escape_double = FALSE, locale = 
+ #locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb7<- read_delim("data/fr_7.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb8<- read_delim("data/fr_8.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb9<- read_delim("data/fr_9.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb10<- read_delim("data/fr_10.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb11<- read_delim("data/fr_11.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb12<- read_delim("data/fr_12.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb13<- read_delim("data/fr_13.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb14<- read_delim("data/fr_14.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb15<- read_delim("data/fr_15.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb16<- read_delim("data/fr_16.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb17<- read_delim("data/fr_17.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb18<- read_delim("data/fr_18.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb19<- read_delim("data/fr_19.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb20<- read_delim("data/fr_20.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb21<- read_delim("data/fr_21.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb22<- read_delim("data/fr_22.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+#fr_pb23<- read_delim("data/fr_23.xls","	", escape_double = FALSE, locale = 
+# locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb24<- read_delim("data/fr_24.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb25<- read_delim("data/fr_25.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb26<- read_delim("data/fr_26.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb27<- read_delim("data/fr_27.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb28<- read_delim("data/fr_28.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb29<- read_delim("data/fr_29.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb30<- read_delim("data/fr_30.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb31<- read_delim("data/fr_31.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb32<- read_delim("data/fr_32.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb33<- read_delim("data/fr_33.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb34<- read_delim("data/fr_34.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb35<- read_delim("data/fr_35.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb36<- read_delim("data/fr_36.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb37<- read_delim("data/fr_37.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb38<- read_delim("data/fr_38.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb39<- read_delim("data/fr_39.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb40<- read_delim("data/fr_40.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb41<- read_delim("data/fr_41.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb42<- read_delim("data/fr_42.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb43<- read_delim("data/fr_43.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb44<- read_delim("data/fr_44.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb45<- read_delim("data/fr_45.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb46<- read_delim("data/fr_46.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb47<- read_delim("data/fr_47.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb48<- read_delim("data/fr_48.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb49<- read_delim("data/fr_49.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb50<- read_delim("data/fr_50.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb51<- read_delim("data/fr_51.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb52<- read_delim("data/fr_52.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+fr_pb53<- read_delim("data/fr_53.xls","	", escape_double = FALSE, locale = 
+ locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+```
+
+##Data Frames der Sample Report mit Fixation Report anhand des Index der Fixation zusammenführen
+Daten der Sample Reports sollten vollständig erhalten bleiben
+vorher muss zum Sample Report eine Spalte mit dem Fixationsindex ergänzt werden (unabhängig von dem getrackten Auge)
+
+```{r}
+FIX_ID_df <- function(df) {
+  if (any(as.numeric(df$RIGHT_PUPIL_SIZE)>0)) {
+    df$CURRENT_FIX_INDEX <- as.numeric(df$RIGHT_FIX_INDEX)
+    }
+  else {
+    df$CURRENT_FIX_INDEX <- as.numeric(df$LEFT_FIX_INDEX)
+  }
+  return(df)
+  }
+
+
+
+
+
+f.merge0 <- function(df, fr) {
+                df.temp <- merge(df, fr, by = c("RECORDING_SESSION_LABEL","TRIAL_INDEX","IP_INDEX","IP_LABEL","CURRENT_FIX_INDEX"),
+                                 all.x = TRUE)
+                index <- with(df.temp, order(TRIAL_INDEX, SAMPLE_INDEX))
+                df.temp<- df.temp[index,]  
+                df.temp                    
+  }
+df_pb1 <- FIX_ID_df(df_pb1)
+df_pb1 <- f.merge0(df_pb1, fr_pb1)
+df_pb2 <- FIX_ID_df(df_pb2)
+df_pb2 <- f.merge0(df_pb2, fr_pb2)
+df_pb3 <- FIX_ID_df(df_pb3)
+df_pb3 <- f.merge0(df_pb3, fr_pb3)
+df_pb4 <- FIX_ID_df(df_pb4)
+df_pb4 <- f.merge0(df_pb4, fr_pb4)
+df_pb5 <- FIX_ID_df(df_pb5)
+df_pb5 <- f.merge0(df_pb5, fr_pb5)
+'''
+#df_pb6 <- FIX_ID_df(df_pb6)
+#df_pb6 <- f.merge0(df_pb6, fr_pb6)
+df_pb7 <- FIX_ID_df(df_pb7)
+df_pb7 <- f.merge0(df_pb7, fr_pb7)
+df_pb8 <- FIX_ID_df(df_pb8)
+df_pb8 <- f.merge0(df_pb8, fr_pb8)
+df_pb9 <- FIX_ID_df(df_pb9)
+df_pb9 <- f.merge0(df_pb9, fr_pb9)
+df_pb10 <- FIX_ID_df(df_pb10)
+df_pb10 <- f.merge0(df_pb10, fr_pb10)
+df_pb11 <- FIX_ID_df(df_pb11)
+df_pb11 <- f.merge0(df_pb11, fr_pb11)
+df_pb12 <- FIX_ID_df(df_pb12)
+df_pb12 <- f.merge0(df_pb12, fr_pb12)
+df_pb13 <- FIX_ID_df(df_pb13)
+df_pb13 <- f.merge0(df_pb13, fr_pb13)
+df_pb14 <- FIX_ID_df(df_pb14)
+df_pb14 <- f.merge0(df_pb14, fr_pb14)
+df_pb15 <- FIX_ID_df(df_pb15)
+df_pb15 <- f.merge0(df_pb15, fr_pb15)
+df_pb16 <- FIX_ID_df(df_pb16)
+df_pb16 <- f.merge0(df_pb16, fr_pb16)
+df_pb17 <- FIX_ID_df(df_pb17)
+df_pb17 <- f.merge0(df_pb17, fr_pb17)
+df_pb18 <- FIX_ID_df(df_pb18)
+df_pb18 <- f.merge0(df_pb18, fr_pb18)
+df_pb19 <- FIX_ID_df(df_pb19)
+df_pb19 <- f.merge0(df_pb19, fr_pb19)
+df_pb20 <- FIX_ID_df(df_pb20)
+df_pb20 <- f.merge0(df_pb20, fr_pb20)
+df_pb21 <- FIX_ID_df(df_pb21)
+df_pb21 <- f.merge0(df_pb21, fr_pb21)
+df_pb22 <- FIX_ID_df(df_pb22)
+df_pb22 <- f.merge0(df_pb22, fr_pb22)
+#df_pb23 <- FIX_ID_df(df_pb23)
+#df_pb23 <- f.merge0(df_pb23, fr_pb23)
+df_pb24 <- FIX_ID_df(df_pb24)
+df_pb24 <- f.merge0(df_pb24, fr_pb24)
+df_pb25 <- FIX_ID_df(df_pb25)
+df_pb25 <- f.merge0(df_pb25, fr_pb25)
+df_pb26 <- FIX_ID_df(df_pb26)
+df_pb26 <- f.merge0(df_pb26, fr_pb26)
+df_pb27 <- FIX_ID_df(df_pb27)
+df_pb27 <- f.merge0(df_pb27, fr_pb27)
+df_pb28 <- FIX_ID_df(df_pb28)
+df_pb28 <- f.merge0(df_pb28, fr_pb28)
+df_pb29 <- FIX_ID_df(df_pb29)
+df_pb29 <- f.merge0(df_pb29, fr_pb29)
+df_pb30 <- FIX_ID_df(df_pb30)
+df_pb30 <- f.merge0(df_pb30, fr_pb30)
+df_pb31 <- FIX_ID_df(df_pb31)
+df_pb31 <- f.merge0(df_pb31, fr_pb31)
+df_pb32 <- FIX_ID_df(df_pb32)
+df_pb32 <- f.merge0(df_pb32, fr_pb32)
+df_pb33 <- FIX_ID_df(df_pb33)
+df_pb33 <- f.merge0(df_pb33, fr_pb33)
+df_pb34 <- FIX_ID_df(df_pb34)
+df_pb34 <- f.merge0(df_pb34, fr_pb34)
+df_pb35 <- FIX_ID_df(df_pb35)
+df_pb35 <- f.merge0(df_pb35, fr_pb35)
+df_pb36 <- FIX_ID_df(df_pb36)
+df_pb36 <- f.merge0(df_pb36, fr_pb36)
+df_pb37 <- FIX_ID_df(df_pb37)
+df_pb37 <- f.merge0(df_pb37, fr_pb37)
+df_pb38 <- FIX_ID_df(df_pb38)
+df_pb38 <- f.merge0(df_pb38, fr_pb38)
+df_pb39 <- FIX_ID_df(df_pb39)
+df_pb39 <- f.merge0(df_pb39, fr_pb39)
+df_pb40 <- FIX_ID_df(df_pb40)
+df_pb40 <- f.merge0(df_pb40, fr_pb40)
+df_pb41 <- FIX_ID_df(df_pb41)
+df_pb41 <- f.merge0(df_pb41, fr_pb41)
+df_pb42 <- FIX_ID_df(df_pb42)
+df_pb42 <- f.merge0(df_pb42, fr_pb42)
+df_pb43 <- FIX_ID_df(df_pb43)
+df_pb43 <- f.merge0(df_pb43, fr_pb43)
+df_pb44 <- FIX_ID_df(df_pb44)
+df_pb44 <- f.merge0(df_pb44, fr_pb44)
+df_pb45 <- FIX_ID_df(df_pb45)
+df_pb45 <- f.merge0(df_pb45, fr_pb45)
+df_pb46 <- FIX_ID_df(df_pb46)
+df_pb46 <- f.merge0(df_pb46, fr_pb46)
+df_pb47 <- FIX_ID_df(df_pb47)
+df_pb47 <- f.merge0(df_pb47, fr_pb47)
+df_pb48 <- FIX_ID_df(df_pb48)
+df_pb48 <- f.merge0(df_pb48, fr_pb48)
+df_pb49 <- FIX_ID_df(df_pb49)
+df_pb49 <- f.merge0(df_pb49, fr_pb49)
+df_pb50 <- FIX_ID_df(df_pb50)
+df_pb50 <- f.merge0(df_pb50, fr_pb50)
+df_pb51 <- FIX_ID_df(df_pb51)
+df_pb51 <- f.merge0(df_pb51, fr_pb51)
+df_pb52 <- FIX_ID_df(df_pb52)
+df_pb52 <- f.merge0(df_pb52, fr_pb52)
+df_pb53 <- FIX_ID_df(df_pb53)
+df_pb53 <- f.merge0(df_pb53, fr_pb53)
+```
+
+
+# Zusammenführen der Dateien
+müssen anschließend sortiert werden
+Zusammengeführt wird anhand des data frames mit den Blickdaten, sodass die Datei alle vorherigen Daten zur Blickposition enthält
+
+```{r}
+f.merge <- function(df) {
+                df.temp <- merge(df, df_vidco, by.x = c("video", "frame"), by.y = c("video", "frames2"), all.x = TRUE)
+                index <- with(df.temp, order(TRIAL_INDEX, SAMPLE_INDEX))
+                df.temp<- df.temp[index,]
+                df.temp
+  }
+
+m.df_pb1 <- f.merge(df_pb1)
+m.df_pb2 <- f.merge(df_pb2)
+m.df_pb3 <- f.merge(df_pb3)
+m.df_pb4 <- f.merge(df_pb4)
+m.df_pb5 <- f.merge(df_pb5)
+'''
+#m.df_pb6 <- f.merge(df_pb6)
+m.df_pb7 <- f.merge(df_pb7)
+m.df_pb8 <- f.merge(df_pb8)
+m.df_pb9 <- f.merge(df_pb9)
+m.df_pb10 <- f.merge(df_pb10)
+m.df_pb11 <- f.merge(df_pb11)
+m.df_pb12 <- f.merge(df_pb12)
+m.df_pb13 <- f.merge(df_pb13) 
+m.df_pb14 <- f.merge(df_pb14)
+m.df_pb15 <- f.merge(df_pb15)
+m.df_pb16 <- f.merge(df_pb16)
+m.df_pb17 <- f.merge(df_pb17)
+m.df_pb18 <- f.merge(df_pb18)
+m.df_pb19 <- f.merge(df_pb19)
+m.df_pb20 <- f.merge(df_pb20)
+m.df_pb21 <- f.merge(df_pb21)
+m.df_pb22 <- f.merge(df_pb22)
+#m.df_pb23 <- f.merge(df_pb23)
+m.df_pb24 <- f.merge(df_pb24)
+m.df_pb25 <- f.merge(df_pb25)
+m.df_pb26 <- f.merge(df_pb26)
+m.df_pb27 <- f.merge(df_pb27)
+m.df_pb28 <- f.merge(df_pb28)
+m.df_pb29 <- f.merge(df_pb29)
+m.df_pb30 <- f.merge(df_pb30)
+m.df_pb31 <- f.merge(df_pb31)
+m.df_pb32 <- f.merge(df_pb32)
+m.df_pb33 <- f.merge(df_pb33)
+m.df_pb34 <- f.merge(df_pb34)
+m.df_pb35 <- f.merge(df_pb35)
+m.df_pb36 <- f.merge(df_pb36)
+m.df_pb37 <- f.merge(df_pb37)
+m.df_pb38 <- f.merge(df_pb38)
+m.df_pb39 <- f.merge(df_pb39)
+m.df_pb40 <- f.merge(df_pb40)
+m.df_pb41 <- f.merge(df_pb41)
+m.df_pb42 <- f.merge(df_pb42)
+m.df_pb43 <- f.merge(df_pb43)
+m.df_pb44 <- f.merge(df_pb44)
+m.df_pb45 <- f.merge(df_pb45)
+m.df_pb46 <- f.merge(df_pb46)
+m.df_pb47 <- f.merge(df_pb47)
+m.df_pb48 <- f.merge(df_pb48)
+m.df_pb49 <- f.merge(df_pb49)
+m.df_pb50 <- f.merge(df_pb50)
+m.df_pb51 <- f.merge(df_pb51)
+m.df_pb52 <- f.merge(df_pb52)
+m.df_pb53 <- f.merge(df_pb53)
+
+```
+
+# Dateien neu abspeichern
+
+```{r}
+save(m.df_pb1, file = "pb1.Rda")
+save(m.df_pb2, file = "pb2.Rda")
+save(m.df_pb3, file = "pb3.Rda")
+save(m.df_pb4, file = "pb4.Rda")
+save(m.df_pb5, file = "pb5.Rda")
+'''
+#save(m.df_pb6, file = "pb6.Rda")
+save(m.df_pb7, file = "pb7.Rda")
+save(m.df_pb8, file = "pb8.Rda")
+save(m.df_pb9, file = "pb9.Rda")
+save(m.df_pb10, file = "pb10.Rda")
+save(m.df_pb11, file = "pb11.Rda")
+save(m.df_pb12, file = "pb12.Rda")
+save(m.df_pb13, file = "pb13.Rda")
+save(m.df_pb14, file = "pb14.Rda")
+save(m.df_pb15, file = "pb15.Rda")
+save(m.df_pb16, file = "pb16.Rda")
+save(m.df_pb17, file = "pb17.Rda")
+save(m.df_pb18, file = "pb18.Rda")
+save(m.df_pb19, file = "pb19.Rda")
+save(m.df_pb20, file = "pb20.Rda")
+save(m.df_pb21, file = "pb21.Rda")
+save(m.df_pb22, file = "pb22.Rda")
+#save(m.df_pb23, file = "pb23.Rda")
+save(m.df_pb24, file = "pb24.Rda")
+save(m.df_pb25, file = "pb25.Rda")
+save(m.df_pb26, file = "pb26.Rda")
+save(m.df_pb27, file = "pb27.Rda")
+save(m.df_pb28, file = "pb28.Rda")
+save(m.df_pb29, file = "pb29.Rda")
+save(m.df_pb30, file = "pb30.Rda")
+save(m.df_pb31, file = "pb31.Rda")
+save(m.df_pb32, file = "pb32.Rda")
+save(m.df_pb33, file = "pb33.Rda")
+save(m.df_pb34, file = "pb34.Rda")
+save(m.df_pb35, file = "pb35.Rda")
+save(m.df_pb36, file = "pb36.Rda")
+save(m.df_pb37, file = "pb37.Rda")
+save(m.df_pb38, file = "pb38.Rda")
+save(m.df_pb39, file = "pb39.Rda")
+save(m.df_pb40, file = "pb40.Rda")
+save(m.df_pb41, file = "pb41.Rda")
+save(m.df_pb42, file = "pb42.Rda")
+save(m.df_pb43, file = "pb43.Rda")
+save(m.df_pb44, file = "pb44.Rda")
+save(m.df_pb45, file = "pb45.Rda")
+save(m.df_pb46, file = "pb46.Rda")
+save(m.df_pb47, file = "pb47.Rda")
+save(m.df_pb48, file = "pb48.Rda")
+save(m.df_pb49, file = "pb49.Rda")
+save(m.df_pb50, file = "pb50.Rda")
+save(m.df_pb51, file = "pb51.Rda")
+save(m.df_pb52, file = "pb52.Rda")
+save(m.df_pb53, file = "pb53.Rda")
+
+```
+
+# extra-Wurst für PB 23
+
+```{r}
+
+```
+
+
+# aufräumen
+um Arbeitsspeicher zu sparen, muss aufgeräumt werden -> Range der Sapplyfunction jeweils anpassen
+```{r}
+files <- sapply(1:38, function(x){paste0("df_pb", x)})
+rm(list = files)
+
+m.files <- sapply(17:38, function(x){paste0("m.df_pb", x)})
+rm(list = m.files)
+gc()
