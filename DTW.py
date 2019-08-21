@@ -356,6 +356,7 @@ def make_plots(pbn, video="all"):
         csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_euklid_list.csv" for alias in aliases]
         csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_winkel_list.csv" for alias in aliases]
         csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_winkellog_list.csv" for alias in aliases]
+        print(csvfiles)
     for csvfile in csvfiles:
         df = pd.read_csv(csvfile)
 
@@ -369,7 +370,7 @@ def make_plots(pbn, video="all"):
 
         query = sf[['query_x', 'query_y']].to_numpy(copy=True).astype(float)
 
-        name = csvfile.split('.')[0].split('/')[1]
+        name = csvfile.split('.')[0].split('/')[2]
         name1 = "plots/" + pbn + "/" + name + "_1.png"
         name2 = "plots/" + pbn + "/" + name + "_2.png"
         plot_getrennt(ref, query, path, factor=50, file=name1)
@@ -411,4 +412,4 @@ def plot_multi():
 
 
 if __name__ == "__main__":
-    main_multi()
+    make_plots("pb2")
