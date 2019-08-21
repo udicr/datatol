@@ -294,10 +294,13 @@ FIX_ID_df <- function(df) {
   if (any(!(is.na(as.numeric(df$RIGHT_PUPIL_SIZE))) && (as.numeric(df$RIGHT_PUPIL_SIZE)>0))) {
     df$CURRENT_FIX_INDEX <- as.numeric(df$RIGHT_FIX_INDEX)
   }
-  else {
-    df$CURRENT_FIX_INDEX <- as.numeric(df$LEFT_FIX_INDEX)
+  else{
+      if (any(!(is.na(as.numeric(df$LEFT_PUPIL_SIZE))) && (as.numeric(df$LEFT_PUPIL_SIZE)>0))){
+        df$CURRENT_FIX_INDEX <- as.numeric(df$LEFT_FIX_INDEX)
+      }
+
   }
-  return(df)
+    return(df)
 }
 
 
