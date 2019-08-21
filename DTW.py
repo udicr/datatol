@@ -20,39 +20,43 @@ from multiprocessing.dummy import Pool as ThreadPool
 import datetime
 
 plotting = 0
-aliases = ["Spot1",
-           "Spot2",
-           "Spot3",
-           "Spot4",
-           "Spot5",
-           "Spot6",
-           "Spot7",
-           "Spot8",
-           "GL1",
-           "GL2",
-           "GL3",
-           "GL4",
-           "GL5",
-           "GL6",
-           "GL7",
-           "GL8",
-           "BGL1",
-           "BGL2",
-           "BGL3",
-           "BGL4",
-           "BGL5",
-           "BGL6",
-           "BGL7",
-           "BGL8",
-           "Control1",
-           "Control2",
-           "Control3",
-           "Control4",
-           "Control5",
-           "Control6",
-           "Control7",
-           "Control8",
-           ]
+'''
+    "BGL1",
+    "BGL2",
+    "BGL3",
+    "BGL4",
+    "BGL5",
+    "BGL6",
+    "BGL7",
+    "BGL8",
+'''
+aliases = [
+    "Spot1",
+    "Spot2",
+    "Spot3",
+    "Spot4",
+    "Spot5",
+    "Spot6",
+    "Spot7",
+    "Spot8",
+    "GL1",
+    "GL2",
+    "GL3",
+    "GL4",
+    "GL5",
+    "GL6",
+    "GL7",
+    "GL8",
+
+    "Control1",
+    "Control2",
+    "Control3",
+    "Control4",
+    "Control5",
+    "Control6",
+    "Control7",
+    "Control8",
+]
 
 
 def check_datadir():
@@ -292,7 +296,6 @@ def save_old(path, distance, path2, distance2, n, name="test"):
 
 
 def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0):
-
     if dist == 0:
         name = prob + "_" + alias + "_euklid"
     elif dist == 1:
@@ -385,7 +388,7 @@ def main(pb):
     check_plottingdir_pbn(pb)
     t0 = time()
     do_whole_pb(pb)
-    print("PB "+pb+" done:")
+    print("PB " + pb + " done:")
     print(time() - t0)
 
 
@@ -412,4 +415,4 @@ def plot_multi():
 
 
 if __name__ == "__main__":
-    make_plots("pb2")
+    make_plots("pb3")
