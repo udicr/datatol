@@ -7,7 +7,8 @@ import sys
 from multiprocessing.dummy import Pool as ThreadPool
 
 pool = ThreadPool(4)
-pbns = [i for i in range(1,54) if i not in [6,23,50,53]]
+#pbns = [i for i in range(1,54) if i not in [6,23,50,53]]
+pbns = [11]
 print(pbns)
 
 

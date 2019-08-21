@@ -16,6 +16,8 @@ from time import time
 import csv
 from distances import *
 import os
+from multiprocessing.dummy import Pool as ThreadPool
+import datetime
 
 plotting = 0
 aliases = ["Spot1",
@@ -52,6 +54,7 @@ aliases = ["Spot1",
            "Control8",
            ]
 
+
 def check_datadir():
     try:
         os.mkdir('./data/')
@@ -69,9 +72,25 @@ def check_plottingdir():
         pass
 
 
+def check_plottingdir_pbn(pbn):
+    try:
+        os.mkdir('./plots/' + pbn + '/')
+        print("Erstelle Ordner für Output-Plots")
+    except OSError as e:
+        pass
+
+
 def check_outputdir():
     try:
         os.mkdir('./output/')
+        print("Erstelle Ordner für Output")
+    except OSError as e:
+        pass
+
+
+def check_outputdir_pbn(pbn):
+    try:
+        os.mkdir('./output/' + pbn + '/')
         print("Erstelle Ordner für Output")
     except OSError as e:
         pass
@@ -203,8 +222,8 @@ def plot_getrennt(r2D, q2D, path, factor=50, file="plot.png"):
 
         # plt.plot(c1, c2, c3,'g', label="connect",linewidth=0.5)   stack all in one subplot and draw
 
-    plt.show()
-    # plt.savefig(file)
+    plt.savefig(file)
+    plt.close(fig)
 
 
 def plot_zusammen(r2D, q2D, path, factor=20, file="plot.png"):
@@ -239,8 +258,9 @@ def plot_zusammen(r2D, q2D, path, factor=20, file="plot.png"):
         j = tupel[1]
         c1, c2, c3 = [i, j], [ref1D[i], query1D[j]], [ref1D2[i], query1D2[j]]
         plt.plot(c1, c2, c3, 'g', label="connect", linewidth=0.5)
-    plt.show()
-    # plt.savefig(file)
+    # plt.show()
+    plt.savefig(file)
+    plt.close(fig)
 
 
 def save_old(path, distance, path2, distance2, n, name="test"):
@@ -271,7 +291,8 @@ def save_old(path, distance, path2, distance2, n, name="test"):
             writer.writerow([path[i][0], path[i][1], "", "", "", "", ""])
 
 
-def save(path, distance, prob="00", alias="alias", dist=0):
+def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0):
+
     if dist == 0:
         name = prob + "_" + alias + "_euklid"
     elif dist == 1:
@@ -280,31 +301,34 @@ def save(path, distance, prob="00", alias="alias", dist=0):
         name = prob + "_" + alias + "_winkellog"
     else:
         raise ValueError("0 - Euklid, 1 - Winkel, 2 - Winkellog")
-    outputfile1 = "output/" + name + "_dist.csv"
-    outputfile2 = "output/" + name + "_list.csv"
+    outputfile1 = "output/" + prob + "/" + name + "_dist.csv"
+    outputfile2 = "output/" + prob + "/" + name + "_list.csv"
     with open(outputfile1, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow([distance])
-
+        writer.writerow([n])
+    header = ["path_ref", "path_query", "ref_x", "ref_y", "query_x", "query_y"]
     with open(outputfile2, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
-        for tupel in path:
-            writer.writerow([tupel[0],tupel[1]])
+        writer.writerow(header)
+        for i in range(n):
+            writer.writerow([path[i][0], path[i][1], ref[i, 0], ref[i, 1], query[i, 0], query[i, 1]])
+        for i in range(n, len(path)):
+            writer.writerow([path[i][0], path[i][1], "-", "-", "-", "-"])
 
 
-
-def do_whole_pb(prob = "pb1"):
+def do_whole_pb(prob="pb1"):
     print("Reading Data ...")
-    rda = pyreadr.read_r(prob+".Rda")
-    df1 = rda["m.df_"+prob]
+    rda = pyreadr.read_r(prob + ".Rda")
+    df = rda["m.df_pb"]
 
     for alias in aliases:
-        cut = df1[df1.video == alias]
-        do_video(cut,prob,alias)
+        cut = df[df.video == alias]
+        do_video(cut, prob, alias)
 
 
-def do_video(cut,prob,alias):
-    distances = [distance_2dim,distance_winkel,distance_winkel4]
+def do_video(cut, prob, alias):
+    distances = [distance_2dim, distance_winkel, distance_winkel4]
     for i in range(3):
         ref = cut[['x_coord', 'y_coord']].to_numpy(copy=True)
         query = cut[['CURRENT_FIX_X', 'CURRENT_FIX_Y']].to_numpy(copy=True)
@@ -318,23 +342,73 @@ def do_video(cut,prob,alias):
         distance, path = fastdtw(ref2D, query2D, dist=distances[i])
 
         print("Saving Results ...")
-        save(path, distance, prob=prob, alias = alias,dist = i)
+        save(path, ref2D, query2D, n, distance, prob=prob, alias=alias, dist=i)
 
 
-        if plotting == 1:
-            print("Plotting ...")
-            plot_zusammen(ref2D, query2D, path, factor=50)
-        elif plotting == 2:
-            print("Plotting ...")
-            plot_getrennt(ref2D, query2D, path, factor=50)
+def make_plots(pbn, video="all"):
+    if video != "all":
+        csvfile1 = "output/" + pbn + "/" + pbn + "_" + video + "_euklid_list.csv"
+        csvfile2 = "output/" + pbn + "/" + pbn + "_" + video + "_winkel_list.csv"
+        csvfile3 = "output/" + pbn + "/" + pbn + "_" + video + "_winkellog_list.csv"
+        csvfiles = [csvfile1, csvfile2, csvfile3]
+    else:
+        csvfiles = []
+        csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_euklid_list.csv" for alias in aliases]
+        csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_winkel_list.csv" for alias in aliases]
+        csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_winkellog_list.csv" for alias in aliases]
+    for csvfile in csvfiles:
+        df = pd.read_csv(csvfile)
+
+        path = df[['path_ref', 'path_query']].to_numpy(copy=True)
+
+        n = path[-1, 1]
+        mask = df.index <= n
+        sf = df[mask]
+
+        ref = sf[['ref_x', 'ref_y']].to_numpy(copy=True).astype(float)
+
+        query = sf[['query_x', 'query_y']].to_numpy(copy=True).astype(float)
+
+        name = csvfile.split('.')[0].split('/')[1]
+        name1 = "plots/" + pbn + "/" + name + "_1.png"
+        name2 = "plots/" + pbn + "/" + name + "_2.png"
+        plot_getrennt(ref, query, path, factor=50, file=name1)
+        plot_zusammen(ref, query, path, factor=50, file=name2)
 
 
-
-
-if __name__ == "__main__":
+def main(pb):
     check_datadir()
     check_plottingdir()
     check_outputdir()
+    check_outputdir_pbn(pb)
+    check_plottingdir_pbn(pb)
     t0 = time()
-    do_whole_pb()
-    print(time()-t0)
+    do_whole_pb(pb)
+    print("PB "+pb+" done:")
+    print(time() - t0)
+
+
+def main_multi():
+    pool = ThreadPool(4)
+    pbns = ["pb1", "pb2", "pb3", "pb4"]
+    results = pool.map(main, pbns)
+    with open("DTW_log.txt", "a") as file:
+        file.write("Log_from_DTW:DynTimeWarp at " + datetime.datetime.now().strftime("%c"))
+        for res in results:
+            for r in res:
+                file.write(r + "\n")
+
+
+def plot_multi():
+    pool = ThreadPool(4)
+    pbns = ["pb1", "pb2", "pb3", "pb4"]
+    results = pool.map(make_plots, pbns)
+    with open("DTW_log_plotting.txt", "a") as file:
+        file.write("Log_from_DTW:PLOTTING at " + datetime.datetime.now().strftime("%c"))
+        for res in results:
+            for r in res:
+                file.write(r + "\n")
+
+
+if __name__ == "__main__":
+    main_multi()
