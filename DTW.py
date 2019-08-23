@@ -18,6 +18,7 @@ from distances import *
 import os
 from multiprocessing.dummy import Pool as ThreadPool
 import datetime
+import sys
 
 plotting = 0
 '''
@@ -47,7 +48,14 @@ aliases = [
     "GL6",
     "GL7",
     "GL8",
-
+    "BGL1",
+    "BGL2",
+    "BGL3",
+    "BGL4",
+    "BGL5",
+    "BGL6",
+    "BGL7",
+    "BGL8",
     "Control1",
     "Control2",
     "Control3",
@@ -392,27 +400,21 @@ def main(pb):
     print(time() - t0)
 
 
-def main_multi():
-    pool = ThreadPool(4)
-    pbns = ["pb1", "pb2", "pb3", "pb4"]
-    results = pool.map(main, pbns)
-    with open("DTW_log.txt", "a") as file:
-        file.write("Log_from_DTW:DynTimeWarp at " + datetime.datetime.now().strftime("%c"))
-        for res in results:
-            for r in res:
-                file.write(r + "\n")
 
-
-def plot_multi():
-    pool = ThreadPool(4)
-    pbns = ["pb1", "pb2", "pb3", "pb4"]
-    results = pool.map(make_plots, pbns)
-    with open("DTW_log_plotting.txt", "a") as file:
-        file.write("Log_from_DTW:PLOTTING at " + datetime.datetime.now().strftime("%c"))
-        for res in results:
-            for r in res:
-                file.write(r + "\n")
 
 
 if __name__ == "__main__":
-    make_plots("pb3")
+    datamode = True
+    plotmode = False
+    if datamode:
+        if len(sys.argv) < 2:
+            print("Argument <PBN> required")
+        else:
+            pbn = sys.argv[1]
+            main(pbn)
+    if plotmode:
+        if len(sys.argv) < 2:
+            print("Argument <PBN> required")
+        else:
+            pbn = sys.argv[1]
+            make_plots(pbn)
