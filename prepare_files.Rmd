@@ -346,7 +346,7 @@ df_pb3 <- f_frame(df_pb3)
 df_pb4 <- f_frame_slow(df_pb4)
 df_pb5 <- f_frame(df_pb5)
 '''
-#df_pb6 <- f_frame(df_pb6)
+#df_pb6 <- f_frame_slow(df_pb6)
 df_pb7 <- f_frame(df_pb7)
 df_pb8 <- f_frame_slow(df_pb8)
 df_pb9 <- f_frame(df_pb9)

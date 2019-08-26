@@ -1,8 +1,0 @@
-[1] "Doing Preprocess for PBN: "
-[1] "11"
-[1] "FAST VISUAL"
-          used (Mb) gc trigger   (Mb)  max used   (Mb)
-Ncells  565088 30.2    4185924  223.6   3220294  172.0
-Vcells 6997763 53.4  176150714 1344.0 183423660 1399.5
-[1] "Preprocess done"
-[1] "-------------------------------------------------"

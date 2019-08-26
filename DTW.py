@@ -402,6 +402,9 @@ def main_multi():
 def plot_multi():
     pool = ThreadPool(4)
     pbns = ["pb1", "pb2", "pb3", "pb4"]
+    check_plottingdir()
+    for pb in pbns:
+        check_plottingdir_pbn(pb)
     results = pool.map(make_plots, pbns)
     with open("DTW_log_plotting.txt", "a") as file:
         file.write("Log_from_DTW:PLOTTING at " + datetime.datetime.now().strftime("%c"))
@@ -411,4 +414,4 @@ def plot_multi():
 
 
 if __name__ == "__main__":
-    main_multi()
+    make_plots("pb2")
