@@ -303,7 +303,7 @@ def save_old(path, distance, path2, distance2, n, name="test"):
             writer.writerow([path[i][0], path[i][1], "", "", "", "", ""])
 
 
-def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0):
+def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0,ip=1):
     if dist == 0:
         name = prob + "_" + alias + "_euklid"
     elif dist == 1:
@@ -312,8 +312,12 @@ def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0):
         name = prob + "_" + alias + "_winkellog"
     else:
         raise ValueError("0 - Euklid, 1 - Winkel, 2 - Winkellog")
-    outputfile1 = "output/" + prob + "/" + name + "_dist.csv"
-    outputfile2 = "output/" + prob + "/" + name + "_list.csv"
+    if ip == 1:
+        outputfile1 = "output/" + prob + "/" + name + "_dist.csv"
+        outputfile2 = "output/" + prob + "/" + name + "_list.csv"
+    else:
+        outputfile1 = "output/" + prob + "_" +str(ip) + "/" + name + "_dist.csv"
+        outputfile2 = "output/" + prob + "_" +str(ip) + "/" + name + "_list.csv"
     with open(outputfile1, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow([distance])
@@ -332,13 +336,27 @@ def do_whole_pb(prob="pb1"):
     print("Reading Data ...")
     rda = pyreadr.read_r(prob + ".Rda")
     df = rda["m.df_pb"]
+    pb_no = int(prob[2:])
+    if pb_no % 2 == 1:
+        mode = "slow"
+    else:
+        mode = "fast"
 
     for alias in aliases:
-        cut = df[df.video == alias]
-        do_video(cut, prob, alias)
+        if mode == "slow":
+            cut = df[df.video == alias]
+            do_video(cut, prob, alias)
+        elif mode == "fast":
+            cut = df[df.video == alias]
+            cut_1 = cut[cut.IP_INDEX == 1]
+            cut_2 = cut[cut.IP_INDEX == 2]
+            do_video(cut_1,prob,alias,1)
+            do_video(cut_2,prob,alias,2)
+        else:
+            raise (KeyError)
 
 
-def do_video(cut, prob, alias):
+def do_video(cut, prob, alias, ip = 1):
     distances = [distance_2dim, distance_winkel, distance_winkel4]
     for i in range(3):
         ref = cut[['x_coord', 'y_coord']].to_numpy(copy=True)
@@ -353,10 +371,10 @@ def do_video(cut, prob, alias):
         distance, path = fastdtw(ref2D, query2D, dist=distances[i])
 
         print("Saving Results ...")
-        save(path, ref2D, query2D, n, distance, prob=prob, alias=alias, dist=i)
+        save(path, ref2D, query2D, n, distance, prob=prob, alias=alias, dist=i,ip = ip)
 
 
-def make_plots(pbn, video="all"):
+def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb1") AND make_plots("pb1_2")
     if video != "all":
         csvfile1 = "output/" + pbn + "/" + pbn + "_" + video + "_euklid_list.csv"
         csvfile2 = "output/" + pbn + "/" + pbn + "_" + video + "_winkel_list.csv"
@@ -398,9 +416,6 @@ def main(pb):
     do_whole_pb(pb)
     print("PB " + pb + " done:")
     print(time() - t0)
-
-
-
 
 
 if __name__ == "__main__":
