@@ -1,0 +1,29 @@
+from multiprocessing.dummy import Pool as ThreadPool
+import datetime
+import subprocess
+import sys
+
+def run_dtw(pbn):
+    output = []
+    process = subprocess.Popen('python DTW.py '+pbn, stdout=subprocess.PIPE,
+                               cwd=".", shell=True)
+    for line in iter(process.stdout.readline, b''):
+        l = line.decode('utf-8')
+        sys.stdout.write(l)
+        output.append(l.rstrip())
+
+    return output
+def main_multi():
+    pool = ThreadPool(4)
+    pbns = ["pb5", "pb7", "pb8", "pb9"]
+    results = pool.map(run_dtw, pbns)
+    with open("DTW_log.txt", "a") as file:
+        file.write("Log_from_DTW:DynTimeWarp at " + datetime.datetime.now().strftime("%c"))
+        for res in results:
+            for r in res:
+                file.write(r + "\n")
+
+if __name__ == "__main__":
+    main_multi()
+
+

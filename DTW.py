@@ -18,41 +18,53 @@ from distances import *
 import os
 from multiprocessing.dummy import Pool as ThreadPool
 import datetime
+import sys
 
 plotting = 0
-aliases = ["Spot1",
-           "Spot2",
-           "Spot3",
-           "Spot4",
-           "Spot5",
-           "Spot6",
-           "Spot7",
-           "Spot8",
-           "GL1",
-           "GL2",
-           "GL3",
-           "GL4",
-           "GL5",
-           "GL6",
-           "GL7",
-           "GL8",
-           "BGL1",
-           "BGL2",
-           "BGL3",
-           "BGL4",
-           "BGL5",
-           "BGL6",
-           "BGL7",
-           "BGL8",
-           "Control1",
-           "Control2",
-           "Control3",
-           "Control4",
-           "Control5",
-           "Control6",
-           "Control7",
-           "Control8",
-           ]
+'''
+    "BGL1",
+    "BGL2",
+    "BGL3",
+    "BGL4",
+    "BGL5",
+    "BGL6",
+    "BGL7",
+    "BGL8",
+'''
+aliases = [
+    "Spot1",
+    "Spot2",
+    "Spot3",
+    "Spot4",
+    "Spot5",
+    "Spot6",
+    "Spot7",
+    "Spot8",
+    "GL1",
+    "GL2",
+    "GL3",
+    "GL4",
+    "GL5",
+    "GL6",
+    "GL7",
+    "GL8",
+    "BGL1",
+    "BGL2",
+    "BGL3",
+    "BGL4",
+    "BGL5",
+    "BGL6",
+    "BGL7",
+    "BGL8",
+    "Control1",
+    "Control2",
+    "Control3",
+    "Control4",
+    "Control5",
+    "Control6",
+    "Control7",
+    "Control8",
+]
 
 
 def check_datadir():
@@ -292,7 +304,6 @@ def save_old(path, distance, path2, distance2, n, name="test"):
 
 
 def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0):
-
     if dist == 0:
         name = prob + "_" + alias + "_euklid"
     elif dist == 1:
@@ -356,6 +367,7 @@ def make_plots(pbn, video="all"):
         csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_euklid_list.csv" for alias in aliases]
         csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_winkel_list.csv" for alias in aliases]
         csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_winkellog_list.csv" for alias in aliases]
+        print(csvfiles)
     for csvfile in csvfiles:
         df = pd.read_csv(csvfile)
 
@@ -369,7 +381,7 @@ def make_plots(pbn, video="all"):
 
         query = sf[['query_x', 'query_y']].to_numpy(copy=True).astype(float)
 
-        name = csvfile.split('.')[0].split('/')[1]
+        name = csvfile.split('.')[0].split('/')[2]
         name1 = "plots/" + pbn + "/" + name + "_1.png"
         name2 = "plots/" + pbn + "/" + name + "_2.png"
         plot_getrennt(ref, query, path, factor=50, file=name1)
@@ -384,19 +396,10 @@ def main(pb):
     check_plottingdir_pbn(pb)
     t0 = time()
     do_whole_pb(pb)
-    print("PB "+pb+" done:")
+    print("PB " + pb + " done:")
     print(time() - t0)
 
 
-def main_multi():
-    pool = ThreadPool(4)
-    pbns = ["pb1", "pb2", "pb3", "pb4"]
-    results = pool.map(main, pbns)
-    with open("DTW_log.txt", "a") as file:
-        file.write("Log_from_DTW:DynTimeWarp at " + datetime.datetime.now().strftime("%c"))
-        for res in results:
-            for r in res:
-                file.write(r + "\n")
 
 
 def plot_multi():
@@ -413,5 +416,22 @@ def plot_multi():
                 file.write(r + "\n")
 
 
+
+
+
 if __name__ == "__main__":
-    make_plots("pb2")
+    datamode = True
+    plotmode = False
+    if datamode:
+        if len(sys.argv) < 2:
+            print("Argument <PBN> required")
+        else:
+            pbn = sys.argv[1]
+            main(pbn)
+    if plotmode:
+        if len(sys.argv) < 2:
+            print("Argument <PBN> required")
+        else:
+            pbn = sys.argv[1]
+            make_plots(pbn)
+
