@@ -303,7 +303,7 @@ def save_old(path, distance, path2, distance2, n, name="test"):
             writer.writerow([path[i][0], path[i][1], "", "", "", "", ""])
 
 
-def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0,ip=1):
+def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0, ip=1):
     if dist == 0:
         name = prob + "_" + alias + "_euklid"
     elif dist == 1:
@@ -316,8 +316,8 @@ def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0,ip=1):
         outputfile1 = "output/" + prob + "/" + name + "_dist.csv"
         outputfile2 = "output/" + prob + "/" + name + "_list.csv"
     else:
-        outputfile1 = "output/" + prob + "_" +str(ip) + "/" + name + "_dist.csv"
-        outputfile2 = "output/" + prob + "_" +str(ip) + "/" + name + "_list.csv"
+        outputfile1 = "output/" + prob + "_" + str(ip) + "/" + name + "_dist.csv"
+        outputfile2 = "output/" + prob + "_" + str(ip) + "/" + name + "_list.csv"
     with open(outputfile1, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow([distance])
@@ -350,13 +350,13 @@ def do_whole_pb(prob="pb1"):
             cut = df[df.video == alias]
             cut_1 = cut[cut.IP_INDEX == 1]
             cut_2 = cut[cut.IP_INDEX == 2]
-            do_video(cut_1,prob,alias,1)
-            do_video(cut_2,prob,alias,2)
+            do_video(cut_1, prob, alias, 1)
+            do_video(cut_2, prob, alias, 2)
         else:
             raise (KeyError)
 
 
-def do_video(cut, prob, alias, ip = 1):
+def do_video(cut, prob, alias, ip=1):
     distances = [distance_2dim, distance_winkel, distance_winkel4]
     for i in range(3):
         ref = cut[['x_coord', 'y_coord']].to_numpy(copy=True)
@@ -371,7 +371,7 @@ def do_video(cut, prob, alias, ip = 1):
         distance, path = fastdtw(ref2D, query2D, dist=distances[i])
 
         print("Saving Results ...")
-        save(path, ref2D, query2D, n, distance, prob=prob, alias=alias, dist=i,ip = ip)
+        save(path, ref2D, query2D, n, distance, prob=prob, alias=alias, dist=i, ip=ip)
 
 
 def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb1") AND make_plots("pb1_2")
@@ -416,6 +416,20 @@ def main(pb):
     do_whole_pb(pb)
     print("PB " + pb + " done:")
     print(time() - t0)
+
+
+def plot_multi():
+    pool = ThreadPool(4)
+    pbns = ["pb1", "pb2", "pb3", "pb4"]
+    check_plottingdir()
+    for pb in pbns:
+        check_plottingdir_pbn(pb)
+    results = pool.map(make_plots, pbns)
+    with open("DTW_log_plotting.txt", "a") as file:
+        file.write("Log_from_DTW:PLOTTING at " + datetime.datetime.now().strftime("%c"))
+        for res in results:
+            for r in res:
+                file.write(r + "\n")
 
 
 if __name__ == "__main__":
