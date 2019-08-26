@@ -15,7 +15,7 @@ def run_dtw(pbn):
     return output
 def main_multi():
     pool = ThreadPool(4)
-    pbns = ["pb10", "pb11", "pb12", "pb13"]
+    pbns = ["pb1", "pb2", "pb3", "pb4"]
     results = pool.map(run_dtw, pbns)
     with open("DTW_log.txt", "a") as file:
         file.write("Log_from_DTW:DynTimeWarp at " + datetime.datetime.now().strftime("%c"))

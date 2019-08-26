@@ -86,6 +86,9 @@ def check_plottingdir():
 
 def check_plottingdir_pbn(pbn):
     try:
+        pb_no = int(pbn[2:])
+        if pb_no % 2 == 1:
+            os.mkdir('./plots/' + pbn + '_2/')
         os.mkdir('./plots/' + pbn + '/')
         print("Erstelle Ordner für Output-Plots")
     except OSError as e:
@@ -102,7 +105,11 @@ def check_outputdir():
 
 def check_outputdir_pbn(pbn):
     try:
+        pb_no = int(pbn[2:])
+        if pb_no%2==1:
+            os.mkdir('./output/' + pbn + '_2/')
         os.mkdir('./output/' + pbn + '/')
+
         print("Erstelle Ordner für Output")
     except OSError as e:
         pass
@@ -337,7 +344,8 @@ def do_whole_pb(prob="pb1"):
     rda = pyreadr.read_r(prob + ".Rda")
     df = rda["m.df_pb"]
     pb_no = int(prob[2:])
-    if pb_no % 2 == 1:
+    print(pb_no)
+    if pb_no % 2 == 0:
         mode = "slow"
     else:
         mode = "fast"
@@ -350,7 +358,9 @@ def do_whole_pb(prob="pb1"):
             cut = df[df.video == alias]
             cut_1 = cut[cut.IP_INDEX == 1]
             cut_2 = cut[cut.IP_INDEX == 2]
+            print("Doing first block")
             do_video(cut_1, prob, alias, 1)
+            print("Doing second block")
             do_video(cut_2, prob, alias, 2)
         else:
             raise (KeyError)
