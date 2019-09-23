@@ -17,7 +17,7 @@ pbn <- args[1]
 print("Doing Preprocess for PBN: ")
 print(pbn)
 
-a <- 1
+a <- pbn
 srfile <- paste0("data/sr_",a,".xls")
 frfile <- paste0("data/fr_",a,".xls")
 outfile <- paste0("pb",a,".Rda")
@@ -295,11 +295,14 @@ fr_pb <- read_delim(frfile,"\t", escape_double = FALSE, locale =
 
 
 FIX_ID_df <- function(df) {
-  df$RIGHT_FIX_INDEX[is.na(df$RIGHT_FIX_INDEX)] <- 0
-  df$LEFT_FIX_INDEX[is.na(df$LEFT_FIX_INDEX)] <- 0
-  df["CURRENT_FIX_INDEX"] <- NA
-  df$CURRENT_FIX_INDEX <- df$RIGHT_FIX_INDEX + df$LEFT_FIX_INDEX
-  
+    #is.na(as.numeric(df$RIGHT_FIX_INDEX))
+    df$RIGHT_FIX_INDEX[df$RIGHT_FIX_INDEX=='.'] <- 0
+    df$LEFT_FIX_INDEX[df$LEFT_FIX_INDEX=='.'] <- 0
+    df["CURRENT_FIX_INDEX"] <- NA
+    df$CURRENT_FIX_INDEX <- as.numeric(df$RIGHT_FIX_INDEX) + as.numeric(df$LEFT_FIX_INDEX)
+    df$CURRENT_FIX_INDEX[df$CURRENT_FIX_INDEX==0] <- NA
+
+    return(df)
 }
 
 df_pb <- FIX_ID_df(df_pb)
