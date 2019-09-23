@@ -630,8 +630,18 @@ FIX_ID_df_slow <- function(df) {
     }
     return(df)
 }
-df_pb1 <- FIX_ID_df_fast(df_pb1)
-df_pb2 <- FIX_ID_df_slow(df_pb2)
+FIX_ID_df <- function(df) {
+  df$RIGHT_FIX_INDEX[is.na(df$RIGHT_FIX_INDEX)] <- 0
+  df$LEFT_FIX_INDEX[is.na(df$LEFT_FIX_INDEX)] <- 0
+  df["CURRENT_FIX_INDEX"] <- NA
+  df$CURRENT_FIX_INDEX <- df$RIGHT_FIX_INDEX + df$LEFT_FIX_INDEX
+  df$RIGHT_FIX_INDEX[df$RIGHT_FIX_INDEX==0] <- NA
+  df$LEFT_FIX_INDEX[df$LEFT_FIX_INDEX==0] <- NA
+  return(df)
+  
+}
+
+df_pb3 <- FIX_ID_df(df_pb3)
 ```
 
 ```{r}

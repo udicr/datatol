@@ -293,51 +293,16 @@ fr_pb <- read_delim(frfile,"\t", escape_double = FALSE, locale =
 
 
 
-FIX_ID_df_fast <- function(df) {
+
+FIX_ID_df <- function(df) {
+  df$RIGHT_FIX_INDEX[is.na(df$RIGHT_FIX_INDEX)] <- 0
+  df$LEFT_FIX_INDEX[is.na(df$LEFT_FIX_INDEX)] <- 0
   df["CURRENT_FIX_INDEX"] <- NA
-  for (t in 1:32) {
-    for (ip in 1:2) {
-      sub_data <- df[(df$TRIAL_INDEX==t & df$IP_INDEX==ip),]
-      if (any(as.numeric(sub_data$RIGHT_PUPIL_SIZE)>0)) {
-        sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$RIGHT_FIX_INDEX)
-      }
-      else{
-        sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$LEFT_FIX_INDEX)
-      }
-      df[df$TRIAL_INDEX==t & df$IP_INDEX==ip,] <- sub_data
-    }
-    
-  }
-  return(df)
+  df$CURRENT_FIX_INDEX <- df$RIGHT_FIX_INDEX + df$LEFT_FIX_INDEX
+  
 }
 
-
-FIX_ID_df_slow <- function(df) {
-  df["CURRENT_FIX_INDEX"] <- NA
-  for (t in 1:32) {
-    sub_data <- df[(df$TRIAL_INDEX==t),]
-    if (any(as.numeric(sub_data$RIGHT_PUPIL_SIZE)>0)) {
-      sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$RIGHT_FIX_INDEX)
-    }
-    else{
-      sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$LEFT_FIX_INDEX)
-    }
-    df[df$TRIAL_INDEX==t,] <- sub_data
-    
-  }
-  return(df)
-}
-
-if ((pbnno %% 2) == 0){
-    print("Slow FIX")
-  df_pb <- FIX_ID_df_slow(df_pb)
-
-}
-if ((pbnno %% 2) == 1){
-    print("FAST FIX")
-  df_pb <- FIX_ID_df_fast(df_pb)
-
-}
+df_pb <- FIX_ID_df(df_pb)
 
 
 
