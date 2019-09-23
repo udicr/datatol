@@ -3,7 +3,7 @@
 # Objective : Preprocessing TOL DATA
 # Created by: user
 # Created on: 20.08.19
-#!/usr
+
 library(readxl)
 library(dplyr)
 library(readr)
@@ -17,7 +17,7 @@ pbn <- args[1]
 print("Doing Preprocess for PBN: ")
 print(pbn)
 
-a <- pbn
+a <- 1
 srfile <- paste0("data/sr_",a,".xls")
 frfile <- paste0("data/fr_",a,".xls")
 outfile <- paste0("pb",a,".Rda")
@@ -294,36 +294,38 @@ fr_pb <- read_delim(frfile,"\t", escape_double = FALSE, locale =
 
 
 FIX_ID_df_fast <- function(df) {
-    for (t in 1:32) {
-        for (ip in 1:2) {
-            sub_data <- df[df$TRIAL_INDEX==t & df$IP_INDEX==ip,]
-            if as.numeric(sub_data[0]$RIGHT_PUPIL_SIZE)>0 {
-                sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$RIGHT_FIX_INDEX)
-            }
-            else{
-                sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$LEFT_FIX_INDEX)
-            }
-            df[df$TRIAL_INDEX==t & df$IP_INDEX==ip,] <- sub_data
-        }
-
+  df["CURRENT_FIX_INDEX"] <- NA
+  for (t in 1:32) {
+    for (ip in 1:2) {
+      sub_data <- df[(df$TRIAL_INDEX==t & df$IP_INDEX==ip),]
+      if (any(as.numeric(sub_data$RIGHT_PUPIL_SIZE)>0)) {
+        sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$RIGHT_FIX_INDEX)
+      }
+      else{
+        sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$LEFT_FIX_INDEX)
+      }
+      df[df$TRIAL_INDEX==t & df$IP_INDEX==ip,] <- sub_data
     }
-    return(df)
+    
+  }
+  return(df)
 }
 
 
 FIX_ID_df_slow <- function(df) {
-    for (t in 1:32) {
-        sub_data <- df[df$TRIAL_INDEX==t,]
-        if as.numeric(sub_data[0]$RIGHT_PUPIL_SIZE)>0 {
-            sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$RIGHT_FIX_INDEX)
-        }
-        else{
-            sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$LEFT_FIX_INDEX)
-        }
-        df[df$TRIAL_INDEX==t,] <- sub_data
-
+  df["CURRENT_FIX_INDEX"] <- NA
+  for (t in 1:32) {
+    sub_data <- df[(df$TRIAL_INDEX==t),]
+    if (any(as.numeric(sub_data$RIGHT_PUPIL_SIZE)>0)) {
+      sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$RIGHT_FIX_INDEX)
     }
-    return(df)
+    else{
+      sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$LEFT_FIX_INDEX)
+    }
+    df[df$TRIAL_INDEX==t,] <- sub_data
+    
+  }
+  return(df)
 }
 
 if ((pbnno %% 2) == 0){

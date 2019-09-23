@@ -594,6 +594,45 @@ fr_pb53<- read_delim("data/fr_53.xls","	", escape_double = FALSE, locale =
 ##Data Frames der Sample Report mit Fixation Report anhand des Index der Fixation zusammenführen
 Daten der Sample Reports sollten vollständig erhalten bleiben
 vorher muss zum Sample Report eine Spalte mit dem Fixationsindex ergänzt werden (unabhängig von dem getrackten Auge)
+```{r}
+
+FIX_ID_df_fast <- function(df) {
+    df["CURRENT_FIX_INDEX"] <- NA
+    for (t in 1:32) {
+        for (ip in 1:2) {
+            sub_data <- df[(df$TRIAL_INDEX==t & df$IP_INDEX==ip),]
+            if (any(as.numeric(sub_data$RIGHT_PUPIL_SIZE)>0)) {
+                sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$RIGHT_FIX_INDEX)
+            }
+            else{
+                sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$LEFT_FIX_INDEX)
+            }
+            df[df$TRIAL_INDEX==t & df$IP_INDEX==ip,] <- sub_data
+        }
+
+    }
+    return(df)
+}
+
+
+FIX_ID_df_slow <- function(df) {
+    df["CURRENT_FIX_INDEX"] <- NA
+    for (t in 1:32) {
+        sub_data <- df[(df$TRIAL_INDEX==t),]
+        if (any(as.numeric(sub_data$RIGHT_PUPIL_SIZE)>0)) {
+            sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$RIGHT_FIX_INDEX)
+        }
+        else{
+            sub_data$CURRENT_FIX_INDEX <- as.numeric(sub_data$LEFT_FIX_INDEX)
+        }
+        df[df$TRIAL_INDEX==t,] <- sub_data
+
+    }
+    return(df)
+}
+df_pb1 <- FIX_ID_df_fast(df_pb1)
+df_pb2 <- FIX_ID_df_slow(df_pb2)
+```
 
 ```{r}
 FIX_ID_df <- function(df) {
