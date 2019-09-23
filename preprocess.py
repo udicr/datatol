@@ -8,7 +8,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 
 pool = ThreadPool(4)
 #pbns = [i for i in range(1,54) if i not in [6,23,50,53]]
-pbns = [1]
+pbns = [1,2,3,4]
 print(pbns)
 
 
@@ -30,7 +30,7 @@ def run(pb):
 
 if __name__ == "__main__":
     results = pool.map(run,pbns)
-    with open("preprocess_log.txt","w") as file:
+    with open("preprocess_log1-4.txt","w") as file:
         for res in results:
             for r in res:
                 file.write(r + "\n")
