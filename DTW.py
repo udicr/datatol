@@ -445,6 +445,9 @@ def plot_multi():
 if __name__ == "__main__":
     datamode = True
     plotmode = False
+    if len(sys.argv)>2:
+        datamode = False
+        plotmode = True
     if datamode:
         if len(sys.argv) < 2:
             print("Argument <PBN> required")
