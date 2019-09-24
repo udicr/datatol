@@ -318,7 +318,7 @@ def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0, ip=1):
     elif dist == 2:
         name = prob + "_" + alias + "_winkellog"
     else:
-        raise ValueError("0 - Euklid, 1 - Winkel, 2 - Winkellog")
+        raise NotImplementedError("0 - Euklid, 1 - Winkel, 2 - Winkellog")
     if ip == 1:
         outputfile1 = "output/" + prob + "/" + name + "_dist.csv"
         outputfile2 = "output/" + prob + "/" + name + "_list.csv"
