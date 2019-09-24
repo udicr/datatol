@@ -385,16 +385,17 @@ def do_video(cut, prob, alias, ip=1):
 
 
 def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb1") AND make_plots("pb1_2")
+    pr = pbn.split('_')[0] if "_" in pbn else pbn
     if video != "all":
-        csvfile1 = "output/" + pbn + "/" + pbn + "_" + video + "_euklid_list.csv"
-        csvfile2 = "output/" + pbn + "/" + pbn + "_" + video + "_winkel_list.csv"
-        csvfile3 = "output/" + pbn + "/" + pbn + "_" + video + "_winkellog_list.csv"
+        csvfile1 = "output/" + pbn + "/" + pr + "_" + video + "_euklid_list.csv"
+        csvfile2 = "output/" + pbn + "/" + pr + "_" + video + "_winkel_list.csv"
+        csvfile3 = "output/" + pbn + "/" + pr + "_" + video + "_winkellog_list.csv"
         csvfiles = [csvfile1, csvfile2, csvfile3]
     else:
         csvfiles = []
-        csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_euklid_list.csv" for alias in aliases]
-        csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_winkel_list.csv" for alias in aliases]
-        csvfiles += ["output/" + pbn + "/" + pbn + "_" + alias + "_winkellog_list.csv" for alias in aliases]
+        csvfiles += ["output/" + pbn + "/" + pr + "_" + alias + "_euklid_list.csv" for alias in aliases]
+        csvfiles += ["output/" + pbn + "/" + pr + "_" + alias + "_winkel_list.csv" for alias in aliases]
+        csvfiles += ["output/" + pbn + "/" + pr + "_" + alias + "_winkellog_list.csv" for alias in aliases]
         print(csvfiles)
     for csvfile in csvfiles:
         df = pd.read_csv(csvfile)
