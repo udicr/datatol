@@ -39,8 +39,8 @@ class Pathmap:
                 matrix[i, j] = self.d(i, j)
         for i in range(self.path_len):
             matrix[self.p_r[i],self.p_q[i]] = 1000
-            for k in range(-5,5):
-                for l in range(-5,5):
+            for k in range(-10,10):
+                for l in range(-10,10):
                     try:
                         matrix[self.p_r[i]+k,self.p_q[i]+l] = 1000
                     except IndexError:

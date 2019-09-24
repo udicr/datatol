@@ -63,6 +63,6 @@ ref_x = pop_m(list_df["ref_x"].to_numpy())
 ref_y = pop_m(list_df["ref_y"].to_numpy())
 query_x = pop_m(list_df["query_x"].to_numpy())
 query_y = pop_m(list_df["query_y"].to_numpy())
-name = "plot/" + pbn + "/" + pr + "_" + alias + "_" + distance + "_pathmap.png"
+name = "plots/" + pbn + "/" + pr + "_" + alias + "_" + distance + "_pathmap.png"
 pmap = Pathmap(path_ref, path_query, ref_x, ref_y, query_x, query_y, distance, name)
 pmap.heatmap()
