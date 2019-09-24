@@ -106,7 +106,7 @@ def check_outputdir():
 def check_outputdir_pbn(pbn):
     try:
         pb_no = int(pbn[2:])
-        if pb_no%2==1:
+        if pb_no % 2 == 1:
             os.mkdir('./output/' + pbn + '_2/')
         os.mkdir('./output/' + pbn + '/')
 
@@ -141,8 +141,18 @@ def blink_correct(data):
     for c in data:
         if c[0] == c[1] == 0:
             c[0] = c[1] = np.nan
-    datax = data[:, 0]
-    datay = data[:, 1]
+        try:
+            c[0] = float(c[0])
+        except ValueError:
+            c[0] = float(str(c[0]).replace(',', '.'))
+        try:
+            c[1] = float(c[1])
+        except ValueError:
+            c[1] = float(str(c[1]).replace(',', '.'))
+
+    datax = np.array(data[:, 0], dtype=np.float64)
+    datay = np.array(data[:, 1], dtype=np.float64)
+
     nans, tmp = nan_helper(datax)
     datax[nans] = np.interp(tmp(nans), tmp(~nans), datax[~nans])
     nans, tmp = nan_helper(datay)
@@ -446,7 +456,7 @@ def plot_multi():
 if __name__ == "__main__":
     datamode = True
     plotmode = False
-    if len(sys.argv)>2:
+    if len(sys.argv) > 2:
         datamode = False
         plotmode = True
     if datamode:

@@ -50,5 +50,6 @@ def plot_multi():
                 file.write(r + "\n")
 
 if __name__ == "__main__":
-    main_multi()
+    #main_multi()
     plot_multi()
+
