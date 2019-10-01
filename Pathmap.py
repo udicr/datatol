@@ -52,8 +52,9 @@ class Pathmap:
         m = self.get_matrix()[::-1,:]
         fig = plt.figure(1)
         plt.subplots(figsize = (60,50))
-        sns.heatmap(m, xticklabels=1000, yticklabels=1000)
+        sns.heatmap(m, xticklabels=1000, yticklabels=False)
         plt.savefig(self.name)
+        plt.clf()
         t = time() - t0
         print("Generating Distance Matrix and Plotting took "+str(t))
 
