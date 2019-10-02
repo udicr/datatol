@@ -5,6 +5,8 @@ from multiprocessing.dummy import Pool as ThreadPool
 import datetime
 import subprocess
 import sys
+import csv
+from distances import *
 
 aliases = [
     "Spot1",
@@ -59,7 +61,57 @@ def calc_mdos(pbn, pr, alias, distance):
         absolut_distance = float(lines[0].strip())
         len_of_signal = int(lines[1].strip())
     mean_distance_of_signal = absolut_distance * 1.0 / len_of_signal
-    return mean_distance_of_signal
+    return len_of_signal, mean_distance_of_signal
+
+
+def analyse_path(pbn, pr, alias, distance):
+    zeroct = 0
+    plusct = 0
+    minusct = 0
+    max = 0
+    min = 0
+    maxdist = 0
+    mindist = 9999
+    list_file = "output/" + pbn + "/" + pr + "_" + alias + "_" + distance + "_list.csv"
+    list_df = pd.read_csv(list_file)
+    path_ref = list_df["path_ref"].to_numpy()
+    path_query = list_df["path_query"].to_numpy()
+
+    ref_x = pop_m(list_df["ref_x"].to_numpy())
+    ref_y = pop_m(list_df["ref_y"].to_numpy())
+    query_x = pop_m(list_df["query_x"].to_numpy())
+    query_y = pop_m(list_df["query_y"].to_numpy())
+    for i in range(len(path_ref)):
+        p_x = path_ref[i]
+        p_y = path_query[i]
+        oh = p_x - p_y
+        if oh > 0:
+            plusct += 1
+            if oh > max:
+                max = oh
+        elif oh == 0:
+            zeroct += 1
+        else:
+            minusct += 1
+            if oh < min:
+                min = oh
+
+        dist = -1
+        u = [float(ref_x[path_ref[i]]), float(ref_y[path_ref[i]])]
+        v = [float(query_x[path_query[i]]), float(query_y[path_query[i]])]
+        if distance == "euklid":
+            dist = distance_2dim(u, v)
+        elif distance == "winkel":
+            dist = distance_winkel(u, v)
+        elif distance == "winkellog":
+            dist = distance_winkel4(u, v)
+
+        if dist < mindist:
+            mindist = dist
+        if dist > maxdist:
+            maxdist = dist
+
+    return zeroct, plusct, minusct, max, min, maxdist, mindist
 
 
 def calc_heatmap(pbn, pr, alias, distance):
@@ -73,18 +125,57 @@ def calc_heatmap(pbn, pr, alias, distance):
     ref_y = pop_m(list_df["ref_y"].to_numpy())
     query_x = pop_m(list_df["query_x"].to_numpy())
     query_y = pop_m(list_df["query_y"].to_numpy())
-    name = "plots/" + pbn + "/" + pr + "_" + alias + "_" + distance + "_pathmap.png"
+    name = "plots/" + pbn + "/" + pbn + "_" + alias + "_" + distance + "_pathmap.png"
     pmap = Pathmap(path_ref, path_query, ref_x, ref_y, query_x, query_y, distance, name)
     pmap.heatmap()
 
 
+def auswertung(pbnlist, distances, aliases):
+    results = []
+    header = ["Proband"]
+    for pbn in pbnlist:
+        pbnres = [pbn]
+        pr = pbn.split('_')[0] if '_' in pbn else pbn
+        for alias in aliases:
+            for dist in distances:
+                header += ["Alias_Distance", "distance", "mean_distance", "zero-overhead-counter",
+                           "ref before query (rbq)",
+                           "query berfore ref (qbr)", "max rbq", "max qbr", "max distance", "min distane"]
+                dos, mdos = calc_mdos(pbn, pr, alias, dist)
+                pbnres.append(alias + "_" + dist)
+                pbnres.append(dos)
+                pbnres.append(mdos)
+                zeroct, plusct, minusct, max, min, maxdist, mindist = analyse_path(pbn, pr, alias, dist)
+                pbnres.append(zeroct)
+                pbnres.append(plusct)
+                pbnres.append(minusct)
+                pbnres.append(max)
+                pbnres.append(min)
+                pbnres.append(maxdist)
+                pbnres.append(mindist)
 
+        results.append(pbnres)
+    return header, results
+
+
+def write_ausw(header, results):
+    # name = "output/" + pbn + "/" + pbn + "_auswertung1"
+    name = "output/auswertung1_1-4"
+    outputfile = name + ".csv"
+    with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile, delimiter=';')
+        writer.writerow(header)
+        for pbnl in results:
+            writer.writerow(pbnl)
 
 
 if __name__ == "__main__":
-    pbn = sys.argv[1]
-    pr = pbn.split('_')[0] if '_' in pbn else pbn
+    #pbn = sys.argv[1]
+    #pr = pbn.split('_')[0] if '_' in pbn else pbn
+    pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4"]
     alias = "Spot1"
     distances = ["euklid", "winkel", "winkellog"]
-    for distance in distances:
-        calc_heatmap(pbn, pr, alias, distance)
+    # for distance in distances:
+    #    calc_heatmap(pbn, pr, alias, distance)
+    header, results = auswertung(pbnlist, distances, aliases)
+    write_ausw(header, results)
