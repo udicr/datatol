@@ -132,17 +132,16 @@ def calc_heatmap(pbn, pr, alias, distance):
 
 def auswertung(pbnlist, distances, aliases):
     results = []
-    header = ["Proband"]
+    header = ["Proband", "IP", "Video", "Distancemeasure", "total_distance", "mean_distance", "zero-overhead-counter",
+              "ref before query (rbq)",
+              "query berfore ref (qbr)", "max rbq", "max qbr", "max distance", "min distance"]
     for pbn in pbnlist:
-        pbnres = [pbn]
         pr = pbn.split('_')[0] if '_' in pbn else pbn
+        ip = pbn.split('_')[1] if '_' in pbn else 1
         for alias in aliases:
             for dist in distances:
-                header += ["Alias_Distance", "distance", "mean_distance", "zero-overhead-counter",
-                           "ref before query (rbq)",
-                           "query berfore ref (qbr)", "max rbq", "max qbr", "max distance", "min distane"]
+                pbnres = [pr, ip, alias, dist]
                 dos, mdos = calc_mdos(pbn, pr, alias, dist)
-                pbnres.append(alias + "_" + dist)
                 pbnres.append(dos)
                 pbnres.append(mdos)
                 zeroct, plusct, minusct, max, min, maxdist, mindist = analyse_path(pbn, pr, alias, dist)
@@ -154,22 +153,53 @@ def auswertung(pbnlist, distances, aliases):
                 pbnres.append(maxdist)
                 pbnres.append(mindist)
 
-        results.append(pbnres)
+                results.append(pbnres)
     return header, results
 
 
 def write_ausw(header, results):
     # name = "output/" + pbn + "/" + pbn + "_auswertung1"
-    name = "output/auswertung1_1-8(o6)"
+    name = "output/auswertung1_1-8(o6)_neu"
     outputfile = name + ".csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
-        for i in range(len(results[0])):
-            row = []
-            row.append(header[i])
-            for pbnl in results:
-                row.append(pbnl[i])
+        writer.writerow(header)
+        for row in results:
             writer.writerow(row)
+
+
+def hg(pbn, pr, alias, distance):
+    list_file = "output/" + pbn + "/" + pr + "_" + alias + "_" + distance + "_list.csv"
+
+    list_df = pd.read_csv(list_file)
+    path_ref = list_df["path_ref"].to_numpy()
+    path_query = list_df["path_query"].to_numpy()
+
+    ref_x = pop_m(list_df["ref_x"].to_numpy())
+    ref_y = pop_m(list_df["ref_y"].to_numpy())
+    query_x = pop_m(list_df["query_x"].to_numpy())
+    query_y = pop_m(list_df["query_y"].to_numpy())
+
+    overhead = [path_ref[i] - path_query[i] for i in range(len(path_ref))]
+
+    if distance == "euklid":
+        dist = [distance_2dim([float(ref_x[path_ref[i]]), float(ref_y[path_ref[i]])],
+                              [float(query_x[path_query[i]]), float(query_y[path_query[i]])]) for i in
+                range(len(path_ref))]
+    elif distance == "winkel":
+        dist = [distance_winkel([float(ref_x[path_ref[i]]), float(ref_y[path_ref[i]])],
+                                [float(query_x[path_query[i]]), float(query_y[path_query[i]])]) for i in
+                range(len(path_ref))]
+    elif distance == "winkellog":
+        dist = [distance_winkel4([float(ref_x[path_ref[i]]), float(ref_y[path_ref[i]])],
+                                 [float(query_x[path_query[i]]), float(query_y[path_query[i]])]) for i in
+                range(len(path_ref))]
+    else:
+        raise NotImplementedError
+    fig, (ax1, ax2) = plt.subplots(2, 1)
+    fig.subplots_adjust(hspace=0.5)
+    ax1.hist(overhead, bins='auto')
+    ax2.hist(dist, bins='auto')
 
 
 if __name__ == "__main__":
