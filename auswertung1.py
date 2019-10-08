@@ -7,6 +7,7 @@ import subprocess
 import sys
 import csv
 from distances import *
+import statistics
 
 aliases = [
     "Spot1",
@@ -68,8 +69,8 @@ def analyse_path(pbn, pr, alias, distance):
     zeroct = 0
     plusct = 0
     minusct = 0
-    max = 0
-    min = 0
+    maxd = 0
+    mind = 0
     maxdist = 0
     mindist = 9999
     list_file = "output/" + pbn + "/" + pr + "_" + alias + "_" + distance + "_list.csv"
@@ -81,20 +82,21 @@ def analyse_path(pbn, pr, alias, distance):
     ref_y = pop_m(list_df["ref_y"].to_numpy())
     query_x = pop_m(list_df["query_x"].to_numpy())
     query_y = pop_m(list_df["query_y"].to_numpy())
+    distlist = []
     for i in range(len(path_ref)):
         p_x = path_ref[i]
         p_y = path_query[i]
         oh = p_x - p_y
         if oh > 0:
             plusct += 1
-            if oh > max:
-                max = oh
+            if oh > maxd:
+                maxd = oh
         elif oh == 0:
             zeroct += 1
         else:
             minusct += 1
-            if oh < min:
-                min = oh
+            if oh < mind:
+                mind = oh
 
         dist = -1
         u = [float(ref_x[path_ref[i]]), float(ref_y[path_ref[i]])]
@@ -105,13 +107,12 @@ def analyse_path(pbn, pr, alias, distance):
             dist = distance_winkel(u, v)
         elif distance == "winkellog":
             dist = distance_winkel4(u, v)
+        distlist.append(dist)
+    maxdist = max(distlist)
+    mindist = min(distlist)
+    med = statistics.median(distlist)
 
-        if dist < mindist:
-            mindist = dist
-        if dist > maxdist:
-            maxdist = dist
-
-    return zeroct, plusct, minusct, max, min, maxdist, mindist
+    return med, zeroct, plusct, minusct, maxd, mind, maxdist, mindist
 
 
 def calc_heatmap(pbn, pr, alias, distance):
@@ -132,7 +133,8 @@ def calc_heatmap(pbn, pr, alias, distance):
 
 def auswertung(pbnlist, distances, aliases):
     results = []
-    header = ["Proband", "IP", "Video", "Distancemeasure", "total_distance", "mean_distance", "zero-overhead-counter",
+    header = ["Proband", "IP", "Video", "Distancemeasure", "total_distance", "mean_distance", "median_distance",
+              "zero-overhead-counter",
               "ref before query (rbq)",
               "query berfore ref (qbr)", "max rbq", "max qbr", "max distance", "min distance"]
     for pbn in pbnlist:
@@ -144,7 +146,8 @@ def auswertung(pbnlist, distances, aliases):
                 dos, mdos = calc_mdos(pbn, pr, alias, dist)
                 pbnres.append(dos)
                 pbnres.append(mdos)
-                zeroct, plusct, minusct, max, min, maxdist, mindist = analyse_path(pbn, pr, alias, dist)
+                med, zeroct, plusct, minusct, max, min, maxdist, mindist = analyse_path(pbn, pr, alias, dist)
+                pbnres.append(med)
                 pbnres.append(zeroct)
                 pbnres.append(plusct)
                 pbnres.append(minusct)
@@ -154,10 +157,11 @@ def auswertung(pbnlist, distances, aliases):
                 pbnres.append(mindist)
 
                 results.append(pbnres)
+        print("pbn done: "+ pbn)
     return header, results
 
 
-def write_ausw_zu(header,results):
+def write_ausw_zu(header, results):
     name = "output/auswertung1_1-8(o6)_neu"
     inputfile = name + ".csv"
     name2 = "output/auswertung1_1-13(o6)"
@@ -177,7 +181,7 @@ def write_ausw_zu(header,results):
 
 def write_ausw(header, results):
     # name = "output/" + pbn + "/" + pbn + "_auswertung1"
-    name = "output/auswertung1_1-8(o6)_neu"
+    name = "output/auswertung1_1-13(o6)_neu"
     outputfile = name + ".csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
@@ -221,12 +225,13 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
-    pbnlist = ["pb9", "pb9_2", "pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
+    pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2",
+               "pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
 
     distances = ["euklid", "winkel", "winkellog"]
 
     header, results = auswertung(pbnlist, distances, aliases)
-    write_ausw_zu(results)
+    write_ausw(header, results)
     '''
     #pbn = sys.argv[1]
     pbn = "pb2"
