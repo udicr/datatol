@@ -78,11 +78,14 @@ def hg(pbn, pr, alias, distance):
         raise NotImplementedError
     fig, (ax1, ax2) = plt.subplots(2, 1)
     fig.subplots_adjust(hspace=0.5)
+
+
     ax1.hist(overhead, bins='auto')
-    ax1.title("Overhead")
+    ax1.title.set_text("Overhead")
     ax2.hist(dist, bins='auto')
-    ax2.title("Distance")
-    name = "plots/" + pbn + "/" + pbn + "_" + alias + "_" + distance + "_histogramm.png"
+    ax2.title.set_text("Distance")
+
+    name = "plots/Histogramme/" + pbn + "_" + alias + "_" + distance + "_histogramm.png"
     plt.savefig(name)
 
 if __name__ == "__main__":

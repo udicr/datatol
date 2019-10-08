@@ -157,6 +157,24 @@ def auswertung(pbnlist, distances, aliases):
     return header, results
 
 
+def write_ausw_zu(header,results):
+    name = "output/auswertung1_1-8(o6)_neu"
+    inputfile = name + ".csv"
+    name2 = "output/auswertung1_1-13(o6)"
+    outputfile = name2 + ".csv"
+    with open(inputfile, "r", newline='', encoding='utf-8') as file:
+        old = file.readlines()
+        oldsep = [header]
+        for line in old[1:]:
+            oldsep.append([a.replace('\"', '') for a in line.split(';')])
+    with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile, delimiter=";")
+        for row in oldsep:
+            writer.writerow(row)
+        for row in results:
+            writer.writerow(row)
+
+
 def write_ausw(header, results):
     # name = "output/" + pbn + "/" + pbn + "_auswertung1"
     name = "output/auswertung1_1-8(o6)_neu"
@@ -203,12 +221,12 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
-    pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8"]
+    pbnlist = ["pb9", "pb9_2", "pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
 
     distances = ["euklid", "winkel", "winkellog"]
 
     header, results = auswertung(pbnlist, distances, aliases)
-    write_ausw(header, results)
+    write_ausw_zu(results)
     '''
     #pbn = sys.argv[1]
     pbn = "pb2"
