@@ -61,7 +61,7 @@ def calc_mdos(pbn, pr, alias, distance):
         absolut_distance = float(lines[0].strip())
         len_of_signal = int(lines[1].strip())
     mean_distance_of_signal = absolut_distance * 1.0 / len_of_signal
-    return len_of_signal, mean_distance_of_signal
+    return absolut_distance, mean_distance_of_signal
 
 
 def analyse_path(pbn, pr, alias, distance):
@@ -160,22 +160,32 @@ def auswertung(pbnlist, distances, aliases):
 
 def write_ausw(header, results):
     # name = "output/" + pbn + "/" + pbn + "_auswertung1"
-    name = "output/auswertung1_1-4"
+    name = "output/auswertung1_1-8(o6)"
     outputfile = name + ".csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
-        writer.writerow(header)
-        for pbnl in results:
-            writer.writerow(pbnl)
+        for i in range(len(results[0])):
+            row = []
+            row.append(header[i])
+            for pbnl in results:
+                row.append(pbnl[i])
+            writer.writerow(row)
 
 
 if __name__ == "__main__":
-    #pbn = sys.argv[1]
-    #pr = pbn.split('_')[0] if '_' in pbn else pbn
-    pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4"]
-    alias = "Spot1"
+    pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8"]
+
     distances = ["euklid", "winkel", "winkellog"]
-    # for distance in distances:
-    #    calc_heatmap(pbn, pr, alias, distance)
+
     header, results = auswertung(pbnlist, distances, aliases)
     write_ausw(header, results)
+    '''
+    #pbn = sys.argv[1]
+    pbn = "pb2"
+    alias = "Spot1"
+    #distance = sys.argv[2]
+    distance = "euklid"
+    pr = pbn.split('_')[0] if '_' in pbn else pbn
+    calc_heatmap(pbn, pr, alias, distance)
+    print("done")
+    '''

@@ -18,7 +18,8 @@ def run_aw1(pbn):
 
 def heatmap_multi():
     pool = ThreadPool(4)
-    pbns = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4"]  # , "pb2", "pb3", "pb3_2", "pb4"]
+    pbns = ["pb1", "pb3"]  # , "pb2", "pb3", "pb3_2", "pb4"]
+
     results = pool.map(run_aw1, pbns)
     return results
 
