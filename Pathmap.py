@@ -5,6 +5,10 @@ from matplotlib import pyplot as plt
 import pandas as pd
 from dtaidistance import dtw_visualisation
 from time import time
+import matplotlib.ticker as ticker
+import matplotlib.cm as cm
+import matplotlib as mpl
+
 
 class Pathmap:
     def __init__(self, p_r, p_q, r_x, r_y, q_x, q_y, distance_alias, name, path=""):
@@ -38,24 +42,53 @@ class Pathmap:
             for j in range(self.signal_len):
                 matrix[i, j] = self.d(i, j)
         for i in range(self.path_len):
-            matrix[self.p_r[i],self.p_q[i]] = 1000
-            for k in range(-10,10):
-                for l in range(-10,10):
+            matrix[self.p_r[i], self.p_q[i]] = 1000
+            for k in range(-10, 10):
+                for l in range(-10, 10):
                     try:
-                        matrix[self.p_r[i]+k,self.p_q[i]+l] = 1000
+                        matrix[self.p_r[i] + k, self.p_q[i] + l] = 1000
                     except IndexError:
                         continue
         return matrix
 
     def heatmap(self):
         t0 = time()
-        m = self.get_matrix()[::-1,:]
+        m = self.get_matrix()[::-1, :]
         fig = plt.figure(1)
-        plt.subplots(figsize = (60,50))
+        plt.subplots(figsize=(60, 50))
         sns.heatmap(m, xticklabels=1000, yticklabels=False)
         plt.savefig(self.name)
         plt.clf()
         t = time() - t0
-        print("Generating Distance Matrix and Plotting took "+str(t))
+        print("Generating Distance Matrix and Plotting took " + str(t))
 
+    def get_matrix2(self):
+        matrix = np.empty([self.signal_len, self.signal_len])
+        for i in tqdm(range(self.signal_len)):
+            for j in range(max([0, i - 101]), min([i + 101, self.signal_len])):
+                matrix[i, j] = self.d(i, j)
+        for i in range(self.path_len):
+            matrix[self.p_r[i], self.p_q[i]] = 500
+            for k in range(-10, 10):
+                for l in range(-10, 10):
+                    try:
+                        matrix[self.p_r[i] + k, self.p_q[i] + l] = 500
+                    except IndexError:
+                        continue
 
+        return matrix
+
+    def heatmap2(self):
+        t0 = time()
+        m = self.get_matrix()[::-1, :]
+        mask = np.array(
+            [[False if abs(i - j) <= 100 else True for i in range(self.signal_len)] for j in range(self.signal_len)])
+
+        fig = plt.figure(1)
+        plt.subplots(figsize=(60, 50))
+
+        sns.heatmap(m, mask=mask, xticklabels=1000, yticklabels=False)
+        plt.savefig(self.name)
+        plt.clf()
+        t = time() - t0
+        print("Generating Distance Matrix and Plotting took " + str(t))
