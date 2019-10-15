@@ -3,11 +3,12 @@ import seaborn as sns
 from tqdm import tqdm
 from matplotlib import pyplot as plt
 import pandas as pd
-from dtaidistance import dtw_visualisation
+# from dtaidistance import dtw_visualisation
 from time import time
 import matplotlib.ticker as ticker
 import matplotlib.cm as cm
 import matplotlib as mpl
+from itertools import chain
 
 
 class Pathmap:
@@ -64,30 +65,74 @@ class Pathmap:
 
     def get_matrix2(self):
         matrix = np.empty([self.signal_len, self.signal_len])
+        maxdist = 0
         for i in tqdm(range(self.signal_len)):
-            for j in range(max([0, i - 101]), min([i + 101, self.signal_len])):
-                matrix[i, j] = self.d(i, j)
+            for j in range(max([0, i - 1501]), min([i + 1501, self.signal_len])):
+                d = self.d(i, j)
+                matrix[i, j] = d
+                if d > maxdist:
+                    maxdist = d
+        path_val = maxdist + 50
         for i in range(self.path_len):
-            matrix[self.p_r[i], self.p_q[i]] = 500
+            matrix[self.p_r[i], self.p_q[i]] = path_val
             for k in range(-10, 10):
                 for l in range(-10, 10):
                     try:
-                        matrix[self.p_r[i] + k, self.p_q[i] + l] = 500
+                        matrix[self.p_r[i] + k, self.p_q[i] + l] = path_val
+                    except IndexError:
+                        continue
+
+        return matrix
+
+    def get_matrix_adaptiv(self):
+        matrix = np.empty([self.signal_len, self.signal_len])
+        maxdist = 0
+        my_iter = chain(range(-750, -10), range(10, 750))
+        my_iter2 = chain(range(-750, -10), range(10, 750))
+        for i in tqdm(range(self.path_len)):
+            for l in range(2):
+                for k in range(10, 750):
+                    x = self.p_r[i] - k + l
+                    y = self.p_q[i] + k
+                    if 0 <= x < self.signal_len and 0 <= y < self.signal_len:
+                        d = self.d(x, y)
+                        matrix[x, y] = d
+                        if d > maxdist:
+                            maxdist = d
+                    x = self.p_r[i] + k + l
+                    y = self.p_q[i] - k
+                    if 0 <= x < self.signal_len and 0 <= y < self.signal_len:
+                        d = self.d(x, y)
+                        matrix[x, y] = d
+                        if d > maxdist:
+                            maxdist = d
+
+        path_val = maxdist + 50
+        for i in range(self.path_len):
+            matrix[self.p_r[i], self.p_q[i]] = path_val
+            for k in range(-10, 10):
+                for l in range(-10, 10):
+                    try:
+                        matrix[self.p_r[i] + k, self.p_q[i] + l] = path_val
                     except IndexError:
                         continue
 
         return matrix
 
     def heatmap2(self):
+        fontsize = 30
         t0 = time()
-        m = self.get_matrix()[::-1, :]
-        mask = np.array(
-            [[False if abs(i - j) <= 100 else True for i in range(self.signal_len)] for j in range(self.signal_len)])
+        m = self.get_matrix_adaptiv()       #[::-1, :]
+        # mask = np.array(
+        #   [[False if abs(i - (self.signal_len-j)) <= 1500 else True for i in range(self.signal_len)] for j in range(self.signal_len)])
 
-        fig = plt.figure(1)
-        plt.subplots(figsize=(60, 50))
-
-        sns.heatmap(m, mask=mask, xticklabels=1000, yticklabels=False)
+        fig, ax = plt.subplots(figsize=(60, 50))
+        c = ax.imshow(m, cmap="viridis")
+        cb = fig.colorbar(c, ax=ax, fraction=0.046, pad=0.04)
+        plt.gca().invert_yaxis()
+        #cb.set_label(label='distance')
+        ax.tick_params(labelsize=fontsize)
+        cb.ax.tick_params(labelsize=fontsize)
         plt.savefig(self.name)
         plt.clf()
         t = time() - t0

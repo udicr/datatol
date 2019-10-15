@@ -80,7 +80,7 @@ def distance_winkel4(u, v):
     t = distance_winkel(u, v)
     if tmp_u[0] == tmp_u[1] == 0 or tmp_v[0] == tmp_v[1] == 0:
         return 0
-    n = float(abs(np.sqrt((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2)))
+    #n = float(abs(np.sqrt((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2)))
     a = np.sqrt(tmp_u[0] ** 2 + tmp_u[1] ** 2)
     b = np.sqrt(tmp_v[0] ** 2 + tmp_v[1] ** 2)
     #func_ab_old = np.sqrt(a ** 2 + b ** 2) / (a / b + b / a)

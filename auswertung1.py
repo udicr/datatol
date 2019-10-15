@@ -235,11 +235,11 @@ if __name__ == "__main__":
     write_ausw(header, results)
     '''
 
-    #pbn = sys.argv[1]
-    pbn = "pb1"
+    pbn = sys.argv[1]
+    #pbn = "pb2"
     alias = "Spot1"
-    #distance = sys.argv[2]
-    distance = "winkel"
+    distance = sys.argv[2]
+    #distance = "euklid"
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")
