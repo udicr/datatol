@@ -29,8 +29,8 @@ def run_aw2(pbn):
 
 
 def heatmap_multi():
-    pool = ThreadPool(3)
-    pbns = ["pb1", "pb1_2", "pb2"]  # , "pb2", "pb3", "pb3_2", "pb4"]
+    pool = ThreadPool(4)
+    pbns = ["pb3", "pb3_2", "pb4", "pb5"]  # , "pb2", "pb3", "pb3_2", "pb4"]
     distances = ["euklid", "winkel", "winkellog"]
     todo = []
     for p in pbns:
@@ -59,5 +59,5 @@ def aw2_multi():
 
 
 if __name__ == "__main__":
-    #heatmap_multi()
-    aw2_multi()
+    heatmap_multi()
+    #aw2_multi()
