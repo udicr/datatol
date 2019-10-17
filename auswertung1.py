@@ -126,7 +126,7 @@ def calc_heatmap(pbn, pr, alias, distance):
     ref_y = pop_m(list_df["ref_y"].to_numpy())
     query_x = pop_m(list_df["query_x"].to_numpy())
     query_y = pop_m(list_df["query_y"].to_numpy())
-    name = "plots/" + pbn + "/" + pbn + "_" + alias + "_" + distance + "_pathmap.png"
+    name = "plots/Pathmaps/" + pbn + "_" + alias + "_" + distance + "_pathmap.png"
     pmap = Pathmap(path_ref, path_query, ref_x, ref_y, query_x, query_y, distance, name)
     pmap.heatmap2()
 
@@ -236,10 +236,10 @@ if __name__ == "__main__":
     '''
 
     pbn = sys.argv[1]
-    #pbn = "pb2"
+    #pbn = "pb1"
     alias = "Spot1"
     distance = sys.argv[2]
-    #distance = "euklid"
+    #distance = "winkellog"
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")

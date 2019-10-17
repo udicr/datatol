@@ -68,7 +68,10 @@ class Pathmap:
         maxdist = 0
         for i in tqdm(range(self.signal_len)):
             for j in range(max([0, i - 1501]), min([i + 1501, self.signal_len])):
-                d = self.d(i, j)
+                u = [float(self.r_x[i]), float(self.r_y[i])]
+                v = [float(self.q_x[j]), float(self.q_y[j])]
+                d = self.distance(u, v)
+                # d = self.d(i, j)
                 matrix[i, j] = d
                 if d > maxdist:
                     maxdist = d
@@ -87,22 +90,22 @@ class Pathmap:
     def get_matrix_adaptiv(self):
         matrix = np.empty([self.signal_len, self.signal_len])
         maxdist = 0
-        my_iter = chain(range(-750, -10), range(10, 750))
-        my_iter2 = chain(range(-750, -10), range(10, 750))
         for i in tqdm(range(self.path_len)):
             for l in range(2):
                 for k in range(10, 750):
                     x = self.p_r[i] - k + l
                     y = self.p_q[i] + k
                     if 0 <= x < self.signal_len and 0 <= y < self.signal_len:
-                        d = self.d(x, y)
+                        d = self.distance([float(self.r_x[x]), float(self.r_y[x])],
+                                          [float(self.q_x[y]), float(self.q_y[y])])
                         matrix[x, y] = d
                         if d > maxdist:
                             maxdist = d
                     x = self.p_r[i] + k + l
                     y = self.p_q[i] - k
                     if 0 <= x < self.signal_len and 0 <= y < self.signal_len:
-                        d = self.d(x, y)
+                        d = self.distance([float(self.r_x[x]), float(self.r_y[x])],
+                                          [float(self.q_x[y]), float(self.q_y[y])])
                         matrix[x, y] = d
                         if d > maxdist:
                             maxdist = d
@@ -122,7 +125,7 @@ class Pathmap:
     def heatmap2(self):
         fontsize = 30
         t0 = time()
-        m = self.get_matrix_adaptiv()       #[::-1, :]
+        m = self.get_matrix_adaptiv()  # [::-1, :]
         # mask = np.array(
         #   [[False if abs(i - (self.signal_len-j)) <= 1500 else True for i in range(self.signal_len)] for j in range(self.signal_len)])
 
@@ -130,10 +133,11 @@ class Pathmap:
         c = ax.imshow(m, cmap="viridis")
         cb = fig.colorbar(c, ax=ax, fraction=0.046, pad=0.04)
         plt.gca().invert_yaxis()
-        #cb.set_label(label='distance')
+        # cb.set_label(label='distance')
         ax.tick_params(labelsize=fontsize)
         cb.ax.tick_params(labelsize=fontsize)
         plt.savefig(self.name)
         plt.clf()
         t = time() - t0
         print("Generating Distance Matrix and Plotting took " + str(t))
+

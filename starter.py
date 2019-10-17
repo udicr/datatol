@@ -17,7 +17,7 @@ def run_aw1(pbn):
 
 
 def heatmap_multi():
-    pool = ThreadPool(4)
+    pool = ThreadPool(3)
     pbns = ["pb1", "pb1_2", "pb2"]  # , "pb2", "pb3", "pb3_2", "pb4"]
     distances = ["euklid", "winkel", "winkellog"]
     todo = []

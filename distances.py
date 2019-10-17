@@ -1,18 +1,28 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
+import math
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.animation as animation
 import matplotlib
 
-M = [960,540]
+M = [960, 540]
+
+
 def distance_2dim(u, v):
     """
     :param u: [u[0],u[1]] point in R^2
     :param v: [v[0],v[1]] point in R^2
     :return: float dist the distance between the two points
     """
-    return float(abs(np.sqrt((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2)))
+    dist = [(a - b) ** 2 for a, b in zip(u, v)] #even faster than buildin methods
+    return math.sqrt(sum(dist))
+    # return float(abs(np.sqrt((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2)))
+
+
+def norm_2dim(u):
+    dist = [a ** 2 for a in u]
+    return math.sqrt(sum(dist))
 
 
 def distance_winkel(u, v):
@@ -21,14 +31,36 @@ def distance_winkel(u, v):
     :param v: [v[0],v[1]] point in R^2
     :return: float in [0,180] angle between the two vectors 0 = (960,540), tmp_u , tmp_v vectors
     """
-    m = [960, 540]
-    tmp_u = [u[0] - m[0], u[1] - m[1]]
-    tmp_v = [v[0] - m[0], v[1] - m[1]]
-    if tmp_u[0] == tmp_v[0] == tmp_u[1] == tmp_v[1] == 0:
-        return 0
-    c = np.dot(tmp_u, tmp_v) / np.linalg.norm(tmp_u) / np.linalg.norm(tmp_v)
-    t = np.arccos(np.clip(c, -1, 1)) / np.pi * 180
+    # m = [960, 540]
+    tmp_u = [u[0] - 960, u[1] - 540]
+    tmp_v = [v[0] - 960, v[1] - 540]
+    c = sum([i * j for i, j in zip(tmp_u, tmp_v)]) / (norm_2dim(tmp_u) * norm_2dim(tmp_v))
+    if c <= -1.0:  # faster than np.clip
+        c = -1.0
+    elif c >= 1.0:
+        c = 1.0
+    t = math.acos(c) / np.pi * 180
     return t
+
+
+def distance_winkel_intern(u, v):
+    """
+    :param u: [u[0],u[1]] point in R^2
+    :param v: [v[0],v[1]] point in R^2
+    :return: float in [0,180] angle between the two vectors 0 = (960,540), tmp_u , tmp_v vectors
+    """
+    # m = [960, 540]
+    tmp_u = [u[0] - 960, u[1] - 540]
+    tmp_v = [v[0] - 960, v[1] - 540]
+    a = norm_2dim(tmp_u)
+    b = norm_2dim(tmp_v)
+    c = sum([i * j for i, j in zip(tmp_u, tmp_v)]) / (a * b)
+    if c <= -1.0:  # faster than np.clip
+        c = -1.0
+    elif c >= 1.0:
+        c = 1.0
+    t = math.acos(c) / np.pi * 180
+    return t, a, b
 
 
 def distance_winkel2(u, v):
@@ -62,8 +94,8 @@ def distance_winkel3(u, v):
         return 0
     a = np.sqrt(tmp_u[0] ** 2 + tmp_u[1] ** 2)
     b = np.sqrt(tmp_v[0] ** 2 + tmp_v[1] ** 2)
-    #func_ab_old = np.sqrt(a ** 2 + b ** 2) / (a / b + b / a)
-    func_ab = max([a,b])
+    # func_ab_old = np.sqrt(a ** 2 + b ** 2) / (a / b + b / a)
+    func_ab = max([a, b])
     fn = 1 - np.exp(-0.02 * func_ab)
     return fn * t
 
@@ -74,37 +106,35 @@ def distance_winkel4(u, v):
     :param v: [v[0],v[1]] point in R^2
     :return: float in [0,180] angle between the two vectors 0 = (960,540) corrected logarithmic
     """
-    m = [960, 540]
-    tmp_u = [u[0] - m[0], u[1] - m[1]]
-    tmp_v = [v[0] - m[0], v[1] - m[1]]
-    t = distance_winkel(u, v)
-    if tmp_u[0] == tmp_u[1] == 0 or tmp_v[0] == tmp_v[1] == 0:
-        return 0
-    #n = float(abs(np.sqrt((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2)))
-    a = np.sqrt(tmp_u[0] ** 2 + tmp_u[1] ** 2)
-    b = np.sqrt(tmp_v[0] ** 2 + tmp_v[1] ** 2)
-    #func_ab_old = np.sqrt(a ** 2 + b ** 2) / (a / b + b / a)
-    func_ab = max([a,b])
-    a_1 = 999
-    breite = 50
-    a_2 = np.log(110001)/breite
-    fax = 0.1
-    p = 40 - 50*0.75
-    #beta = max([p  - 1/a_2 * np.log(a_1 / (1 - fax)) , 0])
-    #beta = (np.log((1-fax)/(a_1*fax))+a_2*p)/a_2
-    beta = p + 1/a_2 * np.log((1-fax)/0.1*a_1)
-    fn = 1 / (1 + a_1 * np.exp(-a_2
-                               * (func_ab - beta)
-                                  ))
-    return fn*t
+
+    t, a, b = distance_winkel_intern(u, v)
+    # n = float(abs(np.sqrt((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2)))
+    # a = np.sqrt(tmp_u[0] ** 2 + tmp_u[1] ** 2)
+    # a = distance_2dim(tmp_u, [0, 0])
+    # b = distance_2dim(tmp_v, [0, 0])
+    # b = np.sqrt(tmp_v[0] ** 2 + tmp_v[1] ** 2)
+    # func_ab_old = np.sqrt(a ** 2 + b ** 2) / (a / b + b / a)
+    # func_ab = max([a, b])
+    # a_1 = 999
+    # breite = 50
+    a_2 = math.log(110001) / 50
+    # fax = 0.1
+    # p = 40 - 50 * 0.75
+    # beta = max([p  - 1/a_2 * np.log(a_1 / (1 - fax)) , 0])
+    # beta = (np.log((1-fax)/(a_1*fax))+a_2*p)/a_2
+    beta = 40 - 50 * 0.75 + 1 / a_2 * math.log((1 - 0.1) / 0.1 * 999)
+    fn = 1 / (1 + 999 * math.exp(-a_2
+                                 * (max([a, b]) - beta)
+                                 ))
+    return fn * t
 
 
 def test_distances():
     fig = plt.figure()
     max_norm = np.sqrt(960 ** 2 + 540 ** 2)
 
-    u_i = [[960 + i * 1, 540] for i in range(31*12)]
-    v_i = [[960, 540 + i * 0.5] for i in range(31*12)]
+    u_i = [[960 + i * 1, 540] for i in range(31 * 12)]
+    v_i = [[960, 540 + i * 0.5] for i in range(31 * 12)]
     m = [960, 540]
     outputfile = "distancetest_90deg.csv"
     d = []
@@ -131,7 +161,7 @@ def test_distances():
                    ]
 
             writer.writerow(inh)
-    ax2 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31*12)]
+    ax2 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31 * 12)]
     # ax2 = [t[0] for t in d]
     plt.subplot(221)
     # plt.plot(ax, [t[0] for t in d], label="Euklidian")
@@ -147,8 +177,8 @@ def test_distances():
     d = []
     u_i = []
     v_i = []
-    u_i = [[960 + i * 1, 540] for i in range(31*12)]
-    v_i = [[960 - i * 1, 540] for i in range(31*12)]
+    u_i = [[960 + i * 1, 540] for i in range(31 * 12)]
+    v_i = [[960 - i * 1, 540] for i in range(31 * 12)]
     outputfile = "distancetest_180deg.csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
@@ -175,8 +205,8 @@ def test_distances():
             writer.writerow(inh)
     plt.subplot(222)
     # ax2 = [t[0] for t in d]
-    #ax2 = [i * 32 for i in range(0, 31)]
-    ax2 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31*12)]
+    # ax2 = [i * 32 for i in range(0, 31)]
+    ax2 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31 * 12)]
     plt.plot(ax2, [t[1] for t in d], label="Winkel")
     # plt.plot(ax2, [t[2] for t in d], label="Winkel+")
     plt.plot(ax2, [t[3] for t in d], label="Winkel*")
@@ -187,8 +217,8 @@ def test_distances():
     plt.legend()
 
     d = []
-    u_i = [[960 + i * 1, 540] for i in range(31*12)]
-    v_i = [[960 + i * 1, 540 + i * 1] for i in range(31*12)]
+    u_i = [[960 + i * 1, 540] for i in range(31 * 12)]
+    v_i = [[960 + i * 1, 540 + i * 1] for i in range(31 * 12)]
     outputfile = "distancetest_45deg.csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
@@ -215,8 +245,8 @@ def test_distances():
             writer.writerow(inh)
     plt.subplot(223)
     # ax2 = [t[0] for t in d]
-    #ax2 = [i * 32 for i in range(0, 31)]
-    ax2 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31*12)]
+    # ax2 = [i * 32 for i in range(0, 31)]
+    ax2 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31 * 12)]
     plt.plot(ax2, [t[1] for t in d], label="Winkel")
     # plt.plot(ax2, [t[2] for t in d], label="Winkel+")
     plt.plot(ax2, [t[3] for t in d], label="Winkel*")
@@ -227,8 +257,8 @@ def test_distances():
     plt.legend()
 
     d = []
-    u_i = [[960 + i * 1, 540] for i in range(31*12)]
-    v_i = [[960 - i * 1, 540 + i * 1] for i in range(31*12)]
+    u_i = [[960 + i * 1, 540] for i in range(31 * 12)]
+    v_i = [[960 - i * 1, 540 + i * 1] for i in range(31 * 12)]
     outputfile = "distancetest_135deg.csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
@@ -255,8 +285,8 @@ def test_distances():
             writer.writerow(inh)
     plt.subplot(224)
     # ax2 = [t[0] for t in d]
-    #ax2 = [i * 32 for i in range(0, 31)]
-    ax2 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31*12)]
+    # ax2 = [i * 32 for i in range(0, 31)]
+    ax2 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31 * 12)]
     plt.plot(ax2, [t[1] for t in d], label="Winkel")
     # plt.plot(ax2, [t[2] for t in d], label="Winkel+")
     plt.plot(ax2, [t[3] for t in d], label="Winkel*")
@@ -274,8 +304,8 @@ def test_distances2():
     fig = plt.figure()
     max_norm = np.sqrt(960 ** 2 + 540 ** 2)
 
-    u_i = [[960 + i * 1, 540] for i in range(31*12)]
-    v_i = [[960 + i * 1, 540 + i * 1 * np.tan(np.deg2rad(60))] for i in range(31*12)]
+    u_i = [[960 + i * 1, 540] for i in range(31 * 12)]
+    v_i = [[960 + i * 1, 540 + i * 1 * np.tan(np.deg2rad(60))] for i in range(31 * 12)]
     m = [960, 540]
     outputfile = "distancetest_60deg.csv"
     d = []
@@ -303,8 +333,8 @@ def test_distances2():
 
             writer.writerow(inh)
     # ax = [i for i in range(0,31)]
-    #ax2 = [t[0] for t in d]
-    ax2 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31*12)]
+    # ax2 = [t[0] for t in d]
+    ax2 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31 * 12)]
     plt.subplot(221)
     # plt.plot(ax, [t[0] for t in d], label="Euklidian")
     plt.plot(ax2, [t[1] for t in d], label="Winkel")
@@ -319,8 +349,8 @@ def test_distances2():
     d = []
     u_i = []
     v_i = []
-    u_i = [[960 + i * 1, 540] for i in range(31*12)]
-    v_i = [[960 + i * 1, 540 + i * 12 * np.tan(np.deg2rad(10))] for i in range(31*12)]
+    u_i = [[960 + i * 1, 540] for i in range(31 * 12)]
+    v_i = [[960 + i * 1, 540 + i * 12 * np.tan(np.deg2rad(10))] for i in range(31 * 12)]
     outputfile = "distancetest_10deg.csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
@@ -346,8 +376,8 @@ def test_distances2():
 
             writer.writerow(inh)
     plt.subplot(222)
-    #ax2 = [t[0] for t in d]
-    ax2 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31*12)]
+    # ax2 = [t[0] for t in d]
+    ax2 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31 * 12)]
     plt.plot(ax2, [t[1] for t in d], label="Winkel")
     # plt.plot(ax2, [t[2] for t in d], label="Winkel+")
     plt.plot(ax2, [t[3] for t in d], label="Winkel*")
@@ -358,8 +388,8 @@ def test_distances2():
     plt.legend()
 
     d = []
-    u_i = [[960 + i * 1, 540] for i in range(31*12)]
-    v_i = [[960 + i * 1, 540 + i * 1 * np.tan(np.deg2rad(30))] for i in range(31*12)]
+    u_i = [[960 + i * 1, 540] for i in range(31 * 12)]
+    v_i = [[960 + i * 1, 540 + i * 1 * np.tan(np.deg2rad(30))] for i in range(31 * 12)]
     outputfile = "distancetest_30deg.csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
@@ -385,8 +415,8 @@ def test_distances2():
 
             writer.writerow(inh)
     plt.subplot(223)
-    #ax2 = [t[0] for t in d]
-    ax2 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31*12)]
+    # ax2 = [t[0] for t in d]
+    ax2 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31 * 12)]
     plt.plot(ax2, [t[1] for t in d], label="Winkel")
     # plt.plot(ax2, [t[2] for t in d], label="Winkel+")
     plt.plot(ax2, [t[3] for t in d], label="Winkel*")
@@ -397,8 +427,8 @@ def test_distances2():
     plt.legend()
 
     d = []
-    u_i = [[960 + i * 1, 540] for i in range(31*12)]
-    v_i = [[960 - i * 1, 540 + i * 1 * np.tan(np.deg2rad(60))] for i in range(31*12)]
+    u_i = [[960 + i * 1, 540] for i in range(31 * 12)]
+    v_i = [[960 - i * 1, 540 + i * 1 * np.tan(np.deg2rad(60))] for i in range(31 * 12)]
     outputfile = "distancetest_120deg.csv"
     with open(outputfile, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
@@ -424,8 +454,8 @@ def test_distances2():
 
             writer.writerow(inh)
     plt.subplot(224)
-    #ax2 = [t[0] for t in d]
-    ax2 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31*12)]
+    # ax2 = [t[0] for t in d]
+    ax2 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31 * 12)]
     plt.plot(ax2, [t[1] for t in d], label="Winkel")
     # plt.plot(ax2, [t[2] for t in d], label="Winkel+")
     plt.plot(ax2, [t[3] for t in d], label="Winkel*")
@@ -530,8 +560,8 @@ def test_distances3():
 
         plt.subplot(222)
         # ax2 = [t[0] for t in d]
-        m = [960,540]
-        ax4 = [max([distance_2dim(u_i[j],m),distance_2dim(v_i[j],m)]) for j in range(31)]
+        m = [960, 540]
+        ax4 = [max([distance_2dim(u_i[j], m), distance_2dim(v_i[j], m)]) for j in range(31)]
         plt.plot(ax4, [t[1] for t in d], label="Winkel")
         # plt.plot(ax2, [t[2] for t in d], label="Winkel+")
         plt.plot(ax4, [t[3] for t in d], label="Winkel*")
@@ -541,7 +571,7 @@ def test_distances3():
         plt.ylabel("Winkel")
         plt.legend()
         plt.show()
-        #plt.savefig("Test3_"+str(o)+".png")
+        # plt.savefig("Test3_"+str(o)+".png")
 
 
 if __name__ == "__main__":
