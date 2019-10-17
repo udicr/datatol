@@ -133,5 +133,5 @@ if __name__ == "__main__":
     alias = sys.argv[2]
     distance = sys.argv[3]
     pr = pbn.split('_')[0] if '_' in pbn else pbn
-    #hg(pbn, pr, alias, distance)
-    pathplot(pbn,pr,alias,distance)
+    hg(pbn, pr, alias, distance)
+    pathplot(pbn, pr, alias, distance)
