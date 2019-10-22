@@ -4,8 +4,8 @@ from pandas import *
 import pandas as pd
 import pyreadr
 from fastdtw import fastdtw
-from dtaidistance import dtw
-from dtaidistance import dtw_visualisation as dtwvis
+#from dtaidistance import dtw
+#from dtaidistance import dtw_visualisation as dtwvis
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib
@@ -320,7 +320,7 @@ def save_old(path, distance, path2, distance2, n, name="test"):
             writer.writerow([path[i][0], path[i][1], "", "", "", "", ""])
 
 
-def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0, ip=1):
+def save(path, ref, query, n, distance, pdistance, prob="00", alias="alias", dist=0, ip=1):
     if dist == 0:
         name = prob + "_" + alias + "_euklid"
     elif dist == 1:
@@ -339,14 +339,14 @@ def save(path, ref, query, n, distance, prob="00", alias="alias", dist=0, ip=1):
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow([distance])
         writer.writerow([n])
-    header = ["path_ref", "path_query", "ref_x", "ref_y", "query_x", "query_y"]
+    header = ["path_ref", "path_query", "path_distance", "ref_x", "ref_y", "query_x", "query_y"]
     with open(outputfile2, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow(header)
         for i in range(n):
-            writer.writerow([path[i][0], path[i][1], ref[i, 0], ref[i, 1], query[i, 0], query[i, 1]])
+            writer.writerow([path[i][0], path[i][1], pdistance[i], ref[i, 0], ref[i, 1], query[i, 0], query[i, 1]])
         for i in range(n, len(path)):
-            writer.writerow([path[i][0], path[i][1], "-", "-", "-", "-"])
+            writer.writerow([path[i][0], path[i][1], pdistance[i], "-", "-", "-", "-"])
 
 
 def do_whole_pb(prob="pb1"):
@@ -376,6 +376,11 @@ def do_whole_pb(prob="pb1"):
             raise (KeyError)
 
 
+def get_path_distances(p, r, q, distance):
+    d = [distance([r[p[i][0], 0], r[p[i][0], 1]], v=[q[p[i][1], 0], q[p[i][1], 1]]) for i in range(len(p))]
+    return d
+
+
 def do_video(cut, prob, alias, ip=1):
     distances = [distance_2dim, distance_winkel, distance_winkel4]
     for i in range(3):
@@ -390,8 +395,11 @@ def do_video(cut, prob, alias, ip=1):
 
         distance, path = fastdtw(ref2D, query2D, dist=distances[i])
 
+        path_distances = get_path_distances(path, ref2D, query2D, distances[i])
+
         print("Saving Results ...")
-        save(path, ref2D, query2D, n, distance, prob=prob, alias=alias, dist=i, ip=ip)
+        save(path, ref2D, query2D, n, distance, path_distances,
+             prob=prob, alias=alias, dist=i, ip=ip)
 
 
 def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb1") AND make_plots("pb1_2")
