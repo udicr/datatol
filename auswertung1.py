@@ -62,7 +62,7 @@ def calc_mdos(pbn, pr, alias, distance):
         absolut_distance = float(lines[0].strip())
         len_of_signal = int(lines[1].strip())
     mean_distance_of_signal = absolut_distance * 1.0 / len_of_signal
-    return absolut_distance, mean_distance_of_signal
+    return absolut_distance, len_of_signal, mean_distance_of_signal
 
 
 def analyse_path(pbn, pr, alias, distance):
@@ -83,6 +83,8 @@ def analyse_path(pbn, pr, alias, distance):
     query_x = pop_m(list_df["query_x"].to_numpy())
     query_y = pop_m(list_df["query_y"].to_numpy())
     distlist = []
+    bucketlst = list(range(-510, 520, 20))
+    buckets = [0 for i in range(len(bucketlst) + 1)]
     for i in range(len(path_ref)):
         p_x = path_ref[i]
         p_y = path_query[i]
@@ -97,6 +99,8 @@ def analyse_path(pbn, pr, alias, distance):
             minusct += 1
             if oh < mind:
                 mind = oh
+        id = get_bucket_id(bucketlst, oh)
+        buckets[id] += 1
 
         dist = -1
         u = [float(ref_x[path_ref[i]]), float(ref_y[path_ref[i]])]
@@ -112,7 +116,14 @@ def analyse_path(pbn, pr, alias, distance):
     mindist = min(distlist)
     med = statistics.median(distlist)
 
-    return med, zeroct, plusct, minusct, maxd, mind, maxdist, mindist
+    return med, zeroct, plusct, minusct, maxd, mind, maxdist, mindist, bucketlst, buckets
+
+
+def get_bucket_id(bl, oh):
+    for upper_bound in bl:
+        if oh < upper_bound:  # buckets have shape [lower_bound,upper_bound)
+            return bl.index(upper_bound)
+    return len(bl)
 
 
 def calc_heatmap(pbn, pr, alias, distance):
@@ -133,20 +144,24 @@ def calc_heatmap(pbn, pr, alias, distance):
 
 def auswertung(pbnlist, distances, aliases):
     results = []
-    header = ["Proband", "IP", "Video", "Distancemeasure", "total_distance", "mean_distance", "median_distance",
+    header = ["Proband", "IP", "Video", "Distancemeasure", "total_distance", "len_of_signal", "mean_distance",
+              "median_distance",
               "zero-overhead-counter",
               "ref before query (rbq)",
               "query berfore ref (qbr)", "max rbq", "max qbr", "max distance", "min distance"]
+
     for pbn in pbnlist:
         pr = pbn.split('_')[0] if '_' in pbn else pbn
         ip = pbn.split('_')[1] if '_' in pbn else 1
         for alias in aliases:
             for dist in distances:
                 pbnres = [pr, ip, alias, dist]
-                dos, mdos = calc_mdos(pbn, pr, alias, dist)
+                dos, leng, mdos = calc_mdos(pbn, pr, alias, dist)
                 pbnres.append(dos)
                 pbnres.append(mdos)
-                med, zeroct, plusct, minusct, max, min, maxdist, mindist = analyse_path(pbn, pr, alias, dist)
+                pbnres.append(leng)
+                med, zeroct, plusct, minusct, max, min, maxdist, mindist, bucketlst, buckets = analyse_path(pbn, pr,
+                                                                                                            alias, dist)
                 pbnres.append(med)
                 pbnres.append(zeroct)
                 pbnres.append(plusct)
@@ -155,9 +170,19 @@ def auswertung(pbnlist, distances, aliases):
                 pbnres.append(min)
                 pbnres.append(maxdist)
                 pbnres.append(mindist)
+                for counter in buckets:
+                    pbnres.append(counter)
 
                 results.append(pbnres)
-        print("pbn done: "+ pbn)
+
+
+        print("pbn done: " + pbn)
+    bucketheaders = ["Oh < -500"]
+    for i in range(1, len(bucketlst)):
+        bucketheaders.append(str(bucketlst[i - 1]) + " <= Oh < " + str(bucketlst[i]))
+    bucketheaders.append("Oh > 500")
+    header += bucketheaders
+
     return header, results
 
 
@@ -225,7 +250,6 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
-    '''
     pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2",
                "pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
 
@@ -233,8 +257,8 @@ if __name__ == "__main__":
 
     header, results = auswertung(pbnlist, distances, aliases)
     write_ausw(header, results)
-    '''
 
+    '''
     pbn = sys.argv[1]
     #pbn = "pb1"
     alias = "BGL1"
@@ -243,4 +267,4 @@ if __name__ == "__main__":
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")
-
+    '''
