@@ -237,7 +237,7 @@ if __name__ == "__main__":
 
     pbn = sys.argv[1]
     #pbn = "pb1"
-    alias = "Spot1"
+    alias = "BGL1"
     distance = sys.argv[2]
     #distance = "winkellog"
     pr = pbn.split('_')[0] if '_' in pbn else pbn
