@@ -6,7 +6,7 @@ import sys
 
 def run_dtw(pbn):
     output = []
-    process = subprocess.Popen('python DTW.py ' + pbn, stdout=subprocess.PIPE,
+    process = subprocess.Popen('python3 DTW.py ' + pbn, stdout=subprocess.PIPE,
                                cwd=".", shell=True)
     for line in iter(process.stdout.readline, b''):
         l = line.decode('utf-8')
@@ -18,7 +18,7 @@ def run_dtw(pbn):
 
 def plot_dtw(pbn):
     output = []
-    process = subprocess.Popen('python DTW.py ' + pbn + " plot", stdout=subprocess.PIPE,
+    process = subprocess.Popen('python3 DTW.py ' + pbn + " plot", stdout=subprocess.PIPE,
                                cwd=".", shell=True)
     for line in iter(process.stdout.readline, b''):
         l = line.decode('utf-8')
@@ -29,8 +29,8 @@ def plot_dtw(pbn):
 
 
 def main_multi():
-    pool = ThreadPool(4)
-    pbns = ["pb1", "pb2", "pb3", "pb4"]
+    pool = ThreadPool(3)
+    pbns = ["pb5", "pb7", "pb8", "pb9", "pb10", "pb11", "pb12"]
     results = pool.map(run_dtw, pbns)
     with open("DTW_log.txt", "a") as file:
         file.write("Log_from_DTW:DynTimeWarp at " + datetime.datetime.now().strftime("%c"))
@@ -41,7 +41,7 @@ def main_multi():
 
 def plot_multi():
     pool = ThreadPool(4)
-    pbns = ["pb10","pb11_2","pb11","pb13_2","pb13","pb12"]
+    pbns = ["pb10", "pb11_2", "pb11", "pb13_2", "pb13", "pb12"]
     results = pool.map(plot_dtw, pbns)
     with open("DTW_plotlog.txt", "a") as file:
         file.write("Log_from_DTW:Plot at " + datetime.datetime.now().strftime("%c"))
@@ -49,7 +49,7 @@ def plot_multi():
             for r in res:
                 file.write(r + "\n")
 
+
 if __name__ == "__main__":
     main_multi()
-    #plot_multi()
-
+    # plot_multi()
