@@ -30,7 +30,7 @@ def plot_dtw(pbn):
 
 def main_multi():
     pool = ThreadPool(3)
-    pbns = ["pb5", "pb7", "pb8", "pb9", "pb10", "pb11", "pb12"]
+    pbns = ["pb13"]
     results = pool.map(run_dtw, pbns)
     with open("DTW_log.txt", "a") as file:
         file.write("Log_from_DTW:DynTimeWarp at " + datetime.datetime.now().strftime("%c"))
