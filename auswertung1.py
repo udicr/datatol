@@ -177,10 +177,10 @@ def auswertung(pbnlist, distances, aliases):
 
 
         print("pbn done: " + pbn)
-    bucketheaders = ["Oh < -500"]
+    bucketheaders = ["Oh < -510"]
     for i in range(1, len(bucketlst)):
         bucketheaders.append(str(bucketlst[i - 1]) + " <= Oh < " + str(bucketlst[i]))
-    bucketheaders.append("Oh > 500")
+    bucketheaders.append("Oh > 510")
     header += bucketheaders
 
     return header, results
@@ -250,6 +250,7 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
+    '''
     pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2",
                "pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
 
@@ -261,10 +262,10 @@ if __name__ == "__main__":
     '''
     pbn = sys.argv[1]
     #pbn = "pb1"
-    alias = "BGL1"
+    alias = "Spot1"
     distance = sys.argv[2]
     #distance = "winkellog"
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")
-    '''
+

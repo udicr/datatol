@@ -4,8 +4,11 @@ from pandas import *
 import pandas as pd
 import pyreadr
 from fastdtw import fastdtw
-#from dtaidistance import dtw
-#from dtaidistance import dtw_visualisation as dtwvis
+from dtaidistance import dtw_ndim
+from dtaidistance import dtw as dtaidtw
+from dtaidistance import dtw_visualisation as dtwvis
+from dtaidistance import dtw_ndim_visualisation as ndtwvis
+from dtw import accelerated_dtw, dtw
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib
@@ -19,6 +22,7 @@ import os
 from multiprocessing.dummy import Pool as ThreadPool
 import datetime
 import sys
+from cdtw import pydtw
 
 plotting = 0
 '''
@@ -55,15 +59,7 @@ aliases = [
     "BGL5",
     "BGL6",
     "BGL7",
-    "BGL8",
-    "Control1",
-    "Control2",
-    "Control3",
-    "Control4",
-    "Control5",
-    "Control6",
-    "Control7",
-    "Control8",
+    "BGL8"
 ]
 
 
@@ -382,6 +378,7 @@ def get_path_distances(p, r, q, distance):
 
 
 def do_video(cut, prob, alias, ip=1):
+    dtw_pack = "cdtw"
     distances = [distance_2dim, distance_winkel, distance_winkel4]
     for i in range(3):
         ref = cut[['x_coord', 'y_coord']].to_numpy(copy=True)
@@ -393,8 +390,23 @@ def do_video(cut, prob, alias, ip=1):
 
         print("Doing DTW ...")
 
-        distance, path = fastdtw(ref2D, query2D, dist=distances[i])
-
+        if dtw_pack == "fastdtw":
+            distance, path = fastdtw(ref2D, query2D, dist=distances[i])
+        elif dtw_pack == "dtaidistance":
+            distance, paths = dtw_ndim.warping_paths(ref2D, query2D, window=1500)
+            path = dtaidtw.best_path(paths)
+            # ndtwvis.plot_warpingpaths(ref2D, query2D, paths, path, filename="test1.jpg")
+        elif dtw_pack == "dtw":
+            distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distance_2dim, w=1500)
+            path = np.column_stack(path)
+        elif dtw_pack == "cdtw":
+            print(ref2D)
+            print(query2D)
+            d = pydtw.dtw(ref2D, query2D, pydtw.Settings(window='palival', param=2.0, compute_path=True))
+            distance = d.get_dist()
+            path = d.get_path()
+        else:
+            raise ModuleNotFoundError
         path_distances = get_path_distances(path, ref2D, query2D, distances[i])
 
         print("Saving Results ...")
@@ -465,7 +477,7 @@ if __name__ == "__main__":
     datamode = True
     plotmode = False
     if len(sys.argv) > 2:
-        datamode = False
+        datamode = True
         plotmode = True
     if datamode:
         if len(sys.argv) < 2:
