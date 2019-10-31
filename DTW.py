@@ -8,7 +8,8 @@ from dtaidistance import dtw_ndim
 from dtaidistance import dtw as dtaidtw
 from dtaidistance import dtw_visualisation as dtwvis
 from dtaidistance import dtw_ndim_visualisation as ndtwvis
-from dtw import accelerated_dtw, dtw
+# from dtw import accelerated_dtw, dtw
+from dtw import *
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib
@@ -378,7 +379,7 @@ def get_path_distances(p, r, q, distance):
 
 
 def do_video(cut, prob, alias, ip=1):
-    dtw_pack = "cdtw"
+    dtw_pack = "dtw"
     distances = [distance_2dim, distance_winkel, distance_winkel4]
     for i in range(3):
         ref = cut[['x_coord', 'y_coord']].to_numpy(copy=True)
@@ -397,14 +398,21 @@ def do_video(cut, prob, alias, ip=1):
             path = dtaidtw.best_path(paths)
             # ndtwvis.plot_warpingpaths(ref2D, query2D, paths, path, filename="test1.jpg")
         elif dtw_pack == "dtw":
-            distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distance_2dim, w=1500)
+            if i == 0:
+                name = prob + "_" + alias + "_euklid"
+            elif i == 1:
+                name = prob + "_" + alias + "_winkel"
+            elif i == 2:
+                name = prob + "_" + alias + "_winkellog"
+            distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distances[i], w=1500)
+            np.save("matrices/" + name + "_cost_matrix", cost_matrix)
+            np.save("matrices/" + name + "_acc_cost_matrix", acc_cost_matrix)
             path = np.column_stack(path)
         elif dtw_pack == "cdtw":
-            print(ref2D)
-            print(query2D)
             d = pydtw.dtw(ref2D, query2D, pydtw.Settings(window='palival', param=2.0, compute_path=True))
             distance = d.get_dist()
             path = d.get_path()
+            raise NotImplementedError  # doesnt work yet
         else:
             raise ModuleNotFoundError
         path_distances = get_path_distances(path, ref2D, query2D, distances[i])
