@@ -24,6 +24,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 import datetime
 import sys
 from cdtw import pydtw
+import gc
 
 plotting = 0
 '''
@@ -76,7 +77,7 @@ def check_datadir():
 def check_plottingdir():
     try:
         os.mkdir('./plots/')
-        print("Erstelle Ordner für Output-Plots")
+        print("Ordner fuer Output-Plots")
     except OSError as e:
         pass
 
@@ -87,7 +88,7 @@ def check_plottingdir_pbn(pbn):
         if pb_no % 2 == 1:
             os.mkdir('./plots/' + pbn + '_2/')
         os.mkdir('./plots/' + pbn + '/')
-        print("Erstelle Ordner für Output-Plots")
+        print("Erstelle Ordner fuer Output-Plots")
     except OSError as e:
         pass
 
@@ -95,7 +96,7 @@ def check_plottingdir_pbn(pbn):
 def check_outputdir():
     try:
         os.mkdir('./output/')
-        print("Erstelle Ordner für Output")
+        print("Erstelle Ordner fuer Output")
     except OSError as e:
         pass
 
@@ -107,7 +108,7 @@ def check_outputdir_pbn(pbn):
             os.mkdir('./output/' + pbn + '_2/')
         os.mkdir('./output/' + pbn + '/')
 
-        print("Erstelle Ordner für Output")
+        print("Erstelle Ordner fuer Output")
     except OSError as e:
         pass
 
@@ -420,6 +421,7 @@ def do_video(cut, prob, alias, ip=1):
         print("Saving Results ...")
         save(path, ref2D, query2D, n, distance, path_distances,
              prob=prob, alias=alias, dist=i, ip=ip)
+        gc.collect()
 
 
 def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb1") AND make_plots("pb1_2")

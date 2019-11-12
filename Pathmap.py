@@ -128,7 +128,6 @@ class Pathmap:
         m = self.get_matrix_adaptiv()  # [::-1, :]
         # mask = np.array(
         #   [[False if abs(i - (self.signal_len-j)) <= 1500 else True for i in range(self.signal_len)] for j in range(self.signal_len)])
-
         fig, ax = plt.subplots(figsize=(60, 50))
         c = ax.imshow(m, cmap="viridis")
         cb = fig.colorbar(c, ax=ax, fraction=0.046, pad=0.04)
@@ -140,4 +139,28 @@ class Pathmap:
         plt.clf()
         t = time() - t0
         print("Generating Distance Matrix and Plotting took " + str(t))
+
+    def heatmap3(self):
+        fontsize = 30
+        t0 = time()
+        m = self.read_matrix()
+        fig, ax = plt.subplots(figsize=(60, 50))
+        c = ax.imshow(m, cmap="viridis")
+        cb = fig.colorbar(c, ax=ax, fraction=0.046, pad=0.04)
+        plt.gca().invert_yaxis()
+        # cb.set_label(label='distance')
+        ax.tick_params(labelsize=fontsize)
+        cb.ax.tick_params(labelsize=fontsize)
+        plt.savefig(self.name+"2")
+        plt.clf()
+        t = time() - t0
+        print("Generating Distance Matrix and Plotting took " + str(t))
+
+    def read_matrix(self):
+        #name = "plots/Pathmaps/" + pbn + "_" + alias + "_" + distance + "_pathmap.png"
+        _name = self.name.split('/')[-1].split('.')[0].split('_pathmap')[0]
+        c_m = np.save("matrices/" + _name + "_cost_matrix", )
+        a_c_m = np.save("matrices/" + _name + "_acc_cost_matrix")
+        return a_c_m
+
 
