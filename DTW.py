@@ -405,10 +405,15 @@ def do_video(cut, prob, alias, ip=1):
                 name = prob + "_" + alias + "_winkel"
             elif i == 2:
                 name = prob + "_" + alias + "_winkellog"
-            distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distances[i], w=1500)
-            np.save("matrices/" + name + "_cost_matrix", cost_matrix)
-            np.save("matrices/" + name + "_acc_cost_matrix", acc_cost_matrix)
-            path = np.column_stack(path)
+            if not_done_yet(name):
+                distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distances[i], w=1500)
+                np.save("matrices/" + name + "_cost_matrix", cost_matrix)
+                np.save("matrices/" + name + "_acc_cost_matrix", acc_cost_matrix)
+                print("Generating Path")
+                path = np.column_stack(path)
+            else:
+                print("Skipped already existing Trial: "+name)
+                continue
         elif dtw_pack == "cdtw":
             d = pydtw.dtw(ref2D, query2D, pydtw.Settings(window='palival', param=2.0, compute_path=True))
             distance = d.get_dist()
@@ -416,13 +421,15 @@ def do_video(cut, prob, alias, ip=1):
             raise NotImplementedError  # doesnt work yet
         else:
             raise ModuleNotFoundError
+        print("Calculating Path Distances")
         path_distances = get_path_distances(path, ref2D, query2D, distances[i])
 
         print("Saving Results ...")
         save(path, ref2D, query2D, n, distance, path_distances,
              prob=prob, alias=alias, dist=i, ip=ip)
         gc.collect()
-
+def not_done_yet(name):
+    return os.path.isfile("matrices/" + name + "_cost_matrix")
 
 def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb1") AND make_plots("pb1_2")
     pr = pbn.split('_')[0] if "_" in pbn else pbn
