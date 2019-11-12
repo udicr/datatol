@@ -3,10 +3,36 @@ import datetime
 import subprocess
 import sys
 
+aliases = [
+    "Spot1",
+    "Spot2",
+    "Spot3",
+    "Spot4",
+    "Spot5",
+    "Spot6",
+    "Spot7",
+    "Spot8",
+    "GL1",
+    "GL2",
+    "GL3",
+    "GL4",
+    "GL5",
+    "GL6",
+    "GL7",
+    "GL8",
+    "BGL1",
+    "BGL2",
+    "BGL3",
+    "BGL4",
+    "BGL5",
+    "BGL6",
+    "BGL7",
+    "BGL8"
+]
 
-def run_dtw(pbn):
+def run_dtw(input):
     output = []
-    process = subprocess.Popen('python3 DTW.py ' + pbn, stdout=subprocess.PIPE,
+    process = subprocess.Popen('python3 DTW.py ' + input, stdout=subprocess.PIPE,
                                cwd=".", shell=True)
     for line in iter(process.stdout.readline, b''):
         l = line.decode('utf-8')
@@ -48,6 +74,17 @@ def plot_multi():
         for res in results:
             for r in res:
                 file.write(r + "\n")
+def main2_multi():
+    pool = ThreadPool(4)
+    pbns = ["5"]
+    todo = [pb+" "+al for pb in pbns for al in aliases]
+    results = pool.map(run_dtw, todo)
+    with open("DTW_log.txt", "a") as file:
+        file.write("Log_from_DTW:DynTimeWarp at " + datetime.datetime.now().strftime("%c"))
+        for res in results:
+            for r in res:
+                file.write(r + "\n")
+
 
 
 if __name__ == "__main__":
