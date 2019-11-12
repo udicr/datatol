@@ -430,10 +430,13 @@ def do_video(cut, prob, alias, ip=1):
                 name = prob + "_" + alias + "_winkel"
             elif i == 2:
                 name = prob + "_" + alias + "_winkellog"
+            else:
+                raise KeyError
             if not_done_yet(name):
                 distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distances[i], w=1500)
                 np.save("matrices/" + name + "_cost_matrix", cost_matrix)
                 np.save("matrices/" + name + "_acc_cost_matrix", acc_cost_matrix)
+                np.save("matrices/" + name + "path", path)
                 print("Generating Path")
                 path = np.column_stack(path)
             else:
@@ -456,7 +459,8 @@ def do_video(cut, prob, alias, ip=1):
 
 
 def not_done_yet(name):
-    return os.path.isfile("matrices/" + name + "_cost_matrix")
+    # return os.path.isfile("matrices/" + name + "_cost_matrix")
+    return True
 
 
 def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb1") AND make_plots("pb1_2")
@@ -471,7 +475,7 @@ def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb
         csvfiles += ["output/" + pbn + "/" + pr + "_" + alias + "_euklid_list.csv" for alias in aliases]
         csvfiles += ["output/" + pbn + "/" + pr + "_" + alias + "_winkel_list.csv" for alias in aliases]
         csvfiles += ["output/" + pbn + "/" + pr + "_" + alias + "_winkellog_list.csv" for alias in aliases]
-        print(csvfiles)
+        # print(csvfiles)
     for csvfile in csvfiles:
         df = pd.read_csv(csvfile)
 
@@ -557,4 +561,4 @@ if __name__ == "__main__":
             pbn = sys.argv[1]
             al = sys.argv[2]
             main_parallel(pbn, al)
-            make_plots(pbn)
+            # make_plots(pbn)

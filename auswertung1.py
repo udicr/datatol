@@ -139,7 +139,7 @@ def calc_heatmap(pbn, pr, alias, distance):
     query_y = pop_m(list_df["query_y"].to_numpy())
     name = "plots/Pathmaps/" + pbn + "_" + alias + "_" + distance + "_pathmap.png"
     pmap = Pathmap(path_ref, path_query, ref_x, ref_y, query_x, query_y, distance, name)
-    pmap.heatmap2()
+    pmap.heatmap3()
 
 
 def auswertung(pbnlist, distances, aliases):
