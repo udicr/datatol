@@ -408,6 +408,7 @@ def do_video(cut, prob, alias, ip=1):
             distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distances[i], w=1500)
             np.save("matrices/" + name + "_cost_matrix", cost_matrix)
             np.save("matrices/" + name + "_acc_cost_matrix", acc_cost_matrix)
+            print("Generating Path")
             path = np.column_stack(path)
         elif dtw_pack == "cdtw":
             d = pydtw.dtw(ref2D, query2D, pydtw.Settings(window='palival', param=2.0, compute_path=True))
@@ -416,6 +417,7 @@ def do_video(cut, prob, alias, ip=1):
             raise NotImplementedError  # doesnt work yet
         else:
             raise ModuleNotFoundError
+        print("Calculating Path Distances")
         path_distances = get_path_distances(path, ref2D, query2D, distances[i])
 
         print("Saving Results ...")
