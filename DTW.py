@@ -374,6 +374,31 @@ def do_whole_pb(prob="pb1"):
             raise (KeyError)
 
 
+def do_pb_outside(prob="pb1", alias="Spot1"):
+    print("Reading Data ...")
+    rda = pyreadr.read_r(prob + ".Rda")
+    df = rda["m.df_pb"]
+    pb_no = int(prob[2:])
+    print(pb_no)
+    if pb_no % 2 == 0:
+        mode = "slow"
+    else:
+        mode = "fast"
+    if mode == "slow":
+        cut = df[df.video == alias]
+        do_video(cut, prob, alias)
+    elif mode == "fast":
+        cut = df[df.video == alias]
+        cut_1 = cut[cut.IP_INDEX == 1]
+        cut_2 = cut[cut.IP_INDEX == 2]
+        print("Doing first block")
+        do_video(cut_1, prob, alias, 1)
+        print("Doing second block")
+        do_video(cut_2, prob, alias, 2)
+    else:
+        raise (KeyError)
+
+
 def get_path_distances(p, r, q, distance):
     d = [distance([r[p[i][0], 0], r[p[i][0], 1]], v=[q[p[i][1], 0], q[p[i][1], 1]]) for i in range(len(p))]
     return d
@@ -412,7 +437,7 @@ def do_video(cut, prob, alias, ip=1):
                 print("Generating Path")
                 path = np.column_stack(path)
             else:
-                print("Skipped already existing Trial: "+name)
+                print("Skipped already existing Trial: " + name)
                 continue
         elif dtw_pack == "cdtw":
             d = pydtw.dtw(ref2D, query2D, pydtw.Settings(window='palival', param=2.0, compute_path=True))
@@ -428,8 +453,11 @@ def do_video(cut, prob, alias, ip=1):
         save(path, ref2D, query2D, n, distance, path_distances,
              prob=prob, alias=alias, dist=i, ip=ip)
         gc.collect()
+
+
 def not_done_yet(name):
     return os.path.isfile("matrices/" + name + "_cost_matrix")
+
 
 def make_plots(pbn, video="all"):  # for fast ones u have to call make_plots("pb1") AND make_plots("pb1_2")
     pr = pbn.split('_')[0] if "_" in pbn else pbn
@@ -476,6 +504,18 @@ def main(pb):
     print(time() - t0)
 
 
+def main_parallel(pb, al):
+    check_datadir()
+    check_plottingdir()
+    check_outputdir()
+    check_outputdir_pbn(pb)
+    check_plottingdir_pbn(pb)
+    t0 = time()
+    do_pb_outside(pb, al)
+    print("PB " + pb + " Alias " + al + " done:")
+    print(time() - t0)
+
+
 def plot_multi():
     pool = ThreadPool(4)
     pbns = ["pb1", "pb2", "pb3", "pb4"]
@@ -491,20 +531,30 @@ def plot_multi():
 
 
 if __name__ == "__main__":
-    datamode = True
-    plotmode = False
-    if len(sys.argv) > 2:
+    parallelmode = 1
+    if parallelmode == 0:
         datamode = True
-        plotmode = True
-    if datamode:
-        if len(sys.argv) < 2:
-            print("Argument <PBN> required")
+        plotmode = False
+        if len(sys.argv) > 2:
+            datamode = True
+            plotmode = True
+        if datamode:
+            if len(sys.argv) < 2:
+                print("Argument <PBN> required")
+            else:
+                pbn = sys.argv[1]
+                main(pbn)
+        if plotmode:
+            if len(sys.argv) < 2:
+                print("Argument <PBN> required")
+            else:
+                pbn = sys.argv[1]
+                make_plots(pbn)
+    elif parallelmode == 1:
+        if len(sys.argv) < 3:
+            print("Arguments <PBN> <ALIAS> required")
         else:
             pbn = sys.argv[1]
-            main(pbn)
-    if plotmode:
-        if len(sys.argv) < 2:
-            print("Argument <PBN> required")
-        else:
-            pbn = sys.argv[1]
+            al = sys.argv[2]
+            main_parallel(pbn, al)
             make_plots(pbn)
