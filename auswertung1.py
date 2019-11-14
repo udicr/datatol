@@ -34,6 +34,8 @@ aliases = [
     "BGL6",
     "BGL7",
     "BGL8",
+    ]
+'''
     "Control1",
     "Control2",
     "Control3",
@@ -43,7 +45,7 @@ aliases = [
     "Control7",
     "Control8",
 ]
-
+'''
 
 # pbn = "pb1_2"
 
@@ -139,6 +141,7 @@ def calc_heatmap(pbn, pr, alias, distance):
     query_y = pop_m(list_df["query_y"].to_numpy())
     name = "plots/Pathmaps/" + pbn + "_" + alias + "_" + distance + "_pathmap.png"
     pmap = Pathmap(path_ref, path_query, ref_x, ref_y, query_x, query_y, distance, name)
+    #pmap.heatmap2()
     pmap.heatmap3()
 
 
@@ -259,6 +262,7 @@ if __name__ == "__main__":
     header, results = auswertung(pbnlist, distances, aliases)
     write_ausw(header, results)
 
+
     '''
     pbn = sys.argv[1]
     #pbn = "pb1"
@@ -268,4 +272,5 @@ if __name__ == "__main__":
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")
+
 

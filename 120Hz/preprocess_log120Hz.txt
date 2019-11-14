@@ -1,0 +1,386 @@
+[1] "Doing Preprocess for PBN: "
+[1] "1"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536381 28.7    1770749  94.6  1442291  77.1
+Vcells 2102870 16.1   45800452 349.5 47573013 363.0
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "2"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536344 28.7    1770749  94.6  1442291  77.1
+Vcells 2196279 16.8   46379508 353.9 48227489 368.0
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "3"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540776 28.9    1770749  94.6  1442291  77.1
+Vcells 2182630 16.7   46087996 351.7 47856568 365.2
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "4"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536345 28.7    1770749  94.6  1442291  77.1
+Vcells 2118419 16.2   45858484 349.9 47663634 363.7
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "5"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540777 28.9    1770749  94.6  1442291  77.1
+Vcells 2114346 16.2   45889135 350.2 47729855 364.2
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "7"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536381 28.7    1770749  94.6  1442291  77.1
+Vcells 2266439 17.3   46468182 354.6 48267898 368.3
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "8"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536344 28.7    1770749  94.6  1442291  77.1
+Vcells 2156442 16.5   46018284 351.1 47801049 364.7
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "9"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540769 28.9    1770749  94.6  1442291  77.1
+Vcells 2180740 16.7   46071003 351.5 47854474 365.2
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "10"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536342 28.7    1770749  94.6  1442291  77.1
+Vcells 2211071 16.9   46232316 352.8 48073162 366.8
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "11"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536276 28.7    1770749  94.6  1442291  77.1
+Vcells 2258176 17.3   46442839 354.4 48311277 368.6
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "12"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536173 28.7    1770749  94.6  1442291  77.1
+Vcells 1982710 15.2   38591767 294.5 48225192 368.0
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "13"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540678 28.9    1770749  94.6  1770749  94.6
+Vcells 2439824 18.7   46451120 354.4 48298278 368.5
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "14"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536246 28.7    1770749  94.6  1442291  77.1
+Vcells 2301180 17.6   38790550 296.0 48430318 369.5
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "15"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536279 28.7    1770749  94.6  1442291  77.1
+Vcells 2289143 17.5   38754518 295.7 48436245 369.6
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "16"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536246 28.7    1770749  94.6  1442291  77.1
+Vcells 2202143 16.9   38457012 293.5 48052926 366.7
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "17"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536280 28.7    1770749  94.6  1442291  77.1
+Vcells 2423207 18.5   46507746 354.9 48341250 368.9
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "18"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536246 28.7    1731918  92.5  1709466  91.3
+Vcells 1867572 14.3   41878908 319.6 43508101 332.0
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "19"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536285 28.7    1770749  94.6  1442291  77.1
+Vcells 2184244 16.7   46142380 352.1 47980056 366.1
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "20"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536208 28.7    1770749  94.6  1442291  77.1
+Vcells 2255431 17.3   38639180 294.8 48296940 368.5
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "21"
+[1] "Doing Preprocess for PBN: "
+[1] "22"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540642 28.9    1770749  94.6  1442291  77.1
+Vcells 2273630 17.4   38664518 295.0 48315272 368.7
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "24"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536246 28.7    1770749  94.6  1442291  77.1
+Vcells 2856681 21.8   40061494 305.7 50016151 381.6
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "25"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536286 28.7    1770749  94.6  1442291  77.1
+Vcells 2309939 17.7   38826268 296.3 48491831 370.0
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "26"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536245 28.7    1770749  94.6  1442291  77.1
+Vcells 2281248 17.5   38717363 295.4 48370125 369.1
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "27"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536297 28.7    1770749  94.6  1442291  77.1
+Vcells 2707914 20.7   39878212 304.3 49843223 380.3
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "28"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536244 28.7    1770749  94.6  1442291  77.1
+Vcells 2395874 18.3   46799677 357.1 48633066 371.1
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "29"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536295 28.7    1770749  94.6  1442291  77.1
+Vcells 2403760 18.4   39145749 298.7 48928233 373.3
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "30"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536245 28.7    1770749  94.6  1442291  77.1
+Vcells 2075538 15.9   45783967 349.4 47611471 363.3
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "31"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536293 28.7    1770749  94.6  1442291  77.1
+Vcells 2165521 16.6   38382962 292.9 47977071 366.1
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "32"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536247 28.7    1770749  94.6  1442291  77.1
+Vcells 2257869 17.3   38639004 294.8 48296472 368.5
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "33"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536295 28.7    1770749  94.6  1442291  77.1
+Vcells 2131796 16.3   45912871 350.3 47736168 364.2
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "34"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536246 28.7    1770749  94.6  1442291  77.1
+Vcells 2257841 17.3   38636691 294.8 48233024 368.0
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "35"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540694 28.9    1770749  94.6  1442291  77.1
+Vcells 2140964 16.4   45912739 350.3 47728654 364.2
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "36"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536247 28.7    1770749  94.6  1442291  77.1
+Vcells 2025130 15.5   45467136 346.9 47285328 360.8
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "37"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536257 28.7    1770749  94.6  1442291  77.1
+Vcells 2102777 16.1   45797017 349.5 47595635 363.2
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "38"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536246 28.7    1770749  94.6  1442291  77.1
+Vcells 2316380 17.7   38844235 296.4 48528738 370.3
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "39"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540681 28.9    1770749  94.6  1442291  77.1
+Vcells 2784573 21.3   47899005 365.5 49828131 380.2
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "40"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536245 28.7    1770749  94.6  1442291  77.1
+Vcells 2214314 16.9   38491321 293.7 48093613 367.0
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "41"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536280 28.7    1770749  94.6  1442291  77.1
+Vcells 2270872 17.4   38697575 295.3 48371969 369.1
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "42"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540643 28.9    1770749  94.6  1442291  77.1
+Vcells 2220033 17.0   38482448 293.6 48055195 366.7
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "43"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536022 28.7    1770749  94.6  1442291  77.1
+Vcells 2233533 17.1   38567156 294.3 48199687 367.8
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "44"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536246 28.7    1770749  94.6  1442291  77.1
+Vcells 2237513 17.1   38574367 294.3 48185015 367.7
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "45"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540683 28.9    1770749  94.6  1442291  77.1
+Vcells 2313131 17.7   38809338 296.1 48472411 369.9
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "46"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536243 28.7    1770749  94.6  1442291  77.1
+Vcells 2437582 18.6   46130008 352.0 47975481 366.1
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "47"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536284 28.7    1770749  94.6  1442291  77.1
+Vcells 2136968 16.4   45954251 350.7 47788309 364.6
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "48"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  540643 28.9    1770749  94.6  1442291  77.1
+Vcells 2524688 19.3   38893027 296.8 48604430 370.9
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "49"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536282 28.7    1770749  94.6  1442291  77.1
+Vcells 2218240 17.0   38517684 293.9 48137934 367.3
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "51"
+[1] "FAST VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536285 28.7    1770749  94.6  1442291  77.1
+Vcells 2390395 18.3   39470432 301.2 49304480 376.2
+[1] "Preprocess done"
+[1] "-------------------------------------------------"
+[1] "Doing Preprocess for PBN: "
+[1] "52"
+[1] "SLOW VISUAL"
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  536245 28.7    1770749  94.6  1442291  77.1
+Vcells 2254491 17.3   38630171 294.8 48286810 368.4
+[1] "Preprocess done"
+[1] "-------------------------------------------------"

@@ -30,7 +30,7 @@ def run(pb):
 
 if __name__ == "__main__":
     results = pool.map(run,pbns)
-    with open("preprocess_log1-4.txt","w") as file:
+    with open("preprocess_log.txt","w") as file:
         for res in results:
             for r in res:
                 file.write(r + "\n")

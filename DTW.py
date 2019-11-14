@@ -405,6 +405,7 @@ def get_path_distances(p, r, q, distance):
 
 
 def do_video(cut, prob, alias, ip=1):
+    pb = prob if ip == 1 else prob + "_" + str(ip)
     dtw_pack = "dtw"
     distances = [distance_2dim, distance_winkel, distance_winkel4]
     for i in range(3):
@@ -425,11 +426,11 @@ def do_video(cut, prob, alias, ip=1):
             # ndtwvis.plot_warpingpaths(ref2D, query2D, paths, path, filename="test1.jpg")
         elif dtw_pack == "dtw":
             if i == 0:
-                name = prob + "_" + alias + "_euklid"
+                name = pb + "_" + alias + "_euklid"
             elif i == 1:
-                name = prob + "_" + alias + "_winkel"
+                name = pb + "_" + alias + "_winkel"
             elif i == 2:
-                name = prob + "_" + alias + "_winkellog"
+                name = pb + "_" + alias + "_winkellog"
             else:
                 raise KeyError
             if not_done_yet(name):
