@@ -421,7 +421,7 @@ def do_video(cut, prob, alias, ip=1):
         if dtw_pack == "fastdtw":
             distance, path = fastdtw(ref2D, query2D, dist=distances[i])
         elif dtw_pack == "dtaidistance":
-            distance, paths = dtw_ndim.warping_paths(ref2D, query2D, window=1500)
+            distance, paths = dtw_ndim.warping_paths(ref2D, query2D, window=500)
             path = dtaidtw.best_path(paths)
             # ndtwvis.plot_warpingpaths(ref2D, query2D, paths, path, filename="test1.jpg")
         elif dtw_pack == "dtw":
@@ -434,7 +434,7 @@ def do_video(cut, prob, alias, ip=1):
             else:
                 raise KeyError
             if not_done_yet(name):
-                distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distances[i], w=1500)
+                distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distances[i], w=500)
                 np.save("matrices/" + name + "_cost_matrix", cost_matrix)
                 np.save("matrices/" + name + "_acc_cost_matrix", acc_cost_matrix)
                 np.save("matrices/" + name + "path", path)

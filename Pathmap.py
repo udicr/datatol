@@ -163,4 +163,4 @@ class Pathmap:
         c_m = np.load("matrices/" + _name + "_cost_matrix.npy")
         a_c_m = np.load("matrices/" + _name + "_acc_cost_matrix.npy")
         p = np.load("matrices/" + _name + "path.npy")
-        return p, a_c_m
+        return p, c_m

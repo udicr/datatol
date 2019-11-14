@@ -45,9 +45,9 @@ def heatmap_multi():
 
 def aw2_multi():
     pool = ThreadPool(4)
-    pbns = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2"]  # , "pb2", "pb3", "pb3_2", "pb4"]
+    pbns = ["pb1"]  # , "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2"]  # , "pb2", "pb3", "pb3_2", "pb4"]
     distances = ["euklid", "winkel", "winkellog"]
-    #aliases = ["Spot1", "Spot5", "GL1", "GL5", "BGL1", "BGL5", "Control1", "Control5"]
+    # aliases = ["Spot1", "Spot5", "GL1", "GL5", "BGL1", "BGL5", "Control1", "Control5"]
     aliases = [
         "Spot1",
         "Spot2",
@@ -86,5 +86,5 @@ def aw2_multi():
 
 
 if __name__ == "__main__":
-    #heatmap_multi()
+    # heatmap_multi()
     aw2_multi()
