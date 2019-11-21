@@ -436,7 +436,7 @@ def do_video(cut, prob, alias, ip=1):
             if not_done_yet(name):
                 distance, cost_matrix, acc_cost_matrix, path = dtw(ref2D, query2D, distances[i], w=500)
                 np.save("matrices/" + name + "_cost_matrix", cost_matrix)
-                np.save("matrices/" + name + "_acc_cost_matrix", acc_cost_matrix)
+                #np.save("matrices/" + name + "_acc_cost_matrix", acc_cost_matrix)
                 np.save("matrices/" + name + "path", path)
                 print("Generating Path")
                 path = np.column_stack(path)

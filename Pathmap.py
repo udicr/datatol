@@ -161,6 +161,6 @@ class Pathmap:
         # name = "plots/Pathmaps/" + pbn + "_" + alias + "_" + distance + "_pathmap.png"
         _name = self.name.split('/')[-1].split('.')[0].split('_pathmap')[0]
         c_m = np.load("matrices/" + _name + "_cost_matrix.npy")
-        a_c_m = np.load("matrices/" + _name + "_acc_cost_matrix.npy")
+        #a_c_m = np.load("matrices/" + _name + "_acc_cost_matrix.npy")
         p = np.load("matrices/" + _name + "path.npy")
         return p, c_m
