@@ -78,7 +78,7 @@ def plot_multi():
 
 
 def main2_multi():
-    pool = ThreadPool(2)
+    pool = ThreadPool(4)
     pbns = ["pb1"]#, "pb11", "pb12","pb13"]
     todo = [pb + " " + al for pb in pbns for al in aliases]
     results = pool.map(run_dtw, todo)
