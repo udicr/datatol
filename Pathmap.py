@@ -146,7 +146,7 @@ class Pathmap:
         p, m = self.read_matrix()
         fig, ax = plt.subplots(figsize=(60, 50))
         c = ax.imshow(m, cmap="viridis")
-        plt.plot(p[0], p[1], 'w')
+        plt.plot(p[0], p[1], 'w',linewidth=15)
         cb = fig.colorbar(c, ax=ax, fraction=0.046, pad=0.04)
         plt.gca().invert_yaxis()
         # cb.set_label(label='distance')
