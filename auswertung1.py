@@ -253,27 +253,25 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
-
+    '''
     pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2","pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
 
     distances = ["euklid", "winkel", "winkellog"]
 
     header, results = auswertung(pbnlist, distances, aliases)
     write_ausw(header, results)
-
-
-
     '''
-    #pbn = sys.argv[1]
-    pbn = "pb1"
-    #alias = "Spot1"
-    alias = sys.argv[1]
-    distance = sys.argv[2]
-    #distance = "winkellog"
+
+
+
+    pbn = sys.argv[1]
+    alias = sys.argv[2]
+    distance = sys.argv[3]
+    print(pbn+" "+alias+" "+distance)
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")
-    '''
+
 
 
 
