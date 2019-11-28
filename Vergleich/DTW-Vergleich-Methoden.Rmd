@@ -1,0 +1,360 @@
+---
+title: "DTW Vergleich der Methoden"
+output: html_notebook
+---
+
+Verglichen werden DTW und fast DTW mit allen 3 Distanzmaßen und in 120Hz bzw. 500 Hz Aufnahmefrequenz
+
+#libraries
+```{r}
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+library(psych)
+
+```
+
+# 120 HZ
+
+## DTW
+
+```{r}
+df <- read.csv("A:/Auswertung/Exp_Melanie/Gaze Pursuit/data/auswertung1_1-13(o6)_DTW.csv", sep=";")
+df <- df %>% mutate(Block = case_when(grepl("Spot", Video) ~ "Spot",
+                                      grepl("BGL", Video) ~ "CL",
+                                      grepl("GL", Video) ~ "SL",
+                                      grepl("Control", Video) ~ "Kontrolle",
+                                      TRUE ~ "none"))
+
+df$Block.f <- as.factor(df$Block)
+df$Block.f <- factor(df$Block.f, levels = c("Kontrolle", "Spot", "SL", "CL"))
+
+df$PB <- gsub("pb", "", df$Proband)
+df$PB <- as.numeric(df$PB)
+
+df <- df %>% mutate(speed = case_when((PB %% 2) == 0 ~ "langsam", TRUE ~ "schnell") )
+df$speed.f <- as.factor(df$speed)
+
+df.sub <- subset(df, Block.f != "Kontrolle")
+```
+
+###euklidisch
+```{r}
+df.sub <- subset(df.sub, Distancemeasure == "euklid")
+
+```
+
+
+####Deskriptiv
+
+```{r}
+
+desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
+df.desk <- do.call(rbind.data.frame, desk)
+df.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
+df.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
+
+```
+
+
+
+
+####Boxplots
+```{r}
+
+
+ggplot(df.sub, aes(y=total_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Distanz gesamt", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=total_distance, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=mean_distance, x= Block.f,color = speed.f)) + geom_boxplot()+ 
+  labs(x = "Visualisierung", y = "Distanz Mittelwert", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=mean_distance, x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=median_distance, x= Block.f,color = speed.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=median_distance, x= Video,color = speed.f)) + geom_boxplot()
+
+```
+
+```{r}
+ggplot(df.sub, aes(y=zero.overhead.counter, x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Anzahl ohne Versatz", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=zero.overhead.counter, x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=ref.before.query..rbq., x= Block.f, color = speed.f)) + geom_boxplot() +
+  labs(x = "Visualisierung", y = "Anzahl Blick hinter Visualisierung", title = "Distanz:euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=ref.before.query..rbq., x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Anzahl Blick vor Visualisierung", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Video, color = speed.f)) + geom_boxplot()
+```
+
+
+```{r}
+ggplot(df.sub, aes(y=max.rbq, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.rbq, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=max.qbr, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.qbr, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=max.distance, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.distance, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=min.distance, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=min.distance, x= Video)) + geom_boxplot()
+```
+
+####Histogram/ bin Analyse
+```{r}
+names(df.sub)[16:68]<-c(-26:26)
+
+df.sub.h <- subset(df.sub, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+
+df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
+colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
+```
+
+```{r}
+barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
+
+p<- ggplot(barplot.eu, aes(x=bin, y=mw, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) 
+q<- ggplot(barplot.eu, aes(x=bin, y=median, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) 
+r<- ggplot(df.sub.hm, aes(x=bin, y=value, fill = Block.f)) + geom_boxplot() + facet_grid(~speed.f)
+#ggplot(df.sub.hm[df.sub.hm$bin == "-26",], aes(value, fill = Block.f)) + geom_histogram(position = "dodge")
+
+#ausw.lg.eu.sub <- subset(ausw.lg.eu, bin != "-26")
+#ausw.lg.eu.sub <- subset(ausw.lg.eu.sub, bin != "26") 
+#s<- ggplot(ausw.lg.eu.sub, aes(x=bin, y=value, fill = block.f)) + geom_boxplot()
+
+```
+
+
+###winkel
+
+
+###winkellog
+
+## fast DTW
+```{r}
+df <- read.csv("A:/Auswertung/Exp_Melanie/Gaze Pursuit/data/auswertung1_1-13(o6)_fastDTW.csv", sep=";")
+df <- df %>% mutate(Block = case_when(grepl("Spot", Video) ~ "Spot",
+                                      grepl("BGL", Video) ~ "CL",
+                                      grepl("GL", Video) ~ "SL",
+                                      grepl("Control", Video) ~ "Kontrolle",
+                                      TRUE ~ "none"))
+
+df$Block.f <- as.factor(df$Block)
+df$Block.f <- factor(df$Block.f, levels = c("Kontrolle", "Spot", "SL", "CL"))
+
+df$PB <- gsub("pb", "", df$Proband)
+df$PB <- as.numeric(df$PB)
+
+df <- df %>% mutate(speed = case_when((PB %% 2) == 0 ~ "langsam", TRUE ~ "schnell") )
+df$speed.f <- as.factor(df$speed)
+
+df.sub <- subset(df, Block.f != "Kontrolle")
+```
+
+###euklidisch
+```{r}
+df.sub <- subset(df.sub, Distancemeasure == "euklid")
+```
+
+####Deskriptiv
+
+```{r}
+
+desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
+df.desk <- do.call(rbind.data.frame, desk)
+df.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
+df.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
+```
+####Boxplots
+```{r}
+
+
+ggplot(df.sub, aes(y=total_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Distanz gesamt", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=total_distance, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=mean_distance, x= Block.f,color = speed.f)) + geom_boxplot()+ 
+  labs(x = "Visualisierung", y = "Distanz Mittelwert", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=mean_distance, x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=median_distance, x= Block.f,color = speed.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=median_distance, x= Video,color = speed.f)) + geom_boxplot()
+
+```
+
+```{r}
+ggplot(df.sub, aes(y=zero.overhead.counter, x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Anzahl ohne Versatz", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=zero.overhead.counter, x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=ref.before.query..rbq., x= Block.f, color = speed.f)) + geom_boxplot() +
+  labs(x = "Visualisierung", y = "Anzahl Blick hinter Visualisierung", title = "Distanz:euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=ref.before.query..rbq., x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Anzahl Blick vor Visualisierung", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Video, color = speed.f)) + geom_boxplot()
+```
+
+```{r}
+ggplot(df.sub, aes(y=max.rbq, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.rbq, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=max.qbr, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.qbr, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=max.distance, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.distance, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=min.distance, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=min.distance, x= Video)) + geom_boxplot()
+```
+
+####Histogram/ bin Analyse
+```{r}
+names(df.sub)[16:68]<-c(-26:26)
+
+df.sub.h <- subset(df.sub, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+
+df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
+colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
+```
+
+```{r}
+barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
+
+p<- ggplot(barplot.eu, aes(x=bin, y=mw, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) 
+q<- ggplot(barplot.eu, aes(x=bin, y=median, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) 
+r<- ggplot(df.sub.hm, aes(x=bin, y=value, fill = Block.f)) + geom_boxplot() + facet_grid(~speed.f)
+#ggplot(df.sub.hm[df.sub.hm$bin == "-26",], aes(value, fill = Block.f)) + geom_histogram(position = "dodge")
+
+#ausw.lg.eu.sub <- subset(ausw.lg.eu, bin != "-26")
+#ausw.lg.eu.sub <- subset(ausw.lg.eu.sub, bin != "26") 
+#s<- ggplot(ausw.lg.eu.sub, aes(x=bin, y=value, fill = block.f)) + geom_boxplot()
+
+```
+
+###winkel
+###winkellog
+
+#500 Hz
+
+## fast DTW
+```{r}
+df <- read.csv("A:/Auswertung/Exp_Melanie/Gaze Pursuit/data/auswertung1_1-13(o6)_fastDTW500.csv", sep=";")
+df <- df %>% mutate(Block = case_when(grepl("Spot", Video) ~ "Spot",
+                                      grepl("BGL", Video) ~ "CL",
+                                      grepl("GL", Video) ~ "SL",
+                                      grepl("Control", Video) ~ "Kontrolle",
+                                      TRUE ~ "none"))
+
+df$Block.f <- as.factor(df$Block)
+df$Block.f <- factor(df$Block.f, levels = c("Kontrolle", "Spot", "SL", "CL"))
+
+df$PB <- gsub("pb", "", df$Proband)
+df$PB <- as.numeric(df$PB)
+
+df <- df %>% mutate(speed = case_when((PB %% 2) == 0 ~ "langsam", TRUE ~ "schnell") )
+df$speed.f <- as.factor(df$speed)
+
+df.sub <- subset(df, Block.f != "Kontrolle")
+```
+
+
+###euklidisch
+
+###euklidisch
+```{r}
+df.sub <- subset(df.sub, Distancemeasure == "euklid")
+```
+
+####Deskriptiv
+
+```{r}
+
+desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
+df.desk <- do.call(rbind.data.frame, desk)
+df.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
+df.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
+```
+
+####Boxplots
+```{r}
+ggplot(df.sub, aes(y=total_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Distanz gesamt", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=total_distance, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=mean_distance, x= Block.f,color = speed.f)) + geom_boxplot()+ 
+  labs(x = "Visualisierung", y = "Distanz Mittelwert", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=mean_distance, x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=median_distance, x= Block.f,color = speed.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=median_distance, x= Video,color = speed.f)) + geom_boxplot()
+
+```
+
+```{r}
+ggplot(df.sub, aes(y=zero.overhead.counter, x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Anzahl ohne Versatz", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=zero.overhead.counter, x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=ref.before.query..rbq., x= Block.f, color = speed.f)) + geom_boxplot() +
+  labs(x = "Visualisierung", y = "Anzahl Blick hinter Visualisierung", title = "Distanz:euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=ref.before.query..rbq., x= Video, color = speed.f)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Block.f, color = speed.f)) + geom_boxplot() + 
+  labs(x = "Visualisierung", y = "Anzahl Blick vor Visualisierung", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Video, color = speed.f)) + geom_boxplot()
+```
+
+```{r}
+ggplot(df.sub, aes(y=max.rbq, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.rbq, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=max.qbr, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.qbr, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=max.distance, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=max.distance, x= Video)) + geom_boxplot()
+
+ggplot(df.sub, aes(y=min.distance, x= Block.f)) + geom_boxplot()
+ggplot(df.sub, aes(y=min.distance, x= Video)) + geom_boxplot()
+```
+
+####Histogram/ bin Analyse
+```{r}
+names(df.sub)[16:68]<-c(-26:26)
+
+df.sub.h <- subset(df.sub, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+
+df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
+colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
+```
+
+```{r}
+barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
+
+p<- ggplot(barplot.eu, aes(x=bin, y=mw, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) 
+q<- ggplot(barplot.eu, aes(x=bin, y=median, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) 
+r<- ggplot(df.sub.hm, aes(x=bin, y=value, fill = Block.f)) + geom_boxplot() + facet_wrap(~ speed.f)
+#ggplot(df.sub.hm[df.sub.hm$bin == "-26",], aes(value, fill = Block.f)) + geom_histogram(position = "dodge")
+
+#ausw.lg.eu.sub <- subset(ausw.lg.eu, bin != "-26")
+#ausw.lg.eu.sub <- subset(ausw.lg.eu.sub, bin != "26") 
+#s<- ggplot(ausw.lg.eu.sub, aes(x=bin, y=value, fill = block.f)) + geom_boxplot()
+
+```
+
+###winkel
+###winkellog
