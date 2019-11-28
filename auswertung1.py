@@ -85,7 +85,7 @@ def analyse_path(pbn, pr, alias, distance):
     query_x = pop_m(list_df["query_x"].to_numpy())
     query_y = pop_m(list_df["query_y"].to_numpy())
     distlist = []
-    bucketlst = list(range(-510, 520, 20))
+    bucketlst = list(range(-510, 510, 5))
     buckets = [0 for i in range(len(bucketlst) + 1)]
     for i in range(len(path_ref)):
         p_x = path_ref[i]
@@ -253,17 +253,17 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
-    '''
+    
     pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2","pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
 
     distances = ["euklid", "winkel", "winkellog"]
 
     header, results = auswertung(pbnlist, distances, aliases)
     write_ausw(header, results)
+
+
+
     '''
-
-
-
     pbn = sys.argv[1]
     alias = sys.argv[2]
     distance = sys.argv[3]
@@ -271,7 +271,7 @@ if __name__ == "__main__":
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")
-
+    '''
 
 
 
