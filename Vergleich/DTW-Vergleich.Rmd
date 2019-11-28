@@ -55,7 +55,6 @@ factor = 120/500
 boxplot.distanz.ges = function(df.sub){
   ggplot(df.sub, aes(y=total_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
   labs(x = "Visualisierung", y = "Distanz gesamt", color = "Geschwindigkeit")
-  #ggplot(df.sub, aes(y=total_distance, x= Video)) + geom_boxplot()
 }
 boxplot.distanz.mw = function(df.sub){
   ggplot(df.sub, aes(y=mean_distance, x= Block.f,color = speed.f)) + geom_boxplot()+ 
@@ -106,16 +105,16 @@ for (i in (1:9)){
         distance = "winkellog"
       }
     }
-  
-  tmp.sub = subset(tmp,Distancemeasure == "euklid")
+  tmp.sub = subset(tmp,Distancemeasure == distance)
   desk <- by(tmp.sub$total_distance, list(tmp.sub$Block.f, tmp.sub$speed.f), describe)
   tmp.desk <- do.call(rbind.data.frame, desk)
   tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
   tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
-  tiff("test.jpeg",units="in",width=5,height=5,res=300)
+  tiff(paste0(i,"test.tiff"),units="in",width=5,height=5,res=300)
   boxplot.distanz.ges(tmp.sub)
   dev.off()
 }
+ 
 
 ```
 
