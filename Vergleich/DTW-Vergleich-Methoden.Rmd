@@ -322,6 +322,7 @@ ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Video, color = speed.f)) + geom
 ```
 
 ```{r}
+
 ggplot(df.sub, aes(y=max.rbq, x= Block.f)) + geom_boxplot()
 ggplot(df.sub, aes(y=max.rbq, x= Video)) + geom_boxplot()
 
