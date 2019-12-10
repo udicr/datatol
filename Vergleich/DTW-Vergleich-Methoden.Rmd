@@ -19,7 +19,8 @@ library(psych)
 ## DTW
 
 ```{r}
-df <- read.csv("A:/Auswertung/Exp_Melanie/Gaze Pursuit/data/auswertung1_1-13(o6)_DTW.csv", sep=";")
+#df <- read.csv("A:/Auswertung/Exp_Melanie/Gaze Pursuit/data/auswertung1_1-13(o6)_DTW.csv", sep=";")
+df <- read.csv(file=file.path("..","120Hz","Dtw","output","auswertung1_1-13(o6)_neu.csv"), sep=";")
 df <- df %>% mutate(Block = case_when(grepl("Spot", Video) ~ "Spot",
                                       grepl("BGL", Video) ~ "CL",
                                       grepl("GL", Video) ~ "SL",
@@ -61,7 +62,7 @@ df.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
 
 ####Boxplots
 ```{r}
-
+df.sub <- df.sub %>% mutate(total_distance = case_when((PB %% 2)==0 ~ total_distance/2 , TRUE ~total_distance))
 
 ggplot(df.sub, aes(y=total_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
   labs(x = "Visualisierung", y = "Distanz gesamt", title = "Distanz: euklidisch", color = "Geschwindigkeit")
@@ -77,6 +78,10 @@ ggplot(df.sub, aes(y=median_distance, x= Video,color = speed.f)) + geom_boxplot(
 ```
 
 ```{r}
+df.sub <- df.sub %>%  mutate(zero.overhead.counter = as.integer(case_when((PB %% 2)==0 ~ as.double(zero.overhead.counter)/2, TRUE ~ as.double(zero.overhead.counter))))
+df.sub <- df.sub %>%  mutate(ref.before.query..rbq. = as.integer(case_when((PB %% 2)==0 ~ as.double(ref.before.query..rbq.)/2, TRUE ~ as.double(ref.before.query..rbq.))))
+df.sub <- df.sub %>%  mutate(query.berfore.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ as.double(query.berfore.ref..qbr.)/2, TRUE ~ as.double(query.berfore.ref..qbr.))))
+
 ggplot(df.sub, aes(y=zero.overhead.counter, x= Block.f, color = speed.f)) + geom_boxplot() + 
   labs(x = "Visualisierung", y = "Anzahl ohne Versatz", title = "Distanz: euklidisch", color = "Geschwindigkeit")
 ggplot(df.sub, aes(y=zero.overhead.counter, x= Video, color = speed.f)) + geom_boxplot()
@@ -317,6 +322,7 @@ ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Video, color = speed.f)) + geom
 ```
 
 ```{r}
+
 ggplot(df.sub, aes(y=max.rbq, x= Block.f)) + geom_boxplot()
 ggplot(df.sub, aes(y=max.rbq, x= Video)) + geom_boxplot()
 

@@ -151,7 +151,7 @@ def auswertung(pbnlist, distances, aliases):
               "median_distance",
               "zero-overhead-counter",
               "ref before query (rbq)",
-              "query berfore ref (qbr)", "max rbq", "max qbr", "max distance", "min distance"]
+              "query before ref (qbr)", "max rbq", "max qbr", "max distance", "min distance"]
 
     for pbn in pbnlist:
         pr = pbn.split('_')[0] if '_' in pbn else pbn
@@ -161,8 +161,8 @@ def auswertung(pbnlist, distances, aliases):
                 pbnres = [pr, ip, alias, dist]
                 dos, leng, mdos = calc_mdos(pbn, pr, alias, dist)
                 pbnres.append(dos)
-                pbnres.append(mdos)
                 pbnres.append(leng)
+                pbnres.append(mdos)
                 med, zeroct, plusct, minusct, max, min, maxdist, mindist, bucketlst, buckets = analyse_path(pbn, pr,
                                                                                                             alias, dist)
                 pbnres.append(med)
@@ -253,7 +253,7 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
-    
+
     pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2","pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
 
     distances = ["euklid", "winkel", "winkellog"]
