@@ -92,7 +92,7 @@ boxplot1 = function(df,name){
     print(filename)
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=total_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
-    labs(x = "Visualisierung", y = "Distanz gesamt", color = "Geschwindigkeit")
+    labs(x = "Visualisierung", y = "Distanz gesamt", color = "Geschwindigkeit",title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
   }
@@ -107,7 +107,7 @@ boxplot2 = function(df,name){
     filename = paste0(name,"_",distance,"_","boxplot_mean_distance.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=mean_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
-    labs(x = "Visualisierung", y = "Distanz Mittelwert", color = "Geschwindigkeit")
+    labs(x = "Visualisierung", y = "Distanz Mittelwert", color = "Geschwindigkeit",title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
   }
@@ -122,7 +122,7 @@ boxplot3 = function(df,name){
     filename = paste0(name,"_",distance,"_","boxplot_median_distance.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=median_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
-    labs(x = "Visualisierung", y = "Distanz Median", color = "Geschwindigkeit")
+    labs(x = "Visualisierung", y = "Distanz Median", color = "Geschwindigkeit",title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
   }
@@ -150,7 +150,7 @@ boxplot1.2 = function(df,name){
     filename = paste0(name,"_",distance,"_","boxplot_total_distance_trials.jpeg")
     print(filename)
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=total_distance, x= Video, color = speed.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=total_distance, x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
   }
@@ -164,7 +164,7 @@ boxplot2.2 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_mean_distance_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=mean_distance, x= Video, color = speed.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=mean_distance, x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
   }
@@ -178,7 +178,7 @@ boxplot3.2 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_median_distance_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=median_distance, x= Video, color = speed.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=median_distance, x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
   }
@@ -207,7 +207,7 @@ boxplot4 = function(df,name){
     filename = paste0(name,"_",distance,"_","boxplot_no_overhead.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=zero.overhead.counter, x= Block.f, color = speed.f)) + geom_boxplot() + 
-    labs(x = "Visualisierung", y = "Anzahl ohne Versatz", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+    labs(x = "Visualisierung", y = "Anzahl ohne Versatz", title = paste0("Distanz : ",distance), color = "Geschwindigkeit")
     print(myplot)
     dev.off()
    }
@@ -222,7 +222,7 @@ boxplot5 = function(df,name){
     filename = paste0(name,"_",distance,"_","boxplot_plus_overhead.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=ref.before.query..rbq., x= Block.f, color = speed.f)) + geom_boxplot() +
-    labs(x = "Visualisierung", y = "Anzahl Blick hinter Visualisierung", title = "Distanz:euklidisch", color = "Geschwindigkeit")
+    labs(x = "Visualisierung", y = "Anzahl Blick hinter Visualisierung", title = paste0("Distanz : ",distance), color = "Geschwindigkeit")
     print(myplot)
     dev.off()
    }
@@ -237,7 +237,7 @@ boxplot6 = function(df,name){
     filename = paste0(name,"_",distance,"_","boxplot_minus_overhead.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Block.f, color = speed.f)) + geom_boxplot() + 
-    labs(x = "Visualisierung", y = "Anzahl Blick vor Visualisierung", title = "Distanz: euklidisch", color = "Geschwindigkeit")
+    labs(x = "Visualisierung", y = "Anzahl Blick vor Visualisierung", title = paste0("Distanz : ",distance), color = "Geschwindigkeit")
     print(myplot)
     dev.off()
    }
@@ -265,7 +265,7 @@ boxplot4.2 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_no_overhead_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=zero.overhead.counter, x= Video, color = speed.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=zero.overhead.counter, x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -279,7 +279,7 @@ boxplot5.2 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_plus_overhead_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=ref.before.query..rbq., x= Video, color = speed.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=ref.before.query..rbq., x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -293,7 +293,7 @@ boxplot6.2 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_minus_overhead_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Video, color = speed.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -321,7 +321,7 @@ maxrbq.plot1 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxrbq_1.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=max.rbq, x= Block.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=max.rbq, x= Block.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -335,7 +335,7 @@ maxrbq.plot2 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxrbq_2.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=max.rbq, x= Video)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=max.rbq, x= Video)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -349,7 +349,7 @@ maxqbr.plot1  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxqbr_1.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=max.qbr, x= Block.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=max.qbr, x= Block.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -363,7 +363,7 @@ maxqbr.plot2  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxqbr_2.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=max.qbr, x= Video)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=max.qbr, x= Video)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -377,7 +377,7 @@ maxdistance.plot1  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxdistance_1.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=max.distance, x= Block.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=max.distance, x= Block.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -391,7 +391,7 @@ maxdistance.plot2  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxdistance_2.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=max.distance, x= Video)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=max.distance, x= Video)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -405,7 +405,7 @@ mindistance.plot1  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","mindistance_1.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=min.distance, x= Block.f)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=min.distance, x= Block.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -419,7 +419,7 @@ mindistance.plot2  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","mindistance_2.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=min.distance, x= Video)) + geom_boxplot()
+    myplot <- ggplot(df.sub, aes(y=min.distance, x= Video)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
@@ -461,33 +461,90 @@ mindistance.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 ```{r plots4}
 
-histogramm.bins.plot  = function(df,name){
+    
+    
+histogramm.bins.plot_1  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
     desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
     tmp.desk <- do.call(rbind.data.frame, desk)
     tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
-    filename = paste0(name,"_",distance,"_","histogramm_bins.jpeg")
-    names(df.sub)[16:68]<-c(-26:26)
-    df.sub.h <- subset(df.sub, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance,       zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+    names(df.sub)[16:220]<-c(-102:102)
+    df.sub.t = df.sub[,-c(16:93,143:220)]
+    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
     df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
-    colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
-    jpeg(filename = filename,units="in",width=5,height=5,res=300)
+colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
     barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
-    p <- ggplot(barplot.eu, aes(x=bin, y=mw, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
-         geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) 
-    q <- ggplot(barplot.eu, aes(x=bin, y=median, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
-         geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) 
-    r <- ggplot(df.sub.hm, aes(x=bin, y=value, fill = Block.f)) + geom_boxplot() + facet_grid(~speed.f)
-    print(barplot.eu)
+    filename = paste0(name,"_",distance,"_","histogramm_bins_mw_häufigkeit.jpeg")
+    jpeg(filename = filename,units="in",width=11,height=8,res=300)
+    p<- ggplot(barplot.eu, aes(x=bin, y=mw, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9))  + labs(title = paste0("Distanz : ",distance))
+    print(p)
     dev.off()
    }
 }
 
-histogramm.bins.plot(sp.120.DTW,"DTW_120Hz")
-histogramm.bins.plot(sp.120.FDTW,"FDTW_120Hz")
-histogramm.bins.plot(sp.500.FDTW,"FDTW_500Hz")
+histogramm.bins.plot_2  = function(df,name){
+   for (distance in c("euklid","winkel","winkellog")){
+     df.sub = subset(df,Distancemeasure == distance)
+    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
+    tmp.desk <- do.call(rbind.data.frame, desk)
+    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
+    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
+    names(df.sub)[16:220]<-c(-102:102)
+    df.sub.t = df.sub[,-c(16:93,143:220)]
+    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+    df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
+colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
+    barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
+    filename = paste0(name,"_",distance,"_","histogramm_bins_median_häufigkeit.jpeg")
+    jpeg(filename = filename,units="in",width=11,height=8,res=300)
+    q<- ggplot(barplot.eu, aes(x=bin, y=median, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9))  + labs(title = paste0("Distanz : ",distance))
+    print(q)
+    dev.off()
+   }
+}
+
+histogramm.bins.plot_3  = function(df,name){
+   for (distance in c("euklid","winkel","winkellog")){
+     df.sub = subset(df,Distancemeasure == distance)
+    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
+    tmp.desk <- do.call(rbind.data.frame, desk)
+    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
+    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
+    names(df.sub)[16:220]<-c(-102:102)
+    df.sub.t = df.sub[,-c(16:93,143:220)]
+    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+    df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
+colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
+    
+    
+    barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
+    filename = paste0(name,"_",distance,"_","histogramm_bins_häufigkeit.jpeg")
+    jpeg(filename = filename,units="in",width=11,height=8,res=300)
+    r<- ggplot(df.sub.hm, aes(x=bin, y=value, fill = Block.f)) + geom_boxplot() + facet_wrap(~ speed.f) +labs(title = paste0("Distanz : ",distance))
+    print(r)
+    dev.off()
+   }
+}
+
+
+
+    
+
+histogramm.bins.plot_1(sp.120.DTW,"DTW_120Hz")
+histogramm.bins.plot_1(sp.120.FDTW,"FDTW_120Hz")
+histogramm.bins.plot_1(sp.500.FDTW,"FDTW_500Hz")
+
+histogramm.bins.plot_2(sp.120.DTW,"DTW_120Hz")
+histogramm.bins.plot_2(sp.120.FDTW,"FDTW_120Hz")
+histogramm.bins.plot_2(sp.500.FDTW,"FDTW_500Hz")
+
+histogramm.bins.plot_3(sp.120.DTW,"DTW_120Hz")
+histogramm.bins.plot_3(sp.120.FDTW,"FDTW_120Hz")
+histogramm.bins.plot_3(sp.500.FDTW,"FDTW_500Hz")
 
 
 ```
