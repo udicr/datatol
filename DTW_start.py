@@ -79,7 +79,7 @@ def plot_multi():
 
 def main2_multi():
     pool = ThreadPool(4)
-    pbns = ["pb1"]#, "pb11", "pb12","pb13"]
+    pbns = ["pb27","pb27_2","pb26","pb28"]
     todo = [pb + " " + al for pb in pbns for al in aliases]
     results = pool.map(run_dtw, todo)
     with open("DTW_log.txt", "a") as file:
