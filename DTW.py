@@ -348,6 +348,8 @@ def save(path, ref, query, n, distance, pdistance, prob="00", alias="alias", dis
 
 
 def do_whole_pb(prob="pb1"):
+    pb_no = int(prob[2:])
+    print(pb_no)
     print("Reading Data ...")
     rda = pyreadr.read_r(prob + ".Rda")
     df = rda["m.df_pb"]
@@ -375,11 +377,13 @@ def do_whole_pb(prob="pb1"):
 
 
 def do_pb_outside(prob="pb1", alias="Spot1"):
+    pb_no = int(prob[2:])
+    print(pb_no)
+    print(alias)
     print("Reading Data ...")
     rda = pyreadr.read_r(prob + ".Rda")
     df = rda["m.df_pb"]
-    pb_no = int(prob[2:])
-    print(pb_no)
+
     if pb_no % 2 == 0:
         mode = "slow"
     else:
