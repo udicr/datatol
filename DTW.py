@@ -410,7 +410,7 @@ def get_path_distances(p, r, q, distance):
 
 def do_video(cut, prob, alias, ip=1):
     pb = prob if ip == 1 else prob + "_" + str(ip)
-    dtw_pack = "dtw"
+    dtw_pack = "fastdtw"
     distances = [distance_2dim, distance_winkel, distance_winkel4]
     for i in range(3):
         ref = cut[['x_coord', 'y_coord']].to_numpy(copy=True)

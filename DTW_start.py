@@ -78,8 +78,8 @@ def plot_multi():
 
 
 def main2_multi():
-    pool = ThreadPool(1)
-    pbns = ["pb47"] #, "pb35", "pb35_2"] welche dateien fehlen????
+    pool = ThreadPool(4)
+    pbns = ["pb"+str(i) for i in range(1,54) if i not in [6,23,50,53]] #, "pb35", "pb35_2"] welche dateien fehlen????
     todo = [pb + " " + al for pb in pbns for al in aliases]
     results = pool.map(run_dtw, todo)
     with open("DTW_log.txt", "a") as file:
