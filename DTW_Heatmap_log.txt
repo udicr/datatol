@@ -1,0 +1,3996 @@
+Log_from_DTW:DynTimeWarp at Thu Jan  2 21:12:12 2020pb1 Spot1 euklid
+Generating Distance Matrix and Plotting took 29.63545536994934
+done
+pb1 Spot1 winkel
+Generating Distance Matrix and Plotting took 42.55445885658264
+done
+pb1 Spot1 winkellog
+Generating Distance Matrix and Plotting took 43.70227003097534
+done
+pb1 Spot5 euklid
+Generating Distance Matrix and Plotting took 70.75063920021057
+done
+pb1 Spot5 winkel
+Generating Distance Matrix and Plotting took 107.18527936935425
+done
+pb1 Spot5 winkellog
+Generating Distance Matrix and Plotting took 131.49043679237366
+done
+pb1 GL1 euklid
+Generating Distance Matrix and Plotting took 79.5997748374939
+done
+pb1 GL1 winkel
+Generating Distance Matrix and Plotting took 99.44328451156616
+done
+pb1 GL1 winkellog
+Generating Distance Matrix and Plotting took 115.99591422080994
+done
+pb1 GL5 euklid
+Generating Distance Matrix and Plotting took 72.51916885375977
+done
+pb1 GL5 winkel
+Generating Distance Matrix and Plotting took 96.42195415496826
+done
+pb1 GL5 winkellog
+Generating Distance Matrix and Plotting took 107.96584177017212
+done
+pb1 BGL1 euklid
+Generating Distance Matrix and Plotting took 46.611774921417236
+done
+pb1 BGL1 winkel
+Generating Distance Matrix and Plotting took 75.69292998313904
+done
+pb1 BGL1 winkellog
+Generating Distance Matrix and Plotting took 81.77983379364014
+done
+pb1 BGL5 euklid
+Generating Distance Matrix and Plotting took 72.69815826416016
+done
+pb1 BGL5 winkel
+Generating Distance Matrix and Plotting took 104.81626963615417
+done
+pb1 BGL5 winkellog
+Generating Distance Matrix and Plotting took 118.99567580223083
+done
+pb1_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.83422303199768
+done
+pb1_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 45.23047351837158
+done
+pb1_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 49.49261474609375
+done
+pb1_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 72.1067898273468
+done
+pb1_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 139.79658365249634
+done
+pb1_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 140.45119714736938
+done
+pb1_2 GL1 euklid
+Generating Distance Matrix and Plotting took 86.42822122573853
+done
+pb1_2 GL1 winkel
+Generating Distance Matrix and Plotting took 106.40657567977905
+done
+pb1_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 129.77825212478638
+done
+pb1_2 GL5 euklid
+Generating Distance Matrix and Plotting took 67.84480786323547
+done
+pb1_2 GL5 winkel
+Generating Distance Matrix and Plotting took 87.92810010910034
+done
+pb1_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 107.04249787330627
+done
+pb1_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 56.64954710006714
+done
+pb1_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 79.84748339653015
+done
+pb1_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 87.1466498374939
+done
+pb1_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 72.40232825279236
+done
+pb1_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 99.76459693908691
+done
+pb1_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 116.75508689880371
+done
+pb2 Spot1 euklid
+Generating Distance Matrix and Plotting took 69.79862260818481
+done
+pb2 Spot1 winkel
+Generating Distance Matrix and Plotting took 101.50701451301575
+done
+pb2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 108.97688055038452
+done
+pb2 Spot5 euklid
+Generating Distance Matrix and Plotting took 160.87694597244263
+done
+pb2 Spot5 winkel
+Generating Distance Matrix and Plotting took 225.68736028671265
+done
+pb2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 269.58999705314636
+done
+pb2 GL1 euklid
+Generating Distance Matrix and Plotting took 158.9172019958496
+done
+pb2 GL1 winkel
+Generating Distance Matrix and Plotting took 220.65876412391663
+done
+pb2 GL1 winkellog
+Generating Distance Matrix and Plotting took 250.8351194858551
+done
+pb2 GL5 euklid
+Generating Distance Matrix and Plotting took 143.09728908538818
+done
+pb2 GL5 winkel
+Generating Distance Matrix and Plotting took 195.49748873710632
+done
+pb2 GL5 winkellog
+Generating Distance Matrix and Plotting took 255.8083438873291
+done
+pb2 BGL1 euklid
+Generating Distance Matrix and Plotting took 131.39990878105164
+done
+pb2 BGL1 winkel
+Generating Distance Matrix and Plotting took 182.0852382183075
+done
+pb2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 209.27247095108032
+done
+pb2 BGL5 euklid
+Generating Distance Matrix and Plotting took 152.89621353149414
+done
+pb2 BGL5 winkel
+Generating Distance Matrix and Plotting took 251.03543758392334
+done
+pb2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 284.55285930633545
+done
+pb3 Spot1 euklid
+Generating Distance Matrix and Plotting took 33.555243730545044
+done
+pb3 Spot1 winkel
+Generating Distance Matrix and Plotting took 43.8196325302124
+done
+pb3 Spot1 winkellog
+Generating Distance Matrix and Plotting took 52.14347767829895
+done
+pb3 Spot5 euklid
+Generating Distance Matrix and Plotting took 72.15255570411682
+done
+pb3 Spot5 winkel
+Generating Distance Matrix and Plotting took 103.74817657470703
+done
+pb3 Spot5 winkellog
+Generating Distance Matrix and Plotting took 114.9564061164856
+done
+pb3 GL1 euklid
+Generating Distance Matrix and Plotting took 74.7764744758606
+done
+pb3 GL1 winkel
+Generating Distance Matrix and Plotting took 98.60672211647034
+done
+pb3 GL1 winkellog
+Generating Distance Matrix and Plotting took 111.00450420379639
+done
+pb3 GL5 euklid
+Generating Distance Matrix and Plotting took 75.37984275817871
+done
+pb3 GL5 winkel
+Generating Distance Matrix and Plotting took 94.1355791091919
+done
+pb3 GL5 winkellog
+Generating Distance Matrix and Plotting took 109.94849634170532
+done
+pb3 BGL1 euklid
+Generating Distance Matrix and Plotting took 49.69104743003845
+done
+pb3 BGL1 winkel
+Generating Distance Matrix and Plotting took 76.79430770874023
+done
+pb3 BGL1 winkellog
+Generating Distance Matrix and Plotting took 77.96584630012512
+done
+pb3 BGL5 euklid
+Generating Distance Matrix and Plotting took 77.79874610900879
+done
+pb3 BGL5 winkel
+Generating Distance Matrix and Plotting took 103.6174578666687
+done
+pb3 BGL5 winkellog
+Generating Distance Matrix and Plotting took 120.4983401298523
+done
+pb3_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.0206356048584
+done
+pb3_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 40.93037462234497
+done
+pb3_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 50.99724459648132
+done
+pb3_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 76.78119683265686
+done
+pb3_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 115.97550749778748
+done
+pb3_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 122.23888206481934
+done
+pb3_2 GL1 euklid
+Generating Distance Matrix and Plotting took 73.46409630775452
+done
+pb3_2 GL1 winkel
+Generating Distance Matrix and Plotting took 97.57752394676208
+done
+pb3_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 114.11627078056335
+done
+pb3_2 GL5 euklid
+Generating Distance Matrix and Plotting took 66.08571267127991
+done
+pb3_2 GL5 winkel
+Generating Distance Matrix and Plotting took 89.12197589874268
+done
+pb3_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 108.58124923706055
+done
+pb3_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 49.41061019897461
+done
+pb3_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 69.32765769958496
+done
+pb3_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 79.89563512802124
+done
+pb3_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 82.56226348876953
+done
+pb3_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 106.35432052612305
+done
+pb3_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 112.21560955047607
+done
+pb4 Spot1 euklid
+Generating Distance Matrix and Plotting took 71.17564392089844
+done
+pb4 Spot1 winkel
+Generating Distance Matrix and Plotting took 100.3313250541687
+done
+pb4 Spot1 winkellog
+Generating Distance Matrix and Plotting took 119.47682332992554
+done
+pb4 Spot5 euklid
+Generating Distance Matrix and Plotting took 149.36555242538452
+done
+pb4 Spot5 winkel
+Generating Distance Matrix and Plotting took 192.15199995040894
+done
+pb4 Spot5 winkellog
+Generating Distance Matrix and Plotting took 229.2893090248108
+done
+pb4 GL1 euklid
+Generating Distance Matrix and Plotting took 163.70666456222534
+done
+pb4 GL1 winkel
+Generating Distance Matrix and Plotting took 226.74744129180908
+done
+pb4 GL1 winkellog
+Generating Distance Matrix and Plotting took 282.50168919563293
+done
+pb4 GL5 euklid
+Generating Distance Matrix and Plotting took 136.01395797729492
+done
+pb4 GL5 winkel
+Generating Distance Matrix and Plotting took 169.14029121398926
+done
+pb4 GL5 winkellog
+Generating Distance Matrix and Plotting took 201.90779829025269
+done
+pb4 BGL1 euklid
+Generating Distance Matrix and Plotting took 105.55945920944214
+done
+pb4 BGL1 winkel
+Generating Distance Matrix and Plotting took 160.06171441078186
+done
+pb4 BGL1 winkellog
+Generating Distance Matrix and Plotting took 172.6373631954193
+done
+pb4 BGL5 euklid
+Generating Distance Matrix and Plotting took 153.79562783241272
+done
+pb4 BGL5 winkel
+Generating Distance Matrix and Plotting took 228.8055920600891
+done
+pb4 BGL5 winkellog
+Generating Distance Matrix and Plotting took 261.07978439331055
+done
+pb5 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.748469352722168
+done
+pb5 Spot1 winkel
+Generating Distance Matrix and Plotting took 40.529282331466675
+done
+pb5 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.42604732513428
+done
+pb5 Spot5 euklid
+Generating Distance Matrix and Plotting took 74.46594142913818
+done
+pb5 Spot5 winkel
+Generating Distance Matrix and Plotting took 104.25008821487427
+done
+pb5 Spot5 winkellog
+Generating Distance Matrix and Plotting took 125.22418022155762
+done
+pb5 GL1 euklid
+Generating Distance Matrix and Plotting took 69.1554868221283
+done
+pb5 GL1 winkel
+Generating Distance Matrix and Plotting took 102.06909728050232
+done
+pb5 GL1 winkellog
+Generating Distance Matrix and Plotting took 112.51698303222656
+done
+pb5 GL5 euklid
+Generating Distance Matrix and Plotting took 64.39738178253174
+done
+pb5 GL5 winkel
+Generating Distance Matrix and Plotting took 85.68564796447754
+done
+pb5 GL5 winkellog
+Generating Distance Matrix and Plotting took 98.99994468688965
+done
+pb5 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.88522553443909
+done
+pb5 BGL1 winkel
+Generating Distance Matrix and Plotting took 71.34280371665955
+done
+pb5 BGL1 winkellog
+Generating Distance Matrix and Plotting took 77.22568392753601
+done
+pb5 BGL5 euklid
+Generating Distance Matrix and Plotting took 71.42067861557007
+done
+pb5 BGL5 winkel
+Generating Distance Matrix and Plotting took 94.03467440605164
+done
+pb5 BGL5 winkellog
+Generating Distance Matrix and Plotting took 111.41846704483032
+done
+pb5_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.53283190727234
+done
+pb5_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 40.40943479537964
+done
+pb5_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 47.5983145236969
+done
+pb5_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 74.40601062774658
+done
+pb5_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 104.85944056510925
+done
+pb5_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 121.01036286354065
+done
+pb5_2 GL1 euklid
+Generating Distance Matrix and Plotting took 72.1319637298584
+done
+pb5_2 GL1 winkel
+Generating Distance Matrix and Plotting took 94.41669368743896
+done
+pb5_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 115.29094743728638
+done
+pb5_2 GL5 euklid
+Generating Distance Matrix and Plotting took 65.91879224777222
+done
+pb5_2 GL5 winkel
+Generating Distance Matrix and Plotting took 86.56649971008301
+done
+pb5_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 105.82414674758911
+done
+pb5_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.63647198677063
+done
+pb5_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 70.72816848754883
+done
+pb5_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 85.93362259864807
+done
+pb5_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 75.27939915657043
+done
+pb5_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 98.36102533340454
+done
+pb5_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 107.51026058197021
+done
+pb7 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.4221408367157
+done
+pb7 Spot1 winkel
+Generating Distance Matrix and Plotting took 45.5107684135437
+done
+pb7 Spot1 winkellog
+Generating Distance Matrix and Plotting took 47.958120584487915
+done
+pb7 Spot5 euklid
+Generating Distance Matrix and Plotting took 74.12064599990845
+done
+pb7 Spot5 winkel
+Generating Distance Matrix and Plotting took 100.88301825523376
+done
+pb7 Spot5 winkellog
+Generating Distance Matrix and Plotting took 122.42340278625488
+done
+pb7 GL1 euklid
+Generating Distance Matrix and Plotting took 78.37079668045044
+done
+pb7 GL1 winkel
+Generating Distance Matrix and Plotting took 108.14122486114502
+done
+pb7 GL1 winkellog
+Generating Distance Matrix and Plotting took 120.51742601394653
+done
+pb7 GL5 euklid
+Generating Distance Matrix and Plotting took 68.07949900627136
+done
+pb7 GL5 winkel
+Generating Distance Matrix and Plotting took 91.008220911026
+done
+pb7 GL5 winkellog
+Generating Distance Matrix and Plotting took 107.99656391143799
+done
+pb7 BGL1 euklid
+Generating Distance Matrix and Plotting took 54.0990207195282
+done
+pb7 BGL1 winkel
+Generating Distance Matrix and Plotting took 67.339280128479
+done
+pb7 BGL1 winkellog
+Generating Distance Matrix and Plotting took 84.07030463218689
+done
+pb7 BGL5 euklid
+Generating Distance Matrix and Plotting took 72.6308913230896
+done
+pb7 BGL5 winkel
+Generating Distance Matrix and Plotting took 98.54386878013611
+done
+pb7 BGL5 winkellog
+Generating Distance Matrix and Plotting took 111.58126211166382
+done
+pb7_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 35.93198037147522
+done
+pb7_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 49.91711473464966
+done
+pb7_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 49.87863087654114
+done
+pb7_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 73.02168035507202
+done
+pb7_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 94.74952435493469
+done
+pb7_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 111.9747052192688
+done
+pb7_2 GL1 euklid
+Generating Distance Matrix and Plotting took 72.13840985298157
+done
+pb7_2 GL1 winkel
+Generating Distance Matrix and Plotting took 97.39283204078674
+done
+pb7_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 113.32895183563232
+done
+pb7_2 GL5 euklid
+Generating Distance Matrix and Plotting took 70.12526774406433
+done
+pb7_2 GL5 winkel
+Generating Distance Matrix and Plotting took 91.48373126983643
+done
+pb7_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 103.8738853931427
+done
+pb7_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 46.16292428970337
+done
+pb7_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 69.26510310173035
+done
+pb7_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 73.43986558914185
+done
+pb7_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 77.08620119094849
+done
+pb7_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 109.40043926239014
+done
+pb7_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 128.29876255989075
+done
+pb8 Spot1 euklid
+Generating Distance Matrix and Plotting took 66.65027260780334
+done
+pb8 Spot1 winkel
+Generating Distance Matrix and Plotting took 106.06174397468567
+done
+pb8 Spot1 winkellog
+Generating Distance Matrix and Plotting took 118.73377084732056
+done
+pb8 Spot5 euklid
+Generating Distance Matrix and Plotting took 156.06226110458374
+done
+pb8 Spot5 winkel
+Generating Distance Matrix and Plotting took 211.31441831588745
+done
+pb8 Spot5 winkellog
+Generating Distance Matrix and Plotting took 272.3899013996124
+done
+pb8 GL1 euklid
+Generating Distance Matrix and Plotting took 149.4966835975647
+done
+pb8 GL1 winkel
+Generating Distance Matrix and Plotting took 199.4477846622467
+done
+pb8 GL1 winkellog
+Generating Distance Matrix and Plotting took 231.22486305236816
+done
+pb8 GL5 euklid
+Generating Distance Matrix and Plotting took 146.2258837223053
+done
+pb8 GL5 winkel
+Generating Distance Matrix and Plotting took 187.01527762413025
+done
+pb8 GL5 winkellog
+Generating Distance Matrix and Plotting took 226.784729719162
+done
+pb8 BGL1 euklid
+Generating Distance Matrix and Plotting took 114.4796712398529
+done
+pb8 BGL1 winkel
+Generating Distance Matrix and Plotting took 160.9403715133667
+done
+pb8 BGL1 winkellog
+Generating Distance Matrix and Plotting took 181.7958538532257
+done
+pb8 BGL5 euklid
+Generating Distance Matrix and Plotting took 154.37288308143616
+done
+pb8 BGL5 winkel
+Generating Distance Matrix and Plotting took 212.11367416381836
+done
+pb8 BGL5 winkellog
+Generating Distance Matrix and Plotting took 236.2380805015564
+done
+pb9 Spot1 euklid
+Generating Distance Matrix and Plotting took 34.002338886260986
+done
+pb9 Spot1 winkel
+Generating Distance Matrix and Plotting took 42.127169370651245
+done
+pb9 Spot1 winkellog
+Generating Distance Matrix and Plotting took 48.43566346168518
+done
+pb9 Spot5 euklid
+Generating Distance Matrix and Plotting took 86.42934536933899
+done
+pb9 Spot5 winkel
+Generating Distance Matrix and Plotting took 112.5063407421112
+done
+pb9 Spot5 winkellog
+Generating Distance Matrix and Plotting took 123.03279542922974
+done
+pb9 GL1 euklid
+Generating Distance Matrix and Plotting took 72.9432384967804
+done
+pb9 GL1 winkel
+Generating Distance Matrix and Plotting took 101.54139852523804
+done
+pb9 GL1 winkellog
+Generating Distance Matrix and Plotting took 118.15726089477539
+done
+pb9 GL5 euklid
+Generating Distance Matrix and Plotting took 67.46751642227173
+done
+pb9 GL5 winkel
+Generating Distance Matrix and Plotting took 95.72503185272217
+done
+pb9 GL5 winkellog
+Generating Distance Matrix and Plotting took 111.47166514396667
+done
+pb9 BGL1 euklid
+Generating Distance Matrix and Plotting took 56.61222553253174
+done
+pb9 BGL1 winkel
+Generating Distance Matrix and Plotting took 71.86947917938232
+done
+pb9 BGL1 winkellog
+Generating Distance Matrix and Plotting took 81.37744402885437
+done
+pb9 BGL5 euklid
+Generating Distance Matrix and Plotting took 77.91636085510254
+done
+pb9 BGL5 winkel
+Generating Distance Matrix and Plotting took 113.7825436592102
+done
+pb9 BGL5 winkellog
+Generating Distance Matrix and Plotting took 122.70722723007202
+done
+pb9_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.524837255477905
+done
+pb9_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 39.227842807769775
+done
+pb9_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.997825145721436
+done
+pb9_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 76.96769094467163
+done
+pb9_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 106.37886214256287
+done
+pb9_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 116.05078125
+done
+pb9_2 GL1 euklid
+Generating Distance Matrix and Plotting took 72.65713310241699
+done
+pb9_2 GL1 winkel
+Generating Distance Matrix and Plotting took 99.73201847076416
+done
+pb9_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 113.01415920257568
+done
+pb9_2 GL5 euklid
+Generating Distance Matrix and Plotting took 68.84525728225708
+done
+pb9_2 GL5 winkel
+Generating Distance Matrix and Plotting took 88.42545557022095
+done
+pb9_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 104.47932171821594
+done
+pb9_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 53.62399935722351
+done
+pb9_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 73.50039434432983
+done
+pb9_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 79.14659309387207
+done
+pb9_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 70.33645009994507
+done
+pb9_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 97.04804825782776
+done
+pb9_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 117.88168382644653
+done
+pb10 Spot1 euklid
+Generating Distance Matrix and Plotting took 75.94359087944031
+done
+pb10 Spot1 winkel
+Generating Distance Matrix and Plotting took 99.99199724197388
+done
+pb10 Spot1 winkellog
+Generating Distance Matrix and Plotting took 112.59283661842346
+done
+pb10 Spot5 euklid
+Generating Distance Matrix and Plotting took 164.62759256362915
+done
+pb10 Spot5 winkel
+Generating Distance Matrix and Plotting took 213.16579151153564
+done
+pb10 Spot5 winkellog
+Generating Distance Matrix and Plotting took 261.1144950389862
+done
+pb10 GL1 euklid
+Generating Distance Matrix and Plotting took 154.79960465431213
+done
+pb10 GL1 winkel
+Generating Distance Matrix and Plotting took 225.27021598815918
+done
+pb10 GL1 winkellog
+Generating Distance Matrix and Plotting took 265.29486870765686
+done
+pb10 GL5 euklid
+Generating Distance Matrix and Plotting took 135.2409303188324
+done
+pb10 GL5 winkel
+Generating Distance Matrix and Plotting took 188.1882905960083
+done
+pb10 GL5 winkellog
+Generating Distance Matrix and Plotting took 214.44392108917236
+done
+pb10 BGL1 euklid
+Generating Distance Matrix and Plotting took 121.66046094894409
+done
+pb10 BGL1 winkel
+Generating Distance Matrix and Plotting took 181.38684368133545
+done
+pb10 BGL1 winkellog
+Generating Distance Matrix and Plotting took 207.7467269897461
+done
+pb10 BGL5 euklid
+Generating Distance Matrix and Plotting took 149.47535848617554
+done
+pb10 BGL5 winkel
+Generating Distance Matrix and Plotting took 221.72037839889526
+done
+pb10 BGL5 winkellog
+Generating Distance Matrix and Plotting took 254.2011160850525
+done
+pb11 Spot1 euklid
+Generating Distance Matrix and Plotting took 29.256091594696045
+done
+pb11 Spot1 winkel
+Generating Distance Matrix and Plotting took 44.45609164237976
+done
+pb11 Spot1 winkellog
+Generating Distance Matrix and Plotting took 50.20013213157654
+done
+pb11 Spot5 euklid
+Generating Distance Matrix and Plotting took 81.03738212585449
+done
+pb11 Spot5 winkel
+Generating Distance Matrix and Plotting took 103.01936483383179
+done
+pb11 Spot5 winkellog
+Generating Distance Matrix and Plotting took 121.13199663162231
+done
+pb11 GL1 euklid
+Generating Distance Matrix and Plotting took 69.98543405532837
+done
+pb11 GL1 winkel
+Generating Distance Matrix and Plotting took 105.55562090873718
+done
+pb11 GL1 winkellog
+Generating Distance Matrix and Plotting took 118.95204305648804
+done
+pb11 GL5 euklid
+Generating Distance Matrix and Plotting took 67.01230096817017
+done
+pb11 GL5 winkel
+Generating Distance Matrix and Plotting took 86.16902709007263
+done
+pb11 GL5 winkellog
+Generating Distance Matrix and Plotting took 105.05562019348145
+done
+pb11 BGL1 euklid
+Generating Distance Matrix and Plotting took 52.17821907997131
+done
+pb11 BGL1 winkel
+Generating Distance Matrix and Plotting took 75.87414288520813
+done
+pb11 BGL1 winkellog
+Generating Distance Matrix and Plotting took 86.31769704818726
+done
+pb11 BGL5 euklid
+Generating Distance Matrix and Plotting took 67.91281604766846
+done
+pb11 BGL5 winkel
+Generating Distance Matrix and Plotting took 105.45731782913208
+done
+pb11 BGL5 winkellog
+Generating Distance Matrix and Plotting took 113.52544331550598
+done
+pb11_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 32.12260055541992
+done
+pb11_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 41.902671337127686
+done
+pb11_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 48.247081995010376
+done
+pb11_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 73.8872561454773
+done
+pb11_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 124.98464822769165
+done
+pb11_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 131.8835644721985
+done
+pb11_2 GL1 euklid
+Generating Distance Matrix and Plotting took 77.00668549537659
+done
+pb11_2 GL1 winkel
+Generating Distance Matrix and Plotting took 98.10196709632874
+done
+pb11_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 115.15539908409119
+done
+pb11_2 GL5 euklid
+Generating Distance Matrix and Plotting took 64.87634921073914
+done
+pb11_2 GL5 winkel
+Generating Distance Matrix and Plotting took 90.1489839553833
+done
+pb11_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 104.30448698997498
+done
+pb11_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 52.02028679847717
+done
+pb11_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 73.6515953540802
+done
+pb11_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 79.26568055152893
+done
+pb11_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 73.22363686561584
+done
+pb11_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 104.69934225082397
+done
+pb11_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 130.22206568717957
+done
+pb12 Spot1 euklid
+Generating Distance Matrix and Plotting took 74.14239740371704
+done
+pb12 Spot1 winkel
+Generating Distance Matrix and Plotting took 98.27812838554382
+done
+pb12 Spot1 winkellog
+Generating Distance Matrix and Plotting took 112.08009028434753
+done
+pb12 Spot5 euklid
+Generating Distance Matrix and Plotting took 155.47638368606567
+done
+pb12 Spot5 winkel
+Generating Distance Matrix and Plotting took 215.2874174118042
+done
+pb12 Spot5 winkellog
+Generating Distance Matrix and Plotting took 255.56790709495544
+done
+pb12 GL1 euklid
+Generating Distance Matrix and Plotting took 168.0551187992096
+done
+pb12 GL1 winkel
+Generating Distance Matrix and Plotting took 231.3886947631836
+done
+pb12 GL1 winkellog
+Generating Distance Matrix and Plotting took 277.836701631546
+done
+pb12 GL5 euklid
+Generating Distance Matrix and Plotting took 141.39839577674866
+done
+pb12 GL5 winkel
+Generating Distance Matrix and Plotting took 212.01768565177917
+done
+pb12 GL5 winkellog
+Generating Distance Matrix and Plotting took 225.12176537513733
+done
+pb12 BGL1 euklid
+Generating Distance Matrix and Plotting took 123.79776215553284
+done
+pb12 BGL1 winkel
+Generating Distance Matrix and Plotting took 159.90012407302856
+done
+pb12 BGL1 winkellog
+Generating Distance Matrix and Plotting took 190.26827764511108
+done
+pb12 BGL5 euklid
+Generating Distance Matrix and Plotting took 167.712828874588
+done
+pb12 BGL5 winkel
+Generating Distance Matrix and Plotting took 227.92065262794495
+done
+pb12 BGL5 winkellog
+Generating Distance Matrix and Plotting took 340.549822807312
+done
+pb13 Spot1 euklid
+Generating Distance Matrix and Plotting took 32.72219729423523
+done
+pb13 Spot1 winkel
+Generating Distance Matrix and Plotting took 46.24851703643799
+done
+pb13 Spot1 winkellog
+Generating Distance Matrix and Plotting took 53.44988417625427
+done
+pb13 Spot5 euklid
+Generating Distance Matrix and Plotting took 83.29713845252991
+done
+pb13 Spot5 winkel
+Generating Distance Matrix and Plotting took 110.29461979866028
+done
+pb13 Spot5 winkellog
+Generating Distance Matrix and Plotting took 123.7412497997284
+done
+pb13 GL1 euklid
+Generating Distance Matrix and Plotting took 76.04269433021545
+done
+pb13 GL1 winkel
+Generating Distance Matrix and Plotting took 94.76593685150146
+done
+pb13 GL1 winkellog
+Generating Distance Matrix and Plotting took 114.15667152404785
+done
+pb13 GL5 euklid
+Generating Distance Matrix and Plotting took 62.61260414123535
+done
+pb13 GL5 winkel
+Generating Distance Matrix and Plotting took 88.4246473312378
+done
+pb13 GL5 winkellog
+Generating Distance Matrix and Plotting took 105.23303294181824
+done
+pb13 BGL1 euklid
+Generating Distance Matrix and Plotting took 48.931281328201294
+done
+pb13 BGL1 winkel
+Generating Distance Matrix and Plotting took 70.28601050376892
+done
+pb13 BGL1 winkellog
+Generating Distance Matrix and Plotting took 79.79503107070923
+done
+pb13 BGL5 euklid
+Generating Distance Matrix and Plotting took 74.87734365463257
+done
+pb13 BGL5 winkel
+Generating Distance Matrix and Plotting took 110.51849222183228
+done
+pb13 BGL5 winkellog
+Generating Distance Matrix and Plotting took 119.33639526367188
+done
+pb13_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 39.46133232116699
+done
+pb13_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 42.95092225074768
+done
+pb13_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 48.0502986907959
+done
+pb13_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 71.68303513526917
+done
+pb13_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 120.28399419784546
+done
+pb13_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 139.3833212852478
+done
+pb13_2 GL1 euklid
+Generating Distance Matrix and Plotting took 82.28380060195923
+done
+pb13_2 GL1 winkel
+Generating Distance Matrix and Plotting took 94.25181818008423
+done
+pb13_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 110.48117470741272
+done
+pb13_2 GL5 euklid
+Generating Distance Matrix and Plotting took 57.51723098754883
+done
+pb13_2 GL5 winkel
+Generating Distance Matrix and Plotting took 88.32166123390198
+done
+pb13_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 100.66717720031738
+done
+pb13_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.811400175094604
+done
+pb13_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 71.64037799835205
+done
+pb13_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 84.75778841972351
+done
+pb13_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 70.17442035675049
+done
+pb13_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 101.45083403587341
+done
+pb13_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 121.3285186290741
+done
+pb14 Spot1 euklid
+Generating Distance Matrix and Plotting took 69.81743335723877
+done
+pb14 Spot1 winkel
+Generating Distance Matrix and Plotting took 97.60313820838928
+done
+pb14 Spot1 winkellog
+Generating Distance Matrix and Plotting took 110.47373342514038
+done
+pb14 Spot5 euklid
+Generating Distance Matrix and Plotting took 169.47219014167786
+done
+pb14 Spot5 winkel
+Generating Distance Matrix and Plotting took 214.52339124679565
+done
+pb14 Spot5 winkellog
+Generating Distance Matrix and Plotting took 249.44458675384521
+done
+pb14 GL1 euklid
+Generating Distance Matrix and Plotting took 147.1807210445404
+done
+pb14 GL1 winkel
+Generating Distance Matrix and Plotting took 195.7136390209198
+done
+pb14 GL1 winkellog
+Generating Distance Matrix and Plotting took 235.35635638237
+done
+pb14 GL5 euklid
+Generating Distance Matrix and Plotting took 130.36713099479675
+done
+pb14 GL5 winkel
+Generating Distance Matrix and Plotting took 173.64435362815857
+done
+pb14 GL5 winkellog
+Generating Distance Matrix and Plotting took 199.1823012828827
+done
+pb14 BGL1 euklid
+Generating Distance Matrix and Plotting took 115.48641419410706
+done
+pb14 BGL1 winkel
+Generating Distance Matrix and Plotting took 149.78090047836304
+done
+pb14 BGL1 winkellog
+Generating Distance Matrix and Plotting took 169.69811010360718
+done
+pb14 BGL5 euklid
+Generating Distance Matrix and Plotting took 142.62359881401062
+done
+pb14 BGL5 winkel
+Generating Distance Matrix and Plotting took 207.27859330177307
+done
+pb14 BGL5 winkellog
+Generating Distance Matrix and Plotting took 229.4315745830536
+done
+pb15 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.32842183113098
+done
+pb15 Spot1 winkel
+Generating Distance Matrix and Plotting took 39.56700897216797
+done
+pb15 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.39842176437378
+done
+pb15 Spot5 euklid
+Generating Distance Matrix and Plotting took 76.8451759815216
+done
+pb15 Spot5 winkel
+Generating Distance Matrix and Plotting took 101.21362233161926
+done
+pb15 Spot5 winkellog
+Generating Distance Matrix and Plotting took 115.04750680923462
+done
+pb15 GL1 euklid
+Generating Distance Matrix and Plotting took 66.76808166503906
+done
+pb15 GL1 winkel
+Generating Distance Matrix and Plotting took 99.58818578720093
+done
+pb15 GL1 winkellog
+Generating Distance Matrix and Plotting took 114.04141759872437
+done
+pb15 GL5 euklid
+Generating Distance Matrix and Plotting took 61.16808485984802
+done
+pb15 GL5 winkel
+Generating Distance Matrix and Plotting took 84.27073931694031
+done
+pb15 GL5 winkellog
+Generating Distance Matrix and Plotting took 96.11951565742493
+done
+pb15 BGL1 euklid
+Generating Distance Matrix and Plotting took 48.77879190444946
+done
+pb15 BGL1 winkel
+Generating Distance Matrix and Plotting took 62.8633337020874
+done
+pb15 BGL1 winkellog
+Generating Distance Matrix and Plotting took 75.73009037971497
+done
+pb15 BGL5 euklid
+Generating Distance Matrix and Plotting took 68.50777316093445
+done
+pb15 BGL5 winkel
+Generating Distance Matrix and Plotting took 94.11367654800415
+done
+pb15 BGL5 winkellog
+Generating Distance Matrix and Plotting took 104.77414894104004
+done
+pb15_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 30.004477739334106
+done
+pb15_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 41.23783278465271
+done
+pb15_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.13526678085327
+done
+pb15_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 75.6428120136261
+done
+pb15_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 93.48361563682556
+done
+pb15_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 112.98570013046265
+done
+pb15_2 GL1 euklid
+Generating Distance Matrix and Plotting took 67.63456225395203
+done
+pb15_2 GL1 winkel
+Generating Distance Matrix and Plotting took 96.7767927646637
+done
+pb15_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 107.50575590133667
+done
+pb15_2 GL5 euklid
+Generating Distance Matrix and Plotting took 63.74623727798462
+done
+pb15_2 GL5 winkel
+Generating Distance Matrix and Plotting took 83.54102396965027
+done
+pb15_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 99.53880476951599
+done
+pb15_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.7669563293457
+done
+pb15_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 75.38351345062256
+done
+pb15_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 83.8695719242096
+done
+pb15_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 69.86145186424255
+done
+pb15_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 93.94447183609009
+done
+pb15_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 107.80320477485657
+done
+pb16 Spot1 euklid
+Generating Distance Matrix and Plotting took 81.09130907058716
+done
+pb16 Spot1 winkel
+Generating Distance Matrix and Plotting took 107.29159259796143
+done
+pb16 Spot1 winkellog
+Generating Distance Matrix and Plotting took 118.47204661369324
+done
+pb16 Spot5 euklid
+Generating Distance Matrix and Plotting took 158.62358689308167
+done
+pb16 Spot5 winkel
+Generating Distance Matrix and Plotting took 231.1596565246582
+done
+pb16 Spot5 winkellog
+Generating Distance Matrix and Plotting took 267.9538233280182
+done
+pb16 GL1 euklid
+Generating Distance Matrix and Plotting took 140.59507179260254
+done
+pb16 GL1 winkel
+Generating Distance Matrix and Plotting took 200.80874919891357
+done
+pb16 GL1 winkellog
+Generating Distance Matrix and Plotting took 234.36257481575012
+done
+pb16 GL5 euklid
+Generating Distance Matrix and Plotting took 136.37789130210876
+done
+pb16 GL5 winkel
+Generating Distance Matrix and Plotting took 189.55196404457092
+done
+pb16 GL5 winkellog
+Generating Distance Matrix and Plotting took 214.324542760849
+done
+pb16 BGL1 euklid
+Generating Distance Matrix and Plotting took 116.8805103302002
+done
+pb16 BGL1 winkel
+Generating Distance Matrix and Plotting took 163.84748482704163
+done
+pb16 BGL1 winkellog
+Generating Distance Matrix and Plotting took 192.6485595703125
+done
+pb16 BGL5 euklid
+Generating Distance Matrix and Plotting took 174.2283318042755
+done
+pb16 BGL5 winkel
+Generating Distance Matrix and Plotting took 262.469838142395
+done
+pb16 BGL5 winkellog
+Generating Distance Matrix and Plotting took 291.4812695980072
+done
+pb17 Spot1 euklid
+Generating Distance Matrix and Plotting took 33.7488214969635
+done
+pb17 Spot1 winkel
+Generating Distance Matrix and Plotting took 43.549588441848755
+done
+pb17 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.85910940170288
+done
+pb17 Spot5 euklid
+Generating Distance Matrix and Plotting took 67.31161665916443
+done
+pb17 Spot5 winkel
+Generating Distance Matrix and Plotting took 97.20694470405579
+done
+pb17 Spot5 winkellog
+Generating Distance Matrix and Plotting took 119.56516695022583
+done
+pb17 GL1 euklid
+Generating Distance Matrix and Plotting took 65.03636002540588
+done
+pb17 GL1 winkel
+Generating Distance Matrix and Plotting took 91.47772932052612
+done
+pb17 GL1 winkellog
+Generating Distance Matrix and Plotting took 107.43449974060059
+done
+pb17 GL5 euklid
+Generating Distance Matrix and Plotting took 65.14708685874939
+done
+pb17 GL5 winkel
+Generating Distance Matrix and Plotting took 86.83444261550903
+done
+pb17 GL5 winkellog
+Generating Distance Matrix and Plotting took 102.2822756767273
+done
+pb17 BGL1 euklid
+Generating Distance Matrix and Plotting took 46.14167284965515
+done
+pb17 BGL1 winkel
+Generating Distance Matrix and Plotting took 73.0425717830658
+done
+pb17 BGL1 winkellog
+Generating Distance Matrix and Plotting took 81.10839176177979
+done
+pb17 BGL5 euklid
+Generating Distance Matrix and Plotting took 71.50604057312012
+done
+pb17 BGL5 winkel
+Generating Distance Matrix and Plotting took 104.51855373382568
+done
+pb17 BGL5 winkellog
+Generating Distance Matrix and Plotting took 114.48171496391296
+done
+pb17_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 30.751139879226685
+done
+pb17_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 39.80843639373779
+done
+pb17_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 44.714048624038696
+done
+pb17_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 73.42128396034241
+done
+pb17_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 109.74284553527832
+done
+pb17_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 115.63534426689148
+done
+pb17_2 GL1 euklid
+Generating Distance Matrix and Plotting took 68.65339684486389
+done
+pb17_2 GL1 winkel
+Generating Distance Matrix and Plotting took 91.33727765083313
+done
+pb17_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 117.74574828147888
+done
+pb17_2 GL5 euklid
+Generating Distance Matrix and Plotting took 63.9978723526001
+done
+pb17_2 GL5 winkel
+Generating Distance Matrix and Plotting took 93.73114776611328
+done
+pb17_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 96.94890689849854
+done
+pb17_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.69905495643616
+done
+pb17_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 75.9208517074585
+done
+pb17_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 85.53582191467285
+done
+pb17_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 93.4644422531128
+done
+pb17_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 101.30409955978394
+done
+pb17_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 111.13796591758728
+done
+pb18 Spot1 euklid
+Generating Distance Matrix and Plotting took 71.6992437839508
+done
+pb18 Spot1 winkel
+Generating Distance Matrix and Plotting took 106.49640560150146
+done
+pb18 Spot1 winkellog
+Generating Distance Matrix and Plotting took 118.97515892982483
+done
+pb18 Spot5 euklid
+Generating Distance Matrix and Plotting took 159.53988552093506
+done
+pb18 Spot5 winkel
+Generating Distance Matrix and Plotting took 234.99343872070312
+done
+pb18 Spot5 winkellog
+Generating Distance Matrix and Plotting took 262.7413446903229
+done
+pb18 GL1 euklid
+Generating Distance Matrix and Plotting took 185.49801659584045
+done
+pb18 GL1 winkel
+Generating Distance Matrix and Plotting took 239.72143268585205
+done
+pb18 GL1 winkellog
+Generating Distance Matrix and Plotting took 279.39892172813416
+done
+pb18 GL5 euklid
+Generating Distance Matrix and Plotting took 149.45610284805298
+done
+pb18 GL5 winkel
+Generating Distance Matrix and Plotting took 202.0944836139679
+done
+pb18 GL5 winkellog
+Generating Distance Matrix and Plotting took 262.9060685634613
+done
+pb18 BGL1 euklid
+Generating Distance Matrix and Plotting took 125.21492052078247
+done
+pb18 BGL1 winkel
+Generating Distance Matrix and Plotting took 189.77165150642395
+done
+pb18 BGL1 winkellog
+Generating Distance Matrix and Plotting took 212.23312401771545
+done
+pb18 BGL5 euklid
+Generating Distance Matrix and Plotting took 182.72481441497803
+done
+pb18 BGL5 winkel
+Generating Distance Matrix and Plotting took 269.75811433792114
+done
+pb18 BGL5 winkellog
+Generating Distance Matrix and Plotting took 311.8524477481842
+done
+pb19 Spot1 euklid
+Generating Distance Matrix and Plotting took 34.32532286643982
+done
+pb19 Spot1 winkel
+Generating Distance Matrix and Plotting took 44.739959716796875
+done
+pb19 Spot1 winkellog
+Generating Distance Matrix and Plotting took 48.10965704917908
+done
+pb19 Spot5 euklid
+Generating Distance Matrix and Plotting took 81.32398223876953
+done
+pb19 Spot5 winkel
+Generating Distance Matrix and Plotting took 107.95771360397339
+done
+pb19 Spot5 winkellog
+Generating Distance Matrix and Plotting took 125.40384888648987
+done
+pb19 GL1 euklid
+Generating Distance Matrix and Plotting took 71.6172387599945
+done
+pb19 GL1 winkel
+Generating Distance Matrix and Plotting took 98.71707463264465
+done
+pb19 GL1 winkellog
+Generating Distance Matrix and Plotting took 107.86982274055481
+done
+pb19 GL5 euklid
+Generating Distance Matrix and Plotting took 63.928550720214844
+done
+pb19 GL5 winkel
+Generating Distance Matrix and Plotting took 86.27690863609314
+done
+pb19 GL5 winkellog
+Generating Distance Matrix and Plotting took 97.30103015899658
+done
+pb19 BGL1 euklid
+Generating Distance Matrix and Plotting took 53.05248761177063
+done
+pb19 BGL1 winkel
+Generating Distance Matrix and Plotting took 80.13571619987488
+done
+pb19 BGL1 winkellog
+Generating Distance Matrix and Plotting took 92.3144052028656
+done
+pb19 BGL5 euklid
+Generating Distance Matrix and Plotting took 91.59780168533325
+done
+pb19 BGL5 winkel
+Generating Distance Matrix and Plotting took 115.0306932926178
+done
+pb19 BGL5 winkellog
+Generating Distance Matrix and Plotting took 133.04126954078674
+done
+pb19_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 33.32121133804321
+done
+pb19_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 44.259756565093994
+done
+pb19_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 50.78558897972107
+done
+pb19_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 70.94605278968811
+done
+pb19_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 100.52928972244263
+done
+pb19_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 115.78893065452576
+done
+pb19_2 GL1 euklid
+Generating Distance Matrix and Plotting took 77.76363229751587
+done
+pb19_2 GL1 winkel
+Generating Distance Matrix and Plotting took 108.13836812973022
+done
+pb19_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 118.06516408920288
+done
+pb19_2 GL5 euklid
+Generating Distance Matrix and Plotting took 65.1880133152008
+done
+pb19_2 GL5 winkel
+Generating Distance Matrix and Plotting took 96.54122233390808
+done
+pb19_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 109.44719004631042
+done
+pb19_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 62.23863959312439
+done
+pb19_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 80.69893336296082
+done
+pb19_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 88.22859048843384
+done
+pb19_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 80.65878534317017
+done
+pb19_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 119.95775723457336
+done
+pb19_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 134.78943800926208
+done
+pb20 Spot1 euklid
+Generating Distance Matrix and Plotting took 75.10383105278015
+done
+pb20 Spot1 winkel
+Generating Distance Matrix and Plotting took 112.36412692070007
+done
+pb20 Spot1 winkellog
+Generating Distance Matrix and Plotting took 129.83435320854187
+done
+pb20 Spot5 euklid
+Generating Distance Matrix and Plotting took 139.82272028923035
+done
+pb20 Spot5 winkel
+Generating Distance Matrix and Plotting took 201.08831310272217
+done
+pb20 Spot5 winkellog
+Generating Distance Matrix and Plotting took 244.73692631721497
+done
+pb20 GL1 euklid
+Generating Distance Matrix and Plotting took 134.9911231994629
+done
+pb20 GL1 winkel
+Generating Distance Matrix and Plotting took 191.62169814109802
+done
+pb20 GL1 winkellog
+Generating Distance Matrix and Plotting took 222.31757736206055
+done
+pb20 GL5 euklid
+Generating Distance Matrix and Plotting took 127.5274543762207
+done
+pb20 GL5 winkel
+Generating Distance Matrix and Plotting took 180.32133769989014
+done
+pb20 GL5 winkellog
+Generating Distance Matrix and Plotting took 201.38471674919128
+done
+pb20 BGL1 euklid
+Generating Distance Matrix and Plotting took 100.04696607589722
+done
+pb20 BGL1 winkel
+Generating Distance Matrix and Plotting took 146.96931791305542
+done
+pb20 BGL1 winkellog
+Generating Distance Matrix and Plotting took 167.99909782409668
+done
+pb20 BGL5 euklid
+Generating Distance Matrix and Plotting took 147.89290189743042
+done
+pb20 BGL5 winkel
+Generating Distance Matrix and Plotting took 213.83980202674866
+done
+pb20 BGL5 winkellog
+Generating Distance Matrix and Plotting took 243.9931664466858
+done
+pb21 Spot1 euklid
+Generating Distance Matrix and Plotting took 32.79292273521423
+done
+pb21 Spot1 winkel
+Generating Distance Matrix and Plotting took 42.86586856842041
+done
+pb21 Spot1 winkellog
+Generating Distance Matrix and Plotting took 47.75350379943848
+done
+pb21 Spot5 euklid
+Generating Distance Matrix and Plotting took 70.40825986862183
+done
+pb21 Spot5 winkel
+Generating Distance Matrix and Plotting took 101.3871066570282
+done
+pb21 Spot5 winkellog
+Generating Distance Matrix and Plotting took 119.30223774909973
+done
+pb21 GL1 euklid
+Generating Distance Matrix and Plotting took 68.45806002616882
+done
+pb21 GL1 winkel
+Generating Distance Matrix and Plotting took 102.99333500862122
+done
+pb21 GL1 winkellog
+Generating Distance Matrix and Plotting took 109.40367531776428
+done
+pb21 GL5 euklid
+Generating Distance Matrix and Plotting took 58.593132972717285
+done
+pb21 GL5 winkel
+Generating Distance Matrix and Plotting took 79.33915066719055
+done
+pb21 GL5 winkellog
+Generating Distance Matrix and Plotting took 90.81747484207153
+done
+pb21 BGL1 euklid
+Generating Distance Matrix and Plotting took 48.55686330795288
+done
+pb21 BGL1 winkel
+Generating Distance Matrix and Plotting took 70.60697865486145
+done
+pb21 BGL1 winkellog
+Generating Distance Matrix and Plotting took 80.16383981704712
+done
+pb21 BGL5 euklid
+Generating Distance Matrix and Plotting took 66.70775580406189
+done
+pb21 BGL5 winkel
+Generating Distance Matrix and Plotting took 96.79659342765808
+done
+pb21 BGL5 winkellog
+Generating Distance Matrix and Plotting took 107.38773941993713
+done
+pb21_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 32.19903492927551
+done
+pb21_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 42.204774618148804
+done
+pb21_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 47.8182635307312
+done
+pb21_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 73.83364582061768
+done
+pb21_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 99.96069407463074
+done
+pb21_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 115.02280187606812
+done
+pb21_2 GL1 euklid
+Generating Distance Matrix and Plotting took 68.56816720962524
+done
+pb21_2 GL1 winkel
+Generating Distance Matrix and Plotting took 114.41839575767517
+done
+pb21_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 123.46784496307373
+done
+pb21_2 GL5 euklid
+Generating Distance Matrix and Plotting took 62.26336622238159
+done
+pb21_2 GL5 winkel
+Generating Distance Matrix and Plotting took 83.8598644733429
+done
+pb21_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 97.4604127407074
+done
+pb21_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.18585252761841
+done
+pb21_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 69.15775394439697
+done
+pb21_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 75.0802960395813
+done
+pb21_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 67.60043430328369
+done
+pb21_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 97.34306788444519
+done
+pb21_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 114.95720434188843
+done
+pb22 Spot1 euklid
+Generating Distance Matrix and Plotting took 72.10978627204895
+done
+pb22 Spot1 winkel
+Generating Distance Matrix and Plotting took 102.99551129341125
+done
+pb22 Spot1 winkellog
+Generating Distance Matrix and Plotting took 116.93849492073059
+done
+pb22 Spot5 euklid
+Generating Distance Matrix and Plotting took 131.39167952537537
+done
+pb22 Spot5 winkel
+Generating Distance Matrix and Plotting took 208.98290967941284
+done
+pb22 Spot5 winkellog
+Generating Distance Matrix and Plotting took 229.20985579490662
+done
+pb22 GL1 euklid
+Generating Distance Matrix and Plotting took 146.5734899044037
+done
+pb22 GL1 winkel
+Generating Distance Matrix and Plotting took 190.87748384475708
+done
+pb22 GL1 winkellog
+Generating Distance Matrix and Plotting took 225.92390727996826
+done
+pb22 GL5 euklid
+Generating Distance Matrix and Plotting took 135.50354480743408
+done
+pb22 GL5 winkel
+Generating Distance Matrix and Plotting took 191.80937504768372
+done
+pb22 GL5 winkellog
+Generating Distance Matrix and Plotting took 214.89988732337952
+done
+pb22 BGL1 euklid
+Generating Distance Matrix and Plotting took 107.14516949653625
+done
+pb22 BGL1 winkel
+Generating Distance Matrix and Plotting took 163.2791383266449
+done
+pb22 BGL1 winkellog
+Generating Distance Matrix and Plotting took 175.27498745918274
+done
+pb22 BGL5 euklid
+Generating Distance Matrix and Plotting took 143.08994102478027
+done
+pb22 BGL5 winkel
+Generating Distance Matrix and Plotting took 210.1660349369049
+done
+pb22 BGL5 winkellog
+Generating Distance Matrix and Plotting took 242.61843156814575
+done
+pb24 Spot1 euklid
+Generating Distance Matrix and Plotting took 76.42379975318909
+done
+pb24 Spot1 winkel
+Generating Distance Matrix and Plotting took 103.65783905982971
+done
+pb24 Spot1 winkellog
+Generating Distance Matrix and Plotting took 113.58405375480652
+done
+pb24 Spot5 euklid
+Generating Distance Matrix and Plotting took 163.0867156982422
+done
+pb24 Spot5 winkel
+Generating Distance Matrix and Plotting took 222.78140115737915
+done
+pb24 Spot5 winkellog
+Generating Distance Matrix and Plotting took 269.2524793148041
+done
+pb24 GL1 euklid
+Generating Distance Matrix and Plotting took 166.59668970108032
+done
+pb24 GL1 winkel
+Generating Distance Matrix and Plotting took 220.59894251823425
+done
+pb24 GL1 winkellog
+Generating Distance Matrix and Plotting took 255.38710355758667
+done
+pb24 GL5 euklid
+Generating Distance Matrix and Plotting took 148.89238929748535
+done
+pb24 GL5 winkel
+Generating Distance Matrix and Plotting took 199.3139193058014
+done
+pb24 GL5 winkellog
+Generating Distance Matrix and Plotting took 277.3605511188507
+done
+pb24 BGL1 euklid
+Generating Distance Matrix and Plotting took 110.88224172592163
+done
+pb24 BGL1 winkel
+Generating Distance Matrix and Plotting took 152.38783311843872
+done
+pb24 BGL1 winkellog
+Generating Distance Matrix and Plotting took 184.34289360046387
+done
+pb24 BGL5 euklid
+Generating Distance Matrix and Plotting took 155.15902543067932
+done
+pb24 BGL5 winkel
+Generating Distance Matrix and Plotting took 218.704443693161
+done
+pb24 BGL5 winkellog
+Generating Distance Matrix and Plotting took 254.48868322372437
+done
+pb25 Spot1 euklid
+Generating Distance Matrix and Plotting took 28.78322196006775
+done
+pb25 Spot1 winkel
+Generating Distance Matrix and Plotting took 36.80142068862915
+done
+pb25 Spot1 winkellog
+Generating Distance Matrix and Plotting took 41.42490482330322
+done
+pb25 Spot5 euklid
+Generating Distance Matrix and Plotting took 65.80580854415894
+done
+pb25 Spot5 winkel
+Generating Distance Matrix and Plotting took 96.10047698020935
+done
+pb25 Spot5 winkellog
+Generating Distance Matrix and Plotting took 114.57505369186401
+done
+pb25 GL1 euklid
+Generating Distance Matrix and Plotting took 67.09162020683289
+done
+pb25 GL1 winkel
+Generating Distance Matrix and Plotting took 89.25002360343933
+done
+pb25 GL1 winkellog
+Generating Distance Matrix and Plotting took 104.93576693534851
+done
+pb25 GL5 euklid
+Generating Distance Matrix and Plotting took 60.9808509349823
+done
+pb25 GL5 winkel
+Generating Distance Matrix and Plotting took 81.28327965736389
+done
+pb25 GL5 winkellog
+Generating Distance Matrix and Plotting took 95.46125960350037
+done
+pb25 BGL1 euklid
+Generating Distance Matrix and Plotting took 46.0210337638855
+done
+pb25 BGL1 winkel
+Generating Distance Matrix and Plotting took 62.672452449798584
+done
+pb25 BGL1 winkellog
+Generating Distance Matrix and Plotting took 74.82667088508606
+done
+pb25 BGL5 euklid
+Generating Distance Matrix and Plotting took 65.04212498664856
+done
+pb25 BGL5 winkel
+Generating Distance Matrix and Plotting took 90.12336587905884
+done
+pb25 BGL5 winkellog
+Generating Distance Matrix and Plotting took 102.03487396240234
+done
+pb25_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 28.934916257858276
+done
+pb25_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 40.011557817459106
+done
+pb25_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.426474809646606
+done
+pb25_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 63.721773862838745
+done
+pb25_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 96.99195718765259
+done
+pb25_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 118.39023280143738
+done
+pb25_2 GL1 euklid
+Generating Distance Matrix and Plotting took 67.05912256240845
+done
+pb25_2 GL1 winkel
+Generating Distance Matrix and Plotting took 89.22842621803284
+done
+pb25_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 113.27155232429504
+done
+pb25_2 GL5 euklid
+Generating Distance Matrix and Plotting took 57.2543580532074
+done
+pb25_2 GL5 winkel
+Generating Distance Matrix and Plotting took 83.2269561290741
+done
+pb25_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 102.05138897895813
+done
+pb25_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 49.078644037246704
+done
+pb25_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 69.55260276794434
+done
+pb25_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 81.46973752975464
+done
+pb25_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 67.00726103782654
+done
+pb25_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 94.73082065582275
+done
+pb25_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 107.10749053955078
+done
+pb26 Spot1 euklid
+Generating Distance Matrix and Plotting took 72.26403188705444
+done
+pb26 Spot1 winkel
+Generating Distance Matrix and Plotting took 105.26958179473877
+done
+pb26 Spot1 winkellog
+Generating Distance Matrix and Plotting took 118.46529531478882
+done
+pb26 Spot5 euklid
+Generating Distance Matrix and Plotting took 156.49093627929688
+done
+pb26 Spot5 winkel
+Generating Distance Matrix and Plotting took 223.98969340324402
+done
+pb26 Spot5 winkellog
+Generating Distance Matrix and Plotting took 259.3480453491211
+done
+pb26 GL1 euklid
+Generating Distance Matrix and Plotting took 156.12486839294434
+done
+pb26 GL1 winkel
+Generating Distance Matrix and Plotting took 222.30693745613098
+done
+pb26 GL1 winkellog
+Generating Distance Matrix and Plotting took 253.34855937957764
+done
+pb26 GL5 euklid
+Generating Distance Matrix and Plotting took 137.9435842037201
+done
+pb26 GL5 winkel
+Generating Distance Matrix and Plotting took 193.42950320243835
+done
+pb26 GL5 winkellog
+Generating Distance Matrix and Plotting took 222.14483332633972
+done
+pb26 BGL1 euklid
+Generating Distance Matrix and Plotting took 111.56538534164429
+done
+pb26 BGL1 winkel
+Generating Distance Matrix and Plotting took 160.259765625
+done
+pb26 BGL1 winkellog
+Generating Distance Matrix and Plotting took 179.62720203399658
+done
+pb26 BGL5 euklid
+Generating Distance Matrix and Plotting took 169.76684546470642
+done
+pb26 BGL5 winkel
+Generating Distance Matrix and Plotting took 227.84601545333862
+done
+pb26 BGL5 winkellog
+Generating Distance Matrix and Plotting took 264.40822863578796
+done
+pb27 Spot1 euklid
+Generating Distance Matrix and Plotting took 35.99840235710144
+done
+pb27 Spot1 winkel
+Generating Distance Matrix and Plotting took 47.24201440811157
+done
+pb27 Spot1 winkellog
+Generating Distance Matrix and Plotting took 52.07082557678223
+done
+pb27 Spot5 euklid
+Generating Distance Matrix and Plotting took 71.20670366287231
+done
+pb27 Spot5 winkel
+Generating Distance Matrix and Plotting took 89.9598217010498
+done
+pb27 Spot5 winkellog
+Generating Distance Matrix and Plotting took 113.02903580665588
+done
+pb27 GL1 euklid
+Generating Distance Matrix and Plotting took 71.79012942314148
+done
+pb27 GL1 winkel
+Generating Distance Matrix and Plotting took 104.27848982810974
+done
+pb27 GL1 winkellog
+Generating Distance Matrix and Plotting took 116.57280325889587
+done
+pb27 GL5 euklid
+Generating Distance Matrix and Plotting took 70.97060894966125
+done
+pb27 GL5 winkel
+Generating Distance Matrix and Plotting took 83.09630870819092
+done
+pb27 GL5 winkellog
+Generating Distance Matrix and Plotting took 100.54350805282593
+done
+pb27 BGL1 euklid
+Generating Distance Matrix and Plotting took 46.818750619888306
+done
+pb27 BGL1 winkel
+Generating Distance Matrix and Plotting took 70.12603545188904
+done
+pb27 BGL1 winkellog
+Generating Distance Matrix and Plotting took 79.38375806808472
+done
+pb27 BGL5 euklid
+Generating Distance Matrix and Plotting took 70.96424198150635
+done
+pb27 BGL5 winkel
+Generating Distance Matrix and Plotting took 96.2799813747406
+done
+pb27 BGL5 winkellog
+Generating Distance Matrix and Plotting took 110.00889945030212
+done
+pb27_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 29.838529109954834
+done
+pb27_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 39.100780963897705
+done
+pb27_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 45.7117714881897
+done
+pb27_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 77.94017314910889
+done
+pb27_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 100.05607604980469
+done
+pb27_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 113.94832968711853
+done
+pb27_2 GL1 euklid
+Generating Distance Matrix and Plotting took 71.13329982757568
+done
+pb27_2 GL1 winkel
+Generating Distance Matrix and Plotting took 101.4786159992218
+done
+pb27_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 117.16873335838318
+done
+pb27_2 GL5 euklid
+Generating Distance Matrix and Plotting took 66.00164270401001
+done
+pb27_2 GL5 winkel
+Generating Distance Matrix and Plotting took 86.65344452857971
+done
+pb27_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 95.22076773643494
+done
+pb27_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 57.73717784881592
+done
+pb27_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 70.69562292098999
+done
+pb27_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 81.92454075813293
+done
+pb27_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 79.68151831626892
+done
+pb27_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 106.99844622612
+done
+pb27_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 121.24316811561584
+done
+pb28 Spot1 euklid
+Generating Distance Matrix and Plotting took 67.63587284088135
+done
+pb28 Spot1 winkel
+Generating Distance Matrix and Plotting took 89.72558331489563
+done
+pb28 Spot1 winkellog
+Generating Distance Matrix and Plotting took 126.36208319664001
+done
+pb28 Spot5 euklid
+Generating Distance Matrix and Plotting took 148.41857075691223
+done
+pb28 Spot5 winkel
+Generating Distance Matrix and Plotting took 205.2847626209259
+done
+pb28 Spot5 winkellog
+Generating Distance Matrix and Plotting took 239.19626379013062
+done
+pb28 GL1 euklid
+Generating Distance Matrix and Plotting took 152.16766548156738
+done
+pb28 GL1 winkel
+Generating Distance Matrix and Plotting took 241.07222199440002
+done
+pb28 GL1 winkellog
+Generating Distance Matrix and Plotting took 285.8061559200287
+done
+pb28 GL5 euklid
+Generating Distance Matrix and Plotting took 134.8716549873352
+done
+pb28 GL5 winkel
+Generating Distance Matrix and Plotting took 194.4326295852661
+done
+pb28 GL5 winkellog
+Generating Distance Matrix and Plotting took 227.46105813980103
+done
+pb28 BGL1 euklid
+Generating Distance Matrix and Plotting took 105.42951035499573
+done
+pb28 BGL1 winkel
+Generating Distance Matrix and Plotting took 148.81235432624817
+done
+pb28 BGL1 winkellog
+Generating Distance Matrix and Plotting took 175.87952756881714
+done
+pb28 BGL5 euklid
+Generating Distance Matrix and Plotting took 218.7812466621399
+done
+pb28 BGL5 winkel
+Generating Distance Matrix and Plotting took 311.73264598846436
+done
+pb28 BGL5 winkellog
+Generating Distance Matrix and Plotting took 346.5360372066498
+done
+pb29 Spot1 euklid
+Generating Distance Matrix and Plotting took 30.841995000839233
+done
+pb29 Spot1 winkel
+Generating Distance Matrix and Plotting took 42.08105182647705
+done
+pb29 Spot1 winkellog
+Generating Distance Matrix and Plotting took 47.274988889694214
+done
+pb29 Spot5 euklid
+Generating Distance Matrix and Plotting took 72.80484414100647
+done
+pb29 Spot5 winkel
+Generating Distance Matrix and Plotting took 100.1795642375946
+done
+pb29 Spot5 winkellog
+Generating Distance Matrix and Plotting took 113.34101057052612
+done
+pb29 GL1 euklid
+Generating Distance Matrix and Plotting took 75.81722354888916
+done
+pb29 GL1 winkel
+Generating Distance Matrix and Plotting took 102.0307104587555
+done
+pb29 GL1 winkellog
+Generating Distance Matrix and Plotting took 116.20636558532715
+done
+pb29 GL5 euklid
+Generating Distance Matrix and Plotting took 66.39085483551025
+done
+pb29 GL5 winkel
+Generating Distance Matrix and Plotting took 96.60373020172119
+done
+pb29 GL5 winkellog
+Generating Distance Matrix and Plotting took 107.38995218276978
+done
+pb29 BGL1 euklid
+Generating Distance Matrix and Plotting took 52.18865942955017
+done
+pb29 BGL1 winkel
+Generating Distance Matrix and Plotting took 64.96492123603821
+done
+pb29 BGL1 winkellog
+Generating Distance Matrix and Plotting took 76.67933940887451
+done
+pb29 BGL5 euklid
+Generating Distance Matrix and Plotting took 75.11094856262207
+done
+pb29 BGL5 winkel
+Generating Distance Matrix and Plotting took 107.99721097946167
+done
+pb29 BGL5 winkellog
+Generating Distance Matrix and Plotting took 120.22148895263672
+done
+pb29_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.659988164901733
+done
+pb29_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 40.823983669281006
+done
+pb29_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 44.340561389923096
+done
+pb29_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 70.72029876708984
+done
+pb29_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 95.99448871612549
+done
+pb29_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 110.76595664024353
+done
+pb29_2 GL1 euklid
+Generating Distance Matrix and Plotting took 72.438223361969
+done
+pb29_2 GL1 winkel
+Generating Distance Matrix and Plotting took 98.85549831390381
+done
+pb29_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 109.26344084739685
+done
+pb29_2 GL5 euklid
+Generating Distance Matrix and Plotting took 72.08259892463684
+done
+pb29_2 GL5 winkel
+Generating Distance Matrix and Plotting took 79.99310255050659
+done
+pb29_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 107.78393387794495
+done
+pb29_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.87290716171265
+done
+pb29_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 73.1808488368988
+done
+pb29_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 81.58697962760925
+done
+pb29_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 73.42454934120178
+done
+pb29_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 107.7975242137909
+done
+pb29_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 120.07389211654663
+done
+pb30 Spot1 euklid
+Generating Distance Matrix and Plotting took 72.9636390209198
+done
+pb30 Spot1 winkel
+Generating Distance Matrix and Plotting took 100.93778109550476
+done
+pb30 Spot1 winkellog
+Generating Distance Matrix and Plotting took 116.02070474624634
+done
+pb30 Spot5 euklid
+Generating Distance Matrix and Plotting took 155.94683861732483
+done
+pb30 Spot5 winkel
+Generating Distance Matrix and Plotting took 228.63958024978638
+done
+pb30 Spot5 winkellog
+Generating Distance Matrix and Plotting took 263.99489736557007
+done
+pb30 GL1 euklid
+Generating Distance Matrix and Plotting took 152.30348253250122
+done
+pb30 GL1 winkel
+Generating Distance Matrix and Plotting took 223.17129611968994
+done
+pb30 GL1 winkellog
+Generating Distance Matrix and Plotting took 246.13190507888794
+done
+pb30 GL5 euklid
+Generating Distance Matrix and Plotting took 125.79528141021729
+done
+pb30 GL5 winkel
+Generating Distance Matrix and Plotting took 183.4299817085266
+done
+pb30 GL5 winkellog
+Generating Distance Matrix and Plotting took 221.67472910881042
+done
+pb30 BGL1 euklid
+Generating Distance Matrix and Plotting took 114.62778401374817
+done
+pb30 BGL1 winkel
+Generating Distance Matrix and Plotting took 153.21139526367188
+done
+pb30 BGL1 winkellog
+Generating Distance Matrix and Plotting took 182.87465286254883
+done
+pb30 BGL5 euklid
+Generating Distance Matrix and Plotting took 165.48080778121948
+done
+pb30 BGL5 winkel
+Generating Distance Matrix and Plotting took 220.16597652435303
+done
+pb30 BGL5 winkellog
+Generating Distance Matrix and Plotting took 263.60538482666016
+done
+pb31 Spot1 euklid
+Generating Distance Matrix and Plotting took 32.628114223480225
+done
+pb31 Spot1 winkel
+Generating Distance Matrix and Plotting took 44.471327781677246
+done
+pb31 Spot1 winkellog
+Generating Distance Matrix and Plotting took 45.476361989974976
+done
+pb31 Spot5 euklid
+Generating Distance Matrix and Plotting took 64.80090665817261
+done
+pb31 Spot5 winkel
+Generating Distance Matrix and Plotting took 96.64886665344238
+done
+pb31 Spot5 winkellog
+Generating Distance Matrix and Plotting took 119.5376672744751
+done
+pb31 GL1 euklid
+Generating Distance Matrix and Plotting took 73.60330128669739
+done
+pb31 GL1 winkel
+Generating Distance Matrix and Plotting took 101.87675738334656
+done
+pb31 GL1 winkellog
+Generating Distance Matrix and Plotting took 113.5137152671814
+done
+pb31 GL5 euklid
+Generating Distance Matrix and Plotting took 67.7027063369751
+done
+pb31 GL5 winkel
+Generating Distance Matrix and Plotting took 86.28921151161194
+done
+pb31 GL5 winkellog
+Generating Distance Matrix and Plotting took 97.66438055038452
+done
+pb31 BGL1 euklid
+Generating Distance Matrix and Plotting took 50.07062101364136
+done
+pb31 BGL1 winkel
+Generating Distance Matrix and Plotting took 67.42169308662415
+done
+pb31 BGL1 winkellog
+Generating Distance Matrix and Plotting took 82.68161535263062
+done
+pb31 BGL5 euklid
+Generating Distance Matrix and Plotting took 76.14366483688354
+done
+pb31 BGL5 winkel
+Generating Distance Matrix and Plotting took 102.81235408782959
+done
+pb31 BGL5 winkellog
+Generating Distance Matrix and Plotting took 116.97966456413269
+done
+pb31_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 35.03686261177063
+done
+pb31_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 44.372883558273315
+done
+pb31_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 52.185585021972656
+done
+pb31_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 65.80185127258301
+done
+pb31_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 100.55403208732605
+done
+pb31_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 104.18717050552368
+done
+pb31_2 GL1 euklid
+Generating Distance Matrix and Plotting took 73.5072877407074
+done
+pb31_2 GL1 winkel
+Generating Distance Matrix and Plotting took 115.82249426841736
+done
+pb31_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 135.608069896698
+done
+pb31_2 GL5 euklid
+Generating Distance Matrix and Plotting took 58.536057472229004
+done
+pb31_2 GL5 winkel
+Generating Distance Matrix and Plotting took 80.15509176254272
+done
+pb31_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 100.28978323936462
+done
+pb31_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 47.759851932525635
+done
+pb31_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 63.79940700531006
+done
+pb31_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 76.51285123825073
+done
+pb31_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 72.55543184280396
+done
+pb31_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 96.75564408302307
+done
+pb31_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 116.05460572242737
+done
+pb32 Spot1 euklid
+Generating Distance Matrix and Plotting took 76.12018513679504
+done
+pb32 Spot1 winkel
+Generating Distance Matrix and Plotting took 102.7069251537323
+done
+pb32 Spot1 winkellog
+Generating Distance Matrix and Plotting took 111.8186399936676
+done
+pb32 Spot5 euklid
+Generating Distance Matrix and Plotting took 161.91959857940674
+done
+pb32 Spot5 winkel
+Generating Distance Matrix and Plotting took 223.0424473285675
+done
+pb32 Spot5 winkellog
+Generating Distance Matrix and Plotting took 258.3032820224762
+done
+pb32 GL1 euklid
+Generating Distance Matrix and Plotting took 152.78982996940613
+done
+pb32 GL1 winkel
+Generating Distance Matrix and Plotting took 216.8685646057129
+done
+pb32 GL1 winkellog
+Generating Distance Matrix and Plotting took 248.22516989707947
+done
+pb32 GL5 euklid
+Generating Distance Matrix and Plotting took 138.3551688194275
+done
+pb32 GL5 winkel
+Generating Distance Matrix and Plotting took 174.98390889167786
+done
+pb32 GL5 winkellog
+Generating Distance Matrix and Plotting took 204.5186731815338
+done
+pb32 BGL1 euklid
+Generating Distance Matrix and Plotting took 113.89575219154358
+done
+pb32 BGL1 winkel
+Generating Distance Matrix and Plotting took 161.15529561042786
+done
+pb32 BGL1 winkellog
+Generating Distance Matrix and Plotting took 188.42530155181885
+done
+pb32 BGL5 euklid
+Generating Distance Matrix and Plotting took 150.16901564598083
+done
+pb32 BGL5 winkel
+Generating Distance Matrix and Plotting took 214.0478856563568
+done
+pb32 BGL5 winkellog
+Generating Distance Matrix and Plotting took 250.06135296821594
+done
+pb33 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.543908834457397
+done
+pb33 Spot1 winkel
+Generating Distance Matrix and Plotting took 39.902472734451294
+done
+pb33 Spot1 winkellog
+Generating Distance Matrix and Plotting took 48.479450941085815
+done
+pb33 Spot5 euklid
+Generating Distance Matrix and Plotting took 74.77925229072571
+done
+pb33 Spot5 winkel
+Generating Distance Matrix and Plotting took 111.73803734779358
+done
+pb33 Spot5 winkellog
+Generating Distance Matrix and Plotting took 128.49483966827393
+done
+pb33 GL1 euklid
+Generating Distance Matrix and Plotting took 72.25972652435303
+done
+pb33 GL1 winkel
+Generating Distance Matrix and Plotting took 97.86506724357605
+done
+pb33 GL1 winkellog
+Generating Distance Matrix and Plotting took 119.44305992126465
+done
+pb33 GL5 euklid
+Generating Distance Matrix and Plotting took 63.41301918029785
+done
+pb33 GL5 winkel
+Generating Distance Matrix and Plotting took 84.27604866027832
+done
+pb33 GL5 winkellog
+Generating Distance Matrix and Plotting took 106.46250295639038
+done
+pb33 BGL1 euklid
+Generating Distance Matrix and Plotting took 52.753533124923706
+done
+pb33 BGL1 winkel
+Generating Distance Matrix and Plotting took 69.81180787086487
+done
+pb33 BGL1 winkellog
+Generating Distance Matrix and Plotting took 79.80265378952026
+done
+pb33 BGL5 euklid
+Generating Distance Matrix and Plotting took 69.80227661132812
+done
+pb33 BGL5 winkel
+Generating Distance Matrix and Plotting took 98.38103818893433
+done
+pb33 BGL5 winkellog
+Generating Distance Matrix and Plotting took 106.34823822975159
+done
+pb33_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 34.30249285697937
+done
+pb33_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 45.019137382507324
+done
+pb33_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 47.83823871612549
+done
+pb33_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 71.18985295295715
+done
+pb33_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 103.62123036384583
+done
+pb33_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 113.60224533081055
+done
+pb33_2 GL1 euklid
+Generating Distance Matrix and Plotting took 75.93412828445435
+done
+pb33_2 GL1 winkel
+Generating Distance Matrix and Plotting took 106.07903575897217
+done
+pb33_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 112.45637273788452
+done
+pb33_2 GL5 euklid
+Generating Distance Matrix and Plotting took 61.28665208816528
+done
+pb33_2 GL5 winkel
+Generating Distance Matrix and Plotting took 79.47894549369812
+done
+pb33_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 97.37262845039368
+done
+pb33_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 52.72848033905029
+done
+pb33_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 68.35273027420044
+done
+pb33_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 76.67446446418762
+done
+pb33_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 82.7709093093872
+done
+pb33_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 101.57949185371399
+done
+pb33_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 115.11863207817078
+done
+pb34 Spot1 euklid
+Generating Distance Matrix and Plotting took 76.32805275917053
+done
+pb34 Spot1 winkel
+Generating Distance Matrix and Plotting took 105.61133289337158
+done
+pb34 Spot1 winkellog
+Generating Distance Matrix and Plotting took 109.75749778747559
+done
+pb34 Spot5 euklid
+Generating Distance Matrix and Plotting took 158.29420804977417
+done
+pb34 Spot5 winkel
+Generating Distance Matrix and Plotting took 214.05092406272888
+done
+pb34 Spot5 winkellog
+Generating Distance Matrix and Plotting took 260.1337788105011
+done
+pb34 GL1 euklid
+Generating Distance Matrix and Plotting took 141.99595761299133
+done
+pb34 GL1 winkel
+Generating Distance Matrix and Plotting took 207.56884050369263
+done
+pb34 GL1 winkellog
+Generating Distance Matrix and Plotting took 255.27164030075073
+done
+pb34 GL5 euklid
+Generating Distance Matrix and Plotting took 134.3854784965515
+done
+pb34 GL5 winkel
+Generating Distance Matrix and Plotting took 182.3898389339447
+done
+pb34 GL5 winkellog
+Generating Distance Matrix and Plotting took 223.02417993545532
+done
+pb34 BGL1 euklid
+Generating Distance Matrix and Plotting took 113.05996775627136
+done
+pb34 BGL1 winkel
+Generating Distance Matrix and Plotting took 152.11066889762878
+done
+pb34 BGL1 winkellog
+Generating Distance Matrix and Plotting took 179.8581829071045
+done
+pb34 BGL5 euklid
+Generating Distance Matrix and Plotting took 151.31482315063477
+done
+pb34 BGL5 winkel
+Generating Distance Matrix and Plotting took 227.780770778656
+done
+pb34 BGL5 winkellog
+Generating Distance Matrix and Plotting took 254.6878113746643
+done
+pb35 Spot1 euklid
+Generating Distance Matrix and Plotting took 30.50777578353882
+done
+pb35 Spot1 winkel
+Generating Distance Matrix and Plotting took 40.028496503829956
+done
+pb35 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.299434423446655
+done
+pb35 Spot5 euklid
+Generating Distance Matrix and Plotting took 78.47023677825928
+done
+pb35 Spot5 winkel
+Generating Distance Matrix and Plotting took 108.35510277748108
+done
+pb35 Spot5 winkellog
+Generating Distance Matrix and Plotting took 109.8364577293396
+done
+pb35 GL1 euklid
+Generating Distance Matrix and Plotting took 71.55169248580933
+done
+pb35 GL1 winkel
+Generating Distance Matrix and Plotting took 93.9983012676239
+done
+pb35 GL1 winkellog
+Generating Distance Matrix and Plotting took 107.31648755073547
+done
+pb35 GL5 euklid
+Generating Distance Matrix and Plotting took 61.08187961578369
+done
+pb35 GL5 winkel
+Generating Distance Matrix and Plotting took 86.13316679000854
+done
+pb35 GL5 winkellog
+Generating Distance Matrix and Plotting took 105.26258444786072
+done
+pb35 BGL1 euklid
+Generating Distance Matrix and Plotting took 47.28369140625
+done
+pb35 BGL1 winkel
+Generating Distance Matrix and Plotting took 69.68180418014526
+done
+pb35 BGL1 winkellog
+Generating Distance Matrix and Plotting took 76.11397409439087
+done
+pb35 BGL5 euklid
+Generating Distance Matrix and Plotting took 75.51352453231812
+done
+pb35 BGL5 winkel
+Generating Distance Matrix and Plotting took 97.73297047615051
+done
+pb35 BGL5 winkellog
+Generating Distance Matrix and Plotting took 116.080073595047
+done
+pb35_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 36.04947304725647
+done
+pb35_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 45.32920980453491
+done
+pb35_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 48.600759744644165
+done
+pb35_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 72.97693824768066
+done
+pb35_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 97.77808260917664
+done
+pb35_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 114.0672242641449
+done
+pb35_2 GL1 euklid
+Generating Distance Matrix and Plotting took 72.07895922660828
+done
+pb35_2 GL1 winkel
+Generating Distance Matrix and Plotting took 95.0777862071991
+done
+pb35_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 116.06968808174133
+done
+pb35_2 GL5 euklid
+Generating Distance Matrix and Plotting took 61.06683826446533
+done
+pb35_2 GL5 winkel
+Generating Distance Matrix and Plotting took 91.44407677650452
+done
+pb35_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 98.43671822547913
+done
+pb35_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.48684024810791
+done
+pb35_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 73.35559344291687
+done
+pb35_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 87.49661707878113
+done
+pb35_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 72.28516149520874
+done
+pb35_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 95.6531023979187
+done
+pb35_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 105.10993123054504
+done
+pb36 Spot1 euklid
+Generating Distance Matrix and Plotting took 76.03513979911804
+done
+pb36 Spot1 winkel
+Generating Distance Matrix and Plotting took 106.94792866706848
+done
+pb36 Spot1 winkellog
+Generating Distance Matrix and Plotting took 119.60474300384521
+done
+pb36 Spot5 euklid
+Generating Distance Matrix and Plotting took 150.08821654319763
+done
+pb36 Spot5 winkel
+Generating Distance Matrix and Plotting took 221.241459608078
+done
+pb36 Spot5 winkellog
+Generating Distance Matrix and Plotting took 244.0947961807251
+done
+pb36 GL1 euklid
+Generating Distance Matrix and Plotting took 171.60269498825073
+done
+pb36 GL1 winkel
+Generating Distance Matrix and Plotting took 233.4654462337494
+done
+pb36 GL1 winkellog
+Generating Distance Matrix and Plotting took 282.89509177207947
+done
+pb36 GL5 euklid
+Generating Distance Matrix and Plotting took 156.8487102985382
+done
+pb36 GL5 winkel
+Generating Distance Matrix and Plotting took 208.77878403663635
+done
+pb36 GL5 winkellog
+Generating Distance Matrix and Plotting took 235.86628532409668
+done
+pb36 BGL1 euklid
+Generating Distance Matrix and Plotting took 109.38548946380615
+done
+pb36 BGL1 winkel
+Generating Distance Matrix and Plotting took 149.43146538734436
+done
+pb36 BGL1 winkellog
+Generating Distance Matrix and Plotting took 168.6543779373169
+done
+pb36 BGL5 euklid
+Generating Distance Matrix and Plotting took 148.94556879997253
+done
+pb36 BGL5 winkel
+Generating Distance Matrix and Plotting took 214.48140811920166
+done
+pb36 BGL5 winkellog
+Generating Distance Matrix and Plotting took 242.62571811676025
+done
+pb37 Spot1 euklid
+Generating Distance Matrix and Plotting took 32.56631779670715
+done
+pb37 Spot1 winkel
+Generating Distance Matrix and Plotting took 41.58646273612976
+done
+pb37 Spot1 winkellog
+Generating Distance Matrix and Plotting took 48.355388879776
+done
+pb37 Spot5 euklid
+Generating Distance Matrix and Plotting took 70.07415914535522
+done
+pb37 Spot5 winkel
+Generating Distance Matrix and Plotting took 99.66786742210388
+done
+pb37 Spot5 winkellog
+Generating Distance Matrix and Plotting took 113.18201065063477
+done
+pb37 GL1 euklid
+Generating Distance Matrix and Plotting took 72.0725634098053
+done
+pb37 GL1 winkel
+Generating Distance Matrix and Plotting took 95.46288204193115
+done
+pb37 GL1 winkellog
+Generating Distance Matrix and Plotting took 120.7542073726654
+done
+pb37 GL5 euklid
+Generating Distance Matrix and Plotting took 73.53934407234192
+done
+pb37 GL5 winkel
+Generating Distance Matrix and Plotting took 89.82697439193726
+done
+pb37 GL5 winkellog
+Generating Distance Matrix and Plotting took 100.85743618011475
+done
+pb37 BGL1 euklid
+Generating Distance Matrix and Plotting took 53.66683006286621
+done
+pb37 BGL1 winkel
+Generating Distance Matrix and Plotting took 70.36722922325134
+done
+pb37 BGL1 winkellog
+Generating Distance Matrix and Plotting took 78.93305540084839
+done
+pb37 BGL5 euklid
+Generating Distance Matrix and Plotting took 71.74209189414978
+done
+pb37 BGL5 winkel
+Generating Distance Matrix and Plotting took 108.66196060180664
+done
+pb37 BGL5 winkellog
+Generating Distance Matrix and Plotting took 114.02692008018494
+done
+pb37_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 33.757956743240356
+done
+pb37_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 45.337701082229614
+done
+pb37_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 51.51689887046814
+done
+pb37_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 78.7489504814148
+done
+pb37_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 107.7661120891571
+done
+pb37_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 124.36962366104126
+done
+pb37_2 GL1 euklid
+Generating Distance Matrix and Plotting took 70.67827343940735
+done
+pb37_2 GL1 winkel
+Generating Distance Matrix and Plotting took 96.69638752937317
+done
+pb37_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 115.36125135421753
+done
+pb37_2 GL5 euklid
+Generating Distance Matrix and Plotting took 62.50210905075073
+done
+pb37_2 GL5 winkel
+Generating Distance Matrix and Plotting took 77.54001784324646
+done
+pb37_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 100.04687070846558
+done
+pb37_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 49.8516526222229
+done
+pb37_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 62.27477478981018
+done
+pb37_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 73.81560206413269
+done
+pb37_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 68.65352487564087
+done
+pb37_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 99.1980950832367
+done
+pb37_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 113.00394654273987
+done
+pb38 Spot1 euklid
+Generating Distance Matrix and Plotting took 67.07020545005798
+done
+pb38 Spot1 winkel
+Generating Distance Matrix and Plotting took 90.11560153961182
+done
+pb38 Spot1 winkellog
+Generating Distance Matrix and Plotting took 106.09873604774475
+done
+pb38 Spot5 euklid
+Generating Distance Matrix and Plotting took 164.37506580352783
+done
+pb38 Spot5 winkel
+Generating Distance Matrix and Plotting took 226.61260271072388
+done
+pb38 Spot5 winkellog
+Generating Distance Matrix and Plotting took 270.7121362686157
+done
+pb38 GL1 euklid
+Generating Distance Matrix and Plotting took 147.8878457546234
+done
+pb38 GL1 winkel
+Generating Distance Matrix and Plotting took 219.2407147884369
+done
+pb38 GL1 winkellog
+Generating Distance Matrix and Plotting took 250.41415858268738
+done
+pb38 GL5 euklid
+Generating Distance Matrix and Plotting took 130.5493187904358
+done
+pb38 GL5 winkel
+Generating Distance Matrix and Plotting took 189.09600162506104
+done
+pb38 GL5 winkellog
+Generating Distance Matrix and Plotting took 219.14080548286438
+done
+pb38 BGL1 euklid
+Generating Distance Matrix and Plotting took 120.3260281085968
+done
+pb38 BGL1 winkel
+Generating Distance Matrix and Plotting took 147.4105942249298
+done
+pb38 BGL1 winkellog
+Generating Distance Matrix and Plotting took 166.43047404289246
+done
+pb38 BGL5 euklid
+Generating Distance Matrix and Plotting took 149.39826798439026
+done
+pb38 BGL5 winkel
+Generating Distance Matrix and Plotting took 214.01692032814026
+done
+pb38 BGL5 winkellog
+Generating Distance Matrix and Plotting took 240.54244375228882
+done
+pb39 Spot1 euklid
+Generating Distance Matrix and Plotting took 34.01616883277893
+done
+pb39 Spot1 winkel
+Generating Distance Matrix and Plotting took 44.85403776168823
+done
+pb39 Spot1 winkellog
+Generating Distance Matrix and Plotting took 49.58761525154114
+done
+pb39 Spot5 euklid
+Generating Distance Matrix and Plotting took 70.80550193786621
+done
+pb39 Spot5 winkel
+Generating Distance Matrix and Plotting took 103.24479866027832
+done
+pb39 Spot5 winkellog
+Generating Distance Matrix and Plotting took 115.298171043396
+done
+pb39 GL1 euklid
+Generating Distance Matrix and Plotting took 68.987309217453
+done
+pb39 GL1 winkel
+Generating Distance Matrix and Plotting took 89.36914420127869
+done
+pb39 GL1 winkellog
+Generating Distance Matrix and Plotting took 112.044762134552
+done
+pb39 GL5 euklid
+Generating Distance Matrix and Plotting took 59.85692071914673
+done
+pb39 GL5 winkel
+Generating Distance Matrix and Plotting took 86.86425995826721
+done
+pb39 GL5 winkellog
+Generating Distance Matrix and Plotting took 103.36709094047546
+done
+pb39 BGL1 euklid
+Generating Distance Matrix and Plotting took 46.594768047332764
+done
+pb39 BGL1 winkel
+Generating Distance Matrix and Plotting took 63.246591329574585
+done
+pb39 BGL1 winkellog
+Generating Distance Matrix and Plotting took 73.20357203483582
+done
+pb39 BGL5 euklid
+Generating Distance Matrix and Plotting took 67.44899821281433
+done
+pb39 BGL5 winkel
+Generating Distance Matrix and Plotting took 89.25782990455627
+done
+pb39 BGL5 winkellog
+Generating Distance Matrix and Plotting took 99.2333300113678
+done
+pb39_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 29.713364601135254
+done
+pb39_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 42.00876712799072
+done
+pb39_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.21117448806763
+done
+pb39_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 70.93440771102905
+done
+pb39_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 101.12080264091492
+done
+pb39_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 113.98844289779663
+done
+pb39_2 GL1 euklid
+Generating Distance Matrix and Plotting took 71.73339819908142
+done
+pb39_2 GL1 winkel
+Generating Distance Matrix and Plotting took 106.05588936805725
+done
+pb39_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 121.89819049835205
+done
+pb39_2 GL5 euklid
+Generating Distance Matrix and Plotting took 61.89283084869385
+done
+pb39_2 GL5 winkel
+Generating Distance Matrix and Plotting took 85.63955974578857
+done
+pb39_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 103.7146201133728
+done
+pb39_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 54.90722131729126
+done
+pb39_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 72.31225919723511
+done
+pb39_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 86.04584765434265
+done
+pb39_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 63.67946267127991
+done
+pb39_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 100.35063409805298
+done
+pb39_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 111.27356791496277
+done
+pb40 Spot1 euklid
+Generating Distance Matrix and Plotting took 72.96987390518188
+done
+pb40 Spot1 winkel
+Generating Distance Matrix and Plotting took 100.4958028793335
+done
+pb40 Spot1 winkellog
+Generating Distance Matrix and Plotting took 120.49300980567932
+done
+pb40 Spot5 euklid
+Generating Distance Matrix and Plotting took 163.33184671401978
+done
+pb40 Spot5 winkel
+Generating Distance Matrix and Plotting took 214.5881631374359
+done
+pb40 Spot5 winkellog
+Generating Distance Matrix and Plotting took 345.3283727169037
+done
+pb40 GL1 euklid
+Generating Distance Matrix and Plotting took 162.12989354133606
+done
+pb40 GL1 winkel
+Generating Distance Matrix and Plotting took 221.77203679084778
+done
+pb40 GL1 winkellog
+Generating Distance Matrix and Plotting took 245.85631847381592
+done
+pb40 GL5 euklid
+Generating Distance Matrix and Plotting took 149.60220050811768
+done
+pb40 GL5 winkel
+Generating Distance Matrix and Plotting took 206.87236952781677
+done
+pb40 GL5 winkellog
+Generating Distance Matrix and Plotting took 233.81784892082214
+done
+pb40 BGL1 euklid
+Generating Distance Matrix and Plotting took 120.25441837310791
+done
+pb40 BGL1 winkel
+Generating Distance Matrix and Plotting took 161.17550945281982
+done
+pb40 BGL1 winkellog
+Generating Distance Matrix and Plotting took 193.03771018981934
+done
+pb40 BGL5 euklid
+Generating Distance Matrix and Plotting took 164.29176926612854
+done
+pb40 BGL5 winkel
+Generating Distance Matrix and Plotting took 226.88804531097412
+done
+pb40 BGL5 winkellog
+Generating Distance Matrix and Plotting took 255.64545035362244
+done
+pb41 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.136231184005737
+done
+pb41 Spot1 winkel
+Generating Distance Matrix and Plotting took 38.799877882003784
+done
+pb41 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.104249000549316
+done
+pb41 Spot5 euklid
+Generating Distance Matrix and Plotting took 69.53882718086243
+done
+pb41 Spot5 winkel
+Generating Distance Matrix and Plotting took 101.28390645980835
+done
+pb41 Spot5 winkellog
+Generating Distance Matrix and Plotting took 124.36033940315247
+done
+pb41 GL1 euklid
+Generating Distance Matrix and Plotting took 70.15239644050598
+done
+pb41 GL1 winkel
+Generating Distance Matrix and Plotting took 102.21360540390015
+done
+pb41 GL1 winkellog
+Generating Distance Matrix and Plotting took 115.75264954566956
+done
+pb41 GL5 euklid
+Generating Distance Matrix and Plotting took 58.83228421211243
+done
+pb41 GL5 winkel
+Generating Distance Matrix and Plotting took 82.98444366455078
+done
+pb41 GL5 winkellog
+Generating Distance Matrix and Plotting took 94.41193151473999
+done
+pb41 BGL1 euklid
+Generating Distance Matrix and Plotting took 50.29280471801758
+done
+pb41 BGL1 winkel
+Generating Distance Matrix and Plotting took 76.60596323013306
+done
+pb41 BGL1 winkellog
+Generating Distance Matrix and Plotting took 76.5016222000122
+done
+pb41 BGL5 euklid
+Generating Distance Matrix and Plotting took 72.31968808174133
+done
+pb41 BGL5 winkel
+Generating Distance Matrix and Plotting took 105.5347900390625
+done
+pb41 BGL5 winkellog
+Generating Distance Matrix and Plotting took 118.87729406356812
+done
+pb41_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 29.83649730682373
+done
+pb41_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 42.69510054588318
+done
+pb41_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 48.240936279296875
+done
+pb41_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 71.63082909584045
+done
+pb41_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 98.77607822418213
+done
+pb41_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 114.77145075798035
+done
+pb41_2 GL1 euklid
+Generating Distance Matrix and Plotting took 74.8205976486206
+done
+pb41_2 GL1 winkel
+Generating Distance Matrix and Plotting took 100.34066963195801
+done
+pb41_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 109.94425368309021
+done
+pb41_2 GL5 euklid
+Generating Distance Matrix and Plotting took 65.13209915161133
+done
+pb41_2 GL5 winkel
+Generating Distance Matrix and Plotting took 87.88189148902893
+done
+pb41_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 97.21680855751038
+done
+pb41_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 52.42314124107361
+done
+pb41_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 67.09188103675842
+done
+pb41_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 76.31765484809875
+done
+pb41_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 73.80087780952454
+done
+pb41_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 108.79600405693054
+done
+pb41_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 112.95066928863525
+done
+pb42 Spot1 euklid
+Generating Distance Matrix and Plotting took 74.66083121299744
+done
+pb42 Spot1 winkel
+Generating Distance Matrix and Plotting took 93.68092346191406
+done
+pb42 Spot1 winkellog
+Generating Distance Matrix and Plotting took 105.16688108444214
+done
+pb42 Spot5 euklid
+Generating Distance Matrix and Plotting took 156.86339235305786
+done
+pb42 Spot5 winkel
+Generating Distance Matrix and Plotting took 211.77039670944214
+done
+pb42 Spot5 winkellog
+Generating Distance Matrix and Plotting took 249.59229373931885
+done
+pb42 GL1 euklid
+Generating Distance Matrix and Plotting took 157.26128458976746
+done
+pb42 GL1 winkel
+Generating Distance Matrix and Plotting took 201.42881631851196
+done
+pb42 GL1 winkellog
+Generating Distance Matrix and Plotting took 243.00235438346863
+done
+pb42 GL5 euklid
+Generating Distance Matrix and Plotting took 128.2780032157898
+done
+pb42 GL5 winkel
+Generating Distance Matrix and Plotting took 178.02911925315857
+done
+pb42 GL5 winkellog
+Generating Distance Matrix and Plotting took 215.3680968284607
+done
+pb42 BGL1 euklid
+Generating Distance Matrix and Plotting took 117.83910155296326
+done
+pb42 BGL1 winkel
+Generating Distance Matrix and Plotting took 158.8829128742218
+done
+pb42 BGL1 winkellog
+Generating Distance Matrix and Plotting took 184.6594066619873
+done
+pb42 BGL5 euklid
+Generating Distance Matrix and Plotting took 148.70496702194214
+done
+pb42 BGL5 winkel
+Generating Distance Matrix and Plotting took 183.9945604801178
+done
+pb42 BGL5 winkellog
+Generating Distance Matrix and Plotting took 218.6074538230896
+done
+pb43 Spot1 euklid
+Generating Distance Matrix and Plotting took 33.40820384025574
+done
+pb43 Spot1 winkel
+Generating Distance Matrix and Plotting took 41.502946853637695
+done
+pb43 Spot1 winkellog
+Generating Distance Matrix and Plotting took 47.62314319610596
+done
+pb43 Spot5 euklid
+Generating Distance Matrix and Plotting took 78.14872765541077
+done
+pb43 Spot5 winkel
+Generating Distance Matrix and Plotting took 101.81983399391174
+done
+pb43 Spot5 winkellog
+Generating Distance Matrix and Plotting took 117.5072569847107
+done
+pb43 GL1 euklid
+Generating Distance Matrix and Plotting took 69.20006728172302
+done
+pb43 GL1 winkel
+Generating Distance Matrix and Plotting took 100.01404571533203
+done
+pb43 GL1 winkellog
+Generating Distance Matrix and Plotting took 108.35365176200867
+done
+pb43 GL5 euklid
+Generating Distance Matrix and Plotting took 62.54186725616455
+done
+pb43 GL5 winkel
+Generating Distance Matrix and Plotting took 86.01313900947571
+done
+pb43 GL5 winkellog
+Generating Distance Matrix and Plotting took 94.30751752853394
+done
+pb43 BGL1 euklid
+Generating Distance Matrix and Plotting took 52.750444173812866
+done
+pb43 BGL1 winkel
+Generating Distance Matrix and Plotting took 66.84773206710815
+done
+pb43 BGL1 winkellog
+Generating Distance Matrix and Plotting took 76.66117358207703
+done
+pb43 BGL5 euklid
+Generating Distance Matrix and Plotting took 75.48244071006775
+done
+pb43 BGL5 winkel
+Generating Distance Matrix and Plotting took 101.56580877304077
+done
+pb43 BGL5 winkellog
+Generating Distance Matrix and Plotting took 115.97787928581238
+done
+pb43_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 29.26624822616577
+done
+pb43_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 41.2031729221344
+done
+pb43_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 49.39984345436096
+done
+pb43_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 75.12908959388733
+done
+pb43_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 105.89490056037903
+done
+pb43_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 120.3753674030304
+done
+pb43_2 GL1 euklid
+Generating Distance Matrix and Plotting took 67.96115970611572
+done
+pb43_2 GL1 winkel
+Generating Distance Matrix and Plotting took 93.76882100105286
+done
+pb43_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 105.34366059303284
+done
+pb43_2 GL5 euklid
+Generating Distance Matrix and Plotting took 62.47237586975098
+done
+pb43_2 GL5 winkel
+Generating Distance Matrix and Plotting took 87.6610496044159
+done
+pb43_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 99.12077474594116
+done
+pb43_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 48.35114908218384
+done
+pb43_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 69.49867606163025
+done
+pb43_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 75.37152171134949
+done
+pb43_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 69.08574509620667
+done
+pb43_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 88.6964750289917
+done
+pb43_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 99.63329768180847
+done
+pb44 Spot1 euklid
+Generating Distance Matrix and Plotting took 80.60202836990356
+done
+pb44 Spot1 winkel
+Generating Distance Matrix and Plotting took 103.90699243545532
+done
+pb44 Spot1 winkellog
+Generating Distance Matrix and Plotting took 118.49204683303833
+done
+pb44 Spot5 euklid
+Generating Distance Matrix and Plotting took 139.09697365760803
+done
+pb44 Spot5 winkel
+Generating Distance Matrix and Plotting took 225.8083746433258
+done
+pb44 Spot5 winkellog
+Generating Distance Matrix and Plotting took 265.7149188518524
+done
+pb44 GL1 euklid
+Generating Distance Matrix and Plotting took 147.75977420806885
+done
+pb44 GL1 winkel
+Generating Distance Matrix and Plotting took 199.77142572402954
+done
+pb44 GL1 winkellog
+Generating Distance Matrix and Plotting took 223.3935742378235
+done
+pb44 GL5 euklid
+Generating Distance Matrix and Plotting took 130.2446141242981
+done
+pb44 GL5 winkel
+Generating Distance Matrix and Plotting took 183.8653643131256
+done
+pb44 GL5 winkellog
+Generating Distance Matrix and Plotting took 217.03648281097412
+done
+pb44 BGL1 euklid
+Generating Distance Matrix and Plotting took 112.18100357055664
+done
+pb44 BGL1 winkel
+Generating Distance Matrix and Plotting took 157.40413188934326
+done
+pb44 BGL1 winkellog
+Generating Distance Matrix and Plotting took 193.47449803352356
+done
+pb44 BGL5 euklid
+Generating Distance Matrix and Plotting took 153.39180731773376
+done
+pb44 BGL5 winkel
+Generating Distance Matrix and Plotting took 207.25450778007507
+done
+pb44 BGL5 winkellog
+Generating Distance Matrix and Plotting took 245.90466451644897
+done
+pb45 Spot1 euklid
+Generating Distance Matrix and Plotting took 33.546658515930176
+done
+pb45 Spot1 winkel
+Generating Distance Matrix and Plotting took 45.498865365982056
+done
+pb45 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.65576124191284
+done
+pb45 Spot5 euklid
+Generating Distance Matrix and Plotting took 71.45027112960815
+done
+pb45 Spot5 winkel
+Generating Distance Matrix and Plotting took 105.74311900138855
+done
+pb45 Spot5 winkellog
+Generating Distance Matrix and Plotting took 117.21128129959106
+done
+pb45 GL1 euklid
+Generating Distance Matrix and Plotting took 79.0393397808075
+done
+pb45 GL1 winkel
+Generating Distance Matrix and Plotting took 108.35779094696045
+done
+pb45 GL1 winkellog
+Generating Distance Matrix and Plotting took 128.58061504364014
+done
+pb45 GL5 euklid
+Generating Distance Matrix and Plotting took 66.01563477516174
+done
+pb45 GL5 winkel
+Generating Distance Matrix and Plotting took 83.07406234741211
+done
+pb45 GL5 winkellog
+Generating Distance Matrix and Plotting took 106.07062029838562
+done
+pb45 BGL1 euklid
+Generating Distance Matrix and Plotting took 48.06364822387695
+done
+pb45 BGL1 winkel
+Generating Distance Matrix and Plotting took 71.60300874710083
+done
+pb45 BGL1 winkellog
+Generating Distance Matrix and Plotting took 86.18614363670349
+done
+pb45 BGL5 euklid
+Generating Distance Matrix and Plotting took 67.10650682449341
+done
+pb45 BGL5 winkel
+Generating Distance Matrix and Plotting took 98.40767550468445
+done
+pb45 BGL5 winkellog
+Generating Distance Matrix and Plotting took 112.32955956459045
+done
+pb45_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 31.944398641586304
+done
+pb45_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 40.038997650146484
+done
+pb45_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 46.26008105278015
+done
+pb45_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 72.64383673667908
+done
+pb45_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 90.09953546524048
+done
+pb45_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 125.81310081481934
+done
+pb45_2 GL1 euklid
+Generating Distance Matrix and Plotting took 73.00046873092651
+done
+pb45_2 GL1 winkel
+Generating Distance Matrix and Plotting took 101.87005805969238
+done
+pb45_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 115.80868363380432
+done
+pb45_2 GL5 euklid
+Generating Distance Matrix and Plotting took 57.578388929367065
+done
+pb45_2 GL5 winkel
+Generating Distance Matrix and Plotting took 92.07414889335632
+done
+pb45_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 92.3439154624939
+done
+pb45_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 49.4191038608551
+done
+pb45_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 65.97885012626648
+done
+pb45_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 73.2708535194397
+done
+pb45_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 66.16045498847961
+done
+pb45_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 100.57918119430542
+done
+pb45_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 115.99262547492981
+done
+pb46 Spot1 euklid
+Generating Distance Matrix and Plotting took 63.750115633010864
+done
+pb46 Spot1 winkel
+Generating Distance Matrix and Plotting took 95.60319828987122
+done
+pb46 Spot1 winkellog
+Generating Distance Matrix and Plotting took 110.9157555103302
+done
+pb46 Spot5 euklid
+Generating Distance Matrix and Plotting took 149.84638094902039
+done
+pb46 Spot5 winkel
+Generating Distance Matrix and Plotting took 203.60195302963257
+done
+pb46 Spot5 winkellog
+Generating Distance Matrix and Plotting took 217.72286105155945
+done
+pb46 GL1 euklid
+Generating Distance Matrix and Plotting took 155.3727831840515
+done
+pb46 GL1 winkel
+Generating Distance Matrix and Plotting took 203.95322394371033
+done
+pb46 GL1 winkellog
+Generating Distance Matrix and Plotting took 242.71959042549133
+done
+pb46 GL5 euklid
+Generating Distance Matrix and Plotting took 142.13128423690796
+done
+pb46 GL5 winkel
+Generating Distance Matrix and Plotting took 198.7184476852417
+done
+pb46 GL5 winkellog
+Generating Distance Matrix and Plotting took 215.36781406402588
+done
+pb46 BGL1 euklid
+Generating Distance Matrix and Plotting took 109.6744487285614
+done
+pb46 BGL1 winkel
+Generating Distance Matrix and Plotting took 143.37960934638977
+done
+pb46 BGL1 winkellog
+Generating Distance Matrix and Plotting took 168.5626699924469
+done
+pb46 BGL5 euklid
+Generating Distance Matrix and Plotting took 166.35662865638733
+done
+pb46 BGL5 winkel
+Generating Distance Matrix and Plotting took 240.1616621017456
+done
+pb46 BGL5 winkellog
+Generating Distance Matrix and Plotting took 276.65994119644165
+done
+pb47 Spot1 euklid
+Generating Distance Matrix and Plotting took 34.12213587760925
+done
+pb47 Spot1 winkel
+Generating Distance Matrix and Plotting took 44.467254877090454
+done
+pb47 Spot1 winkellog
+Generating Distance Matrix and Plotting took 47.20745921134949
+done
+pb47 Spot5 euklid
+Generating Distance Matrix and Plotting took 69.04992938041687
+done
+pb47 Spot5 winkel
+Generating Distance Matrix and Plotting took 101.5746283531189
+done
+pb47 Spot5 winkellog
+Generating Distance Matrix and Plotting took 116.1180534362793
+done
+pb47 GL1 euklid
+Generating Distance Matrix and Plotting took 71.30917882919312
+done
+pb47 GL1 winkel
+Generating Distance Matrix and Plotting took 93.14247298240662
+done
+pb47 GL1 winkellog
+Generating Distance Matrix and Plotting took 110.43772506713867
+done
+pb47 GL5 euklid
+Generating Distance Matrix and Plotting took 67.25878500938416
+done
+pb47 GL5 winkel
+Generating Distance Matrix and Plotting took 87.37012338638306
+done
+pb47 GL5 winkellog
+Generating Distance Matrix and Plotting took 109.34147429466248
+done
+pb47 BGL1 euklid
+Generating Distance Matrix and Plotting took 49.175872802734375
+done
+pb47 BGL1 winkel
+Generating Distance Matrix and Plotting took 73.70473909378052
+done
+pb47 BGL1 winkellog
+Generating Distance Matrix and Plotting took 83.20728421211243
+done
+pb47 BGL5 euklid
+Generating Distance Matrix and Plotting took 67.78576159477234
+done
+pb47 BGL5 winkel
+Generating Distance Matrix and Plotting took 99.0633430480957
+done
+pb47 BGL5 winkellog
+Generating Distance Matrix and Plotting took 108.36884307861328
+done
+pb47_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 28.698417901992798
+done
+pb47_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 41.60575008392334
+done
+pb47_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 45.85550379753113
+done
+pb47_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 72.15711855888367
+done
+pb47_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 99.21165347099304
+done
+pb47_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 112.41349768638611
+done
+pb47_2 GL1 euklid
+Generating Distance Matrix and Plotting took 74.52435111999512
+done
+pb47_2 GL1 winkel
+Generating Distance Matrix and Plotting took 95.47272849082947
+done
+pb47_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 111.38416934013367
+done
+pb47_2 GL5 euklid
+Generating Distance Matrix and Plotting took 68.68172240257263
+done
+pb47_2 GL5 winkel
+Generating Distance Matrix and Plotting took 88.21388506889343
+done
+pb47_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 102.62831950187683
+done
+pb47_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 51.48943376541138
+done
+pb47_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 65.08727741241455
+done
+pb47_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 73.92445111274719
+done
+pb47_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 72.37466955184937
+done
+pb47_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 91.45435738563538
+done
+pb47_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 102.65966868400574
+done
+pb48 Spot1 euklid
+Generating Distance Matrix and Plotting took 74.29226398468018
+done
+pb48 Spot1 winkel
+Generating Distance Matrix and Plotting took 98.5025691986084
+done
+pb48 Spot1 winkellog
+Generating Distance Matrix and Plotting took 110.22035956382751
+done
+pb48 Spot5 euklid
+Generating Distance Matrix and Plotting took 163.2953395843506
+done
+pb48 Spot5 winkel
+Generating Distance Matrix and Plotting took 234.11904668807983
+done
+pb48 Spot5 winkellog
+Generating Distance Matrix and Plotting took 263.06737422943115
+done
+pb48 GL1 euklid
+Generating Distance Matrix and Plotting took 164.13063621520996
+done
+pb48 GL1 winkel
+Generating Distance Matrix and Plotting took 217.07528734207153
+done
+pb48 GL1 winkellog
+Generating Distance Matrix and Plotting took 242.15308499336243
+done
+pb48 GL5 euklid
+Generating Distance Matrix and Plotting took 136.80449032783508
+done
+pb48 GL5 winkel
+Generating Distance Matrix and Plotting took 181.84959268569946
+done
+pb48 GL5 winkellog
+Generating Distance Matrix and Plotting took 209.8117995262146
+done
+pb48 BGL1 euklid
+Generating Distance Matrix and Plotting took 110.23651933670044
+done
+pb48 BGL1 winkel
+Generating Distance Matrix and Plotting took 161.8019242286682
+done
+pb48 BGL1 winkellog
+Generating Distance Matrix and Plotting took 172.0448956489563
+done
+pb48 BGL5 euklid
+Generating Distance Matrix and Plotting took 151.25416779518127
+done
+pb48 BGL5 winkel
+Generating Distance Matrix and Plotting took 204.6501395702362
+done
+pb48 BGL5 winkellog
+Generating Distance Matrix and Plotting took 244.96692395210266
+done
+pb49 Spot1 euklid
+Generating Distance Matrix and Plotting took 29.88082456588745
+done
+pb49 Spot1 winkel
+Generating Distance Matrix and Plotting took 41.74476909637451
+done
+pb49 Spot1 winkellog
+Generating Distance Matrix and Plotting took 45.25466179847717
+done
+pb49 Spot5 euklid
+Generating Distance Matrix and Plotting took 69.57827091217041
+done
+pb49 Spot5 winkel
+Generating Distance Matrix and Plotting took 92.52981305122375
+done
+pb49 Spot5 winkellog
+Generating Distance Matrix and Plotting took 96.86111640930176
+done
+pb49 GL1 euklid
+Generating Distance Matrix and Plotting took 60.033246994018555
+done
+pb49 GL1 winkel
+Generating Distance Matrix and Plotting took 83.42162704467773
+done
+pb49 GL1 winkellog
+Generating Distance Matrix and Plotting took 95.56066799163818
+done
+pb49 GL5 euklid
+Generating Distance Matrix and Plotting took 55.844048738479614
+done
+pb49 GL5 winkel
+Generating Distance Matrix and Plotting took 72.14501237869263
+done
+pb49 GL5 winkellog
+Generating Distance Matrix and Plotting took 83.00426006317139
+done
+pb49 BGL1 euklid
+Generating Distance Matrix and Plotting took 42.71171426773071
+done
+pb49 BGL1 winkel
+Generating Distance Matrix and Plotting took 57.27281355857849
+done
+pb49 BGL1 winkellog
+Generating Distance Matrix and Plotting took 68.48433709144592
+done
+pb49 BGL5 euklid
+Generating Distance Matrix and Plotting took 53.52207040786743
+done
+pb49 BGL5 winkel
+Generating Distance Matrix and Plotting took 73.00412392616272
+done
+pb49 BGL5 winkellog
+Generating Distance Matrix and Plotting took 84.54018783569336
+done
+pb49_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 33.78103303909302
+done
+pb49_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 44.30111289024353
+done
+pb49_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 50.605350732803345
+done
+pb49_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 70.51168131828308
+done
+pb49_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 107.98050856590271
+done
+pb49_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 125.36019539833069
+done
+pb49_2 GL1 euklid
+Generating Distance Matrix and Plotting took 70.07548809051514
+done
+pb49_2 GL1 winkel
+Generating Distance Matrix and Plotting took 102.12548089027405
+done
+pb49_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 114.73941707611084
+done
+pb49_2 GL5 euklid
+Generating Distance Matrix and Plotting took 60.85961127281189
+done
+pb49_2 GL5 winkel
+Generating Distance Matrix and Plotting took 80.24590134620667
+done
+pb49_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 91.91904973983765
+done
+pb49_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 48.040252923965454
+done
+pb49_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 66.96478748321533
+done
+pb49_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 75.60580277442932
+done
+pb49_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 78.58378005027771
+done
+pb49_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 98.57182574272156
+done
+pb49_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 119.34496450424194
+done
+pb51 Spot1 euklid
+Generating Distance Matrix and Plotting took 45.422447681427
+done
+pb51 Spot1 winkel
+Generating Distance Matrix and Plotting took 73.86992740631104
+done
+pb51 Spot1 winkellog
+Generating Distance Matrix and Plotting took 78.34332776069641
+done
+pb51 Spot5 euklid
+Generating Distance Matrix and Plotting took 73.10591387748718
+done
+pb51 Spot5 winkel
+Generating Distance Matrix and Plotting took 92.61403226852417
+done
+pb51 Spot5 winkellog
+Generating Distance Matrix and Plotting took 106.22296857833862
+done
+pb51 GL1 euklid
+Generating Distance Matrix and Plotting took 74.0566098690033
+done
+pb51 GL1 winkel
+Generating Distance Matrix and Plotting took 99.04495620727539
+done
+pb51 GL1 winkellog
+Generating Distance Matrix and Plotting took 116.66963458061218
+done
+pb51 GL5 euklid
+Generating Distance Matrix and Plotting took 59.78760886192322
+done
+pb51 GL5 winkel
+Generating Distance Matrix and Plotting took 77.84982633590698
+done
+pb51 GL5 winkellog
+Generating Distance Matrix and Plotting took 90.99613308906555
+done
+pb51 BGL1 euklid
+Generating Distance Matrix and Plotting took 55.15114998817444
+done
+pb51 BGL1 winkel
+Generating Distance Matrix and Plotting took 68.21944904327393
+done
+pb51 BGL1 winkellog
+Generating Distance Matrix and Plotting took 83.84029865264893
+done
+pb51 BGL5 euklid
+Generating Distance Matrix and Plotting took 76.3277382850647
+done
+pb51 BGL5 winkel
+Generating Distance Matrix and Plotting took 109.15144348144531
+done
+pb51 BGL5 winkellog
+Generating Distance Matrix and Plotting took 126.1710057258606
+done
+pb51_2 Spot1 euklid
+Generating Distance Matrix and Plotting took 38.448275327682495
+done
+pb51_2 Spot1 winkel
+Generating Distance Matrix and Plotting took 49.69235372543335
+done
+pb51_2 Spot1 winkellog
+Generating Distance Matrix and Plotting took 67.0529465675354
+done
+pb51_2 Spot5 euklid
+Generating Distance Matrix and Plotting took 72.67261123657227
+done
+pb51_2 Spot5 winkel
+Generating Distance Matrix and Plotting took 95.4471607208252
+done
+pb51_2 Spot5 winkellog
+Generating Distance Matrix and Plotting took 110.04702258110046
+done
+pb51_2 GL1 euklid
+Generating Distance Matrix and Plotting took 70.41516900062561
+done
+pb51_2 GL1 winkel
+Generating Distance Matrix and Plotting took 98.41697454452515
+done
+pb51_2 GL1 winkellog
+Generating Distance Matrix and Plotting took 116.50089001655579
+done
+pb51_2 GL5 euklid
+Generating Distance Matrix and Plotting took 60.224454402923584
+done
+pb51_2 GL5 winkel
+Generating Distance Matrix and Plotting took 93.41770267486572
+done
+pb51_2 GL5 winkellog
+Generating Distance Matrix and Plotting took 93.34089207649231
+done
+pb51_2 BGL1 euklid
+Generating Distance Matrix and Plotting took 50.97112798690796
+done
+pb51_2 BGL1 winkel
+Generating Distance Matrix and Plotting took 70.80728316307068
+done
+pb51_2 BGL1 winkellog
+Generating Distance Matrix and Plotting took 80.933345079422
+done
+pb51_2 BGL5 euklid
+Generating Distance Matrix and Plotting took 68.42175769805908
+done
+pb51_2 BGL5 winkel
+Generating Distance Matrix and Plotting took 105.83846354484558
+done
+pb51_2 BGL5 winkellog
+Generating Distance Matrix and Plotting took 117.23204565048218
+done
+pb52 Spot1 euklid
+Generating Distance Matrix and Plotting took 78.0241391658783
+done
+pb52 Spot1 winkel
+Generating Distance Matrix and Plotting took 100.21808195114136
+done
+pb52 Spot1 winkellog
+Generating Distance Matrix and Plotting took 112.40967178344727
+done
+pb52 Spot5 euklid
+Generating Distance Matrix and Plotting took 160.09107160568237
+done
+pb52 Spot5 winkel
+Generating Distance Matrix and Plotting took 231.97736930847168
+done
+pb52 Spot5 winkellog
+Generating Distance Matrix and Plotting took 253.7028088569641
+done
+pb52 GL1 euklid
+Generating Distance Matrix and Plotting took 157.7211673259735
+done
+pb52 GL1 winkel
+Generating Distance Matrix and Plotting took 211.72497582435608
+done
+pb52 GL1 winkellog
+Generating Distance Matrix and Plotting took 242.0551929473877
+done
+pb52 GL5 euklid
+Generating Distance Matrix and Plotting took 136.7509217262268
+done
+pb52 GL5 winkel
+Generating Distance Matrix and Plotting took 180.35220336914062
+done
+pb52 GL5 winkellog
+Generating Distance Matrix and Plotting took 210.39573645591736
+done
+pb52 BGL1 euklid
+Generating Distance Matrix and Plotting took 109.39502549171448
+done
+pb52 BGL1 winkel
+Generating Distance Matrix and Plotting took 153.23938989639282
+done
+pb52 BGL1 winkellog
+Generating Distance Matrix and Plotting took 174.67797446250916
+done
+pb52 BGL5 euklid
+Generating Distance Matrix and Plotting took 142.26269698143005
+done
+pb52 BGL5 winkel
+Generating Distance Matrix and Plotting took 207.26806783676147
+done
+pb52 BGL5 winkellog
+Generating Distance Matrix and Plotting took 226.747332572937
+done

@@ -142,8 +142,8 @@ def calc_heatmap(pbn, pr, alias, distance):
     query_y = pop_m(list_df["query_y"].to_numpy())
     name = "plots/Pathmaps/" + pbn + "_" + alias + "_" + distance + "_pathmap.png"
     pmap = Pathmap(path_ref, path_query, ref_x, ref_y, query_x, query_y, distance, name)
-    # pmap.heatmap2()
-    pmap.heatmap3()
+    pmap.heatmap2()  # fastdtw
+    #pmap.heatmap3() # dtw
 
 
 def auswertung(pbnlist, distances, aliases):
@@ -253,6 +253,7 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
+    '''
     pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2",
                "pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2", "pb14", "pb15",
                "pb15_2", "pb16", "pb17", "pb17_2", "pb18", "pb19", "pb19_2", "pb20", "pb21", "pb21_2", "pb22", "pb24",
@@ -265,8 +266,8 @@ if __name__ == "__main__":
     aliases = ["Spot1","Spot5","GL1","GL5","BGL1","BGL5"]
     header, results = auswertung(pbnlist, distances, aliases)
     write_ausw(header, results)
-
     '''
+
     pbn = sys.argv[1]
     alias = sys.argv[2]
     distance = sys.argv[3]
@@ -274,4 +275,4 @@ if __name__ == "__main__":
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")
-    '''
+
