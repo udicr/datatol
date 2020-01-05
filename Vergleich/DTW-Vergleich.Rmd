@@ -74,8 +74,8 @@ sp.120.FDTW <- sp.120.FDTW %>% mutate(ref.before.query..rbq. = as.integer(case_w
 sp.500.FDTW <- sp.500.FDTW  %>% mutate(ref.before.query..rbq. = as.integer(case_when((PB %% 2)==0 ~ factor * as.double(ref.before.query..rbq.)/2, TRUE ~factor * as.double(ref.before.query..rbq.))))
 
 #query.before.ref..bqr.
-sp.120.DTW <- sp.120.DTW %>% mutate(query.berfore.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ as.double(query.berfore.ref..qbr.)/2, TRUE ~ as.double(query.berfore.ref..qbr.))))
-sp.120.FDTW <- sp.120.FDTW %>% mutate(query.berfore.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ as.double(query.berfore.ref..qbr.)/2, TRUE ~ as.double(query.berfore.ref..qbr.))))
+sp.120.DTW <- sp.120.DTW %>% mutate(query.before.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ as.double(query.before.ref..qbr.)/2, TRUE ~ as.double(query.before.ref..qbr.))))
+sp.120.FDTW <- sp.120.FDTW %>% mutate(query.before.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ as.double(query.before.ref..qbr.)/2, TRUE ~ as.double(query.before.ref..qbr.))))
 sp.500.FDTW <- sp.500.FDTW  %>% mutate(query.berfore.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ factor * as.double(query.berfore.ref..qbr.)/2, TRUE ~factor * as.double(query.berfore.ref..qbr.))))
 ```
 
@@ -236,7 +236,7 @@ boxplot6 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_minus_overhead.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Block.f, color = speed.f)) + geom_boxplot() + 
+    myplot <- ggplot(df.sub, aes(y=query.before.ref..qbr., x= Block.f, color = speed.f)) + geom_boxplot() + 
     labs(x = "Visualisierung", y = "Anzahl Blick vor Visualisierung", title = paste0("Distanz : ",distance), color = "Geschwindigkeit")
     print(myplot)
     dev.off()
@@ -244,15 +244,16 @@ boxplot6 = function(df,name){
 }
 boxplot4(sp.120.DTW,"DTW_120Hz")
 boxplot4(sp.120.FDTW,"FDTW_120Hz")
-boxplot4(sp.500.FDTW,"FDTW_500Hz")
+#boxplot4(sp.500.FDTW,"FDTW_500Hz")
 
 boxplot5(sp.120.DTW,"DTW_120Hz")
 boxplot5(sp.120.FDTW,"FDTW_120Hz")
-boxplot5(sp.500.FDTW,"FDTW_500Hz")
+#boxplot5(sp.500.FDTW,"FDTW_500Hz")
 
-boxplot6(sp.120.DTW,"DTW_120Hz")
-boxplot6(sp.120.FDTW,"FDTW_120Hz")
 boxplot6(sp.500.FDTW,"FDTW_500Hz")
+boxplot6(sp.120.DTW,"DTW_120Hz")
+#boxplot6(sp.120.FDTW,"FDTW_120Hz")
+
 ```
 
 ```{r boxplot2}
@@ -293,22 +294,22 @@ boxplot6.2 = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_minus_overhead_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
-    myplot <- ggplot(df.sub, aes(y=query.berfore.ref..qbr., x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
+    myplot <- ggplot(df.sub, aes(y=query.before.ref..qbr., x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
     print(myplot)
     dev.off()
    }
 }
 boxplot4.2(sp.120.DTW,"DTW_120Hz")
 boxplot4.2(sp.120.FDTW,"FDTW_120Hz")
-boxplot4.2(sp.500.FDTW,"FDTW_500Hz")
+#boxplot4.2(sp.500.FDTW,"FDTW_500Hz")
 
 boxplot5.2(sp.120.DTW,"DTW_120Hz")
 boxplot5.2(sp.120.FDTW,"FDTW_120Hz")
-boxplot5.2(sp.500.FDTW,"FDTW_500Hz")
+#boxplot5.2(sp.500.FDTW,"FDTW_500Hz")
 
 boxplot6.2(sp.120.DTW,"DTW_120Hz")
 boxplot6.2(sp.120.FDTW,"FDTW_120Hz")
-boxplot6.2(sp.500.FDTW,"FDTW_500Hz")
+#boxplot6.2(sp.500.FDTW,"FDTW_500Hz")
 ```
 
 ```{r plots3}
@@ -427,35 +428,35 @@ mindistance.plot2  = function(df,name){
 
 maxqbr.plot1(sp.120.DTW,"DTW_120Hz")
 maxqbr.plot1(sp.120.FDTW,"FDTW_120Hz")
-maxqbr.plot1(sp.500.FDTW,"FDTW_500Hz")
+#maxqbr.plot1(sp.500.FDTW,"FDTW_500Hz")
 
 maxqbr.plot2(sp.120.DTW,"DTW_120Hz")
 maxqbr.plot2(sp.120.FDTW,"FDTW_120Hz")
-maxqbr.plot2(sp.500.FDTW,"FDTW_500Hz")
+#maxqbr.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 maxrbq.plot1(sp.120.DTW,"DTW_120Hz")
 maxrbq.plot1(sp.120.FDTW,"FDTW_120Hz")
-maxrbq.plot1(sp.500.FDTW,"FDTW_500Hz")
+#maxrbq.plot1(sp.500.FDTW,"FDTW_500Hz")
 
 maxrbq.plot2(sp.120.DTW,"DTW_120Hz")
 maxrbq.plot2(sp.120.FDTW,"FDTW_120Hz")
-maxrbq.plot2(sp.500.FDTW,"FDTW_500Hz")
+#maxrbq.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 maxdistance.plot1(sp.120.DTW,"DTW_120Hz")
 maxdistance.plot1(sp.120.FDTW,"FDTW_120Hz")
-maxdistance.plot1(sp.500.FDTW,"FDTW_500Hz")
+#maxdistance.plot1(sp.500.FDTW,"FDTW_500Hz")
 
 maxdistance.plot2(sp.120.DTW,"DTW_120Hz")
 maxdistance.plot2(sp.120.FDTW,"FDTW_120Hz")
-maxdistance.plot2(sp.500.FDTW,"FDTW_500Hz")
+#maxdistance.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 mindistance.plot1(sp.120.DTW,"DTW_120Hz")
 mindistance.plot1(sp.120.FDTW,"FDTW_120Hz")
-mindistance.plot1(sp.500.FDTW,"FDTW_500Hz")
+#mindistance.plot1(sp.500.FDTW,"FDTW_500Hz")
 
 mindistance.plot2(sp.120.DTW,"DTW_120Hz")
 mindistance.plot2(sp.120.FDTW,"FDTW_120Hz")
-mindistance.plot2(sp.500.FDTW,"FDTW_500Hz")
+#mindistance.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 ```
 
@@ -472,7 +473,7 @@ histogramm.bins.plot_1  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     names(df.sub)[16:220]<-c(-102:102)
     df.sub.t = df.sub[,-c(16:93,143:220)]
-    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
     df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
 colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
     barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
@@ -494,7 +495,7 @@ histogramm.bins.plot_2  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     names(df.sub)[16:220]<-c(-102:102)
     df.sub.t = df.sub[,-c(16:93,143:220)]
-    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
     df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
 colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
     barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
@@ -516,7 +517,7 @@ histogramm.bins.plot_3  = function(df,name){
     tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     names(df.sub)[16:220]<-c(-102:102)
     df.sub.t = df.sub[,-c(16:93,143:220)]
-    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.berfore.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
     df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
 colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
     
@@ -536,15 +537,15 @@ colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
 
 histogramm.bins.plot_1(sp.120.DTW,"DTW_120Hz")
 histogramm.bins.plot_1(sp.120.FDTW,"FDTW_120Hz")
-histogramm.bins.plot_1(sp.500.FDTW,"FDTW_500Hz")
+#histogramm.bins.plot_1(sp.500.FDTW,"FDTW_500Hz")
 
 histogramm.bins.plot_2(sp.120.DTW,"DTW_120Hz")
 histogramm.bins.plot_2(sp.120.FDTW,"FDTW_120Hz")
-histogramm.bins.plot_2(sp.500.FDTW,"FDTW_500Hz")
+#histogramm.bins.plot_2(sp.500.FDTW,"FDTW_500Hz")
 
 histogramm.bins.plot_3(sp.120.DTW,"DTW_120Hz")
 histogramm.bins.plot_3(sp.120.FDTW,"FDTW_120Hz")
-histogramm.bins.plot_3(sp.500.FDTW,"FDTW_500Hz")
+#histogramm.bins.plot_3(sp.500.FDTW,"FDTW_500Hz")
 
 
 ```
