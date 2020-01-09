@@ -253,21 +253,20 @@ def hg(pbn, pr, alias, distance):
 
 
 if __name__ == "__main__":
-    '''
+
     pbnlist = ["pb1", "pb1_2", "pb2", "pb3", "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2",
-               "pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2", "pb14", "pb15",
-               "pb15_2", "pb16", "pb17", "pb17_2", "pb18", "pb19", "pb19_2", "pb20", "pb21", "pb21_2", "pb22", "pb24",
-               "pb25", "pb25_2", "pb26", "pb27", "pb27_2", "pb28", "pb29", "pb29_2", "pb30", "pb31", "pb31_2", "pb32",
-               "pb33", "pb33_2", "pb34", "pb35", "pb35_2", "pb36", "pb37", "pb37_2", "pb38", "pb39", "pb39_2", "pb40",
-               "pb41", "pb41_2", "pb42", "pb43", "pb43_2", "pb44", "pb45", "pb45_2", "pb46", "pb47", "pb47_2", "pb48",
-               "pb49", "pb49_2","pb51","pb51_2","pb52"] #6,23,50,53 fehlen
+               "pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]#, "pb14", "pb15",
+               #"pb15_2", "pb16", "pb17", "pb17_2", "pb18", "pb19", "pb19_2", "pb20", "pb21", "pb21_2", "pb22", "pb24",
+               #"pb25", "pb25_2", "pb26", "pb27", "pb27_2", "pb28", "pb29", "pb29_2", "pb30", "pb31", "pb31_2", "pb32",
+               #"pb33", "pb33_2", "pb34", "pb35", "pb35_2", "pb36", "pb37", "pb37_2", "pb38", "pb39", "pb39_2", "pb40",
+               #"pb41", "pb41_2", "pb42", "pb43", "pb43_2", "pb44", "pb45", "pb45_2", "pb46", "pb47", "pb47_2", "pb48",
+               #"pb49", "pb49_2","pb51","pb51_2","pb52"] #6,23,50,53 fehlen
 
     distances = ["euklid", "winkel", "winkellog"]
-    aliases = ["Spot1","Spot5","GL1","GL5","BGL1","BGL5"]
     header, results = auswertung(pbnlist, distances, aliases)
     write_ausw(header, results)
-    '''
 
+'''
     pbn = sys.argv[1]
     alias = sys.argv[2]
     distance = sys.argv[3]
@@ -275,4 +274,4 @@ if __name__ == "__main__":
     pr = pbn.split('_')[0] if '_' in pbn else pbn
     calc_heatmap(pbn, pr, alias, distance)
     print("done")
-
+'''

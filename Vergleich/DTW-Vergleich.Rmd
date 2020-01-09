@@ -15,8 +15,8 @@ library(psych)
 ```
 
 ```{r readfiles}
-df.120.DTW = read.csv(file=file.path("..","120Hz","Dtw","output","auswertung1_1-13(o6)_neu.csv"), sep=";")
-df.120.FDTW = read.csv(file=file.path("..","120Hz","Fastdtw","output","auswertung1_1-13(o6)_neu.csv"), sep=";")
+df.120.DTW = read.csv(file=file.path("..","120Hz","Dtw","output","auswertung1.csv"), sep=";")
+df.120.FDTW = read.csv(file=file.path("..","120Hz","Fastdtw","output","auswertung1.csv"), sep=";")
 df.500.FDTW = read.csv(file=file.path("..","500Hz","Fastdtw","output","auswertung1_1-13(o6)_neu.csv"), sep=";")
 ```
 
@@ -53,15 +53,10 @@ factor = 120/500
 sp.120.DTW <- sp.120.DTW %>% mutate(total_distance = case_when((PB %% 2)==0 ~ total_distance/2, TRUE ~ total_distance))
 sp.120.FDTW <- sp.120.FDTW %>% mutate(total_distance = case_when((PB %% 2)==0 ~ total_distance/2, TRUE ~ total_distance))
 sp.500.FDTW <- sp.500.FDTW  %>% mutate(total_distance = case_when((PB %% 2)==0 ~ factor * total_distance/2, TRUE ~factor * total_distance))
-# mean distance
-#sp.120.DTW <- sp.120.DTW %>% mutate(mean_distance = case_when((PB %% 2)==0 ~ mean_distance/2, TRUE ~ mean_distance))
-#sp.120.FDTW <- sp.120.FDTW %>% mutate(mean_distance = case_when((PB %% 2)==0 ~ mean_distance/2, TRUE ~ mean_distance))
-#sp.500.FDTW <- sp.500.FDTW  %>% mutate(mean_distance = case_when((PB %% 2)==0 ~ factor * mean_distance/2, TRUE ~factor * mean_distance))
 
-# median distance
-#sp.120.DTW <- sp.120.DTW %>% mutate(median_distance = case_when((PB %% 2)==0 ~ median_distance/2, TRUE ~ median_distance))
-#sp.120.FDTW <- sp.120.FDTW %>% mutate(median_distance = case_when((PB %% 2)==0 ~ median_distance/2, TRUE ~ median_distance))
-#sp.500.FDTW <- sp.500.FDTW  %>% mutate(median_distance = case_when((PB %% 2)==0 ~ factor * median_distance/2, TRUE ~factor * median_distance))
+# mean distance - no correct
+
+# median distance - no correct
 
 #zero.overhead.counter
 sp.120.DTW <- sp.120.DTW %>% mutate(zero.overhead.counter = as.integer(case_when((PB %% 2)==0 ~ as.double(zero.overhead.counter)/2, TRUE ~ as.double(zero.overhead.counter))))
@@ -76,7 +71,7 @@ sp.500.FDTW <- sp.500.FDTW  %>% mutate(ref.before.query..rbq. = as.integer(case_
 #query.before.ref..bqr.
 sp.120.DTW <- sp.120.DTW %>% mutate(query.before.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ as.double(query.before.ref..qbr.)/2, TRUE ~ as.double(query.before.ref..qbr.))))
 sp.120.FDTW <- sp.120.FDTW %>% mutate(query.before.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ as.double(query.before.ref..qbr.)/2, TRUE ~ as.double(query.before.ref..qbr.))))
-sp.500.FDTW <- sp.500.FDTW  %>% mutate(query.berfore.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ factor * as.double(query.berfore.ref..qbr.)/2, TRUE ~factor * as.double(query.berfore.ref..qbr.))))
+sp.500.FDTW <- sp.500.FDTW  %>% mutate(query.before.ref..qbr. = as.integer(case_when((PB %% 2)==0 ~ factor * as.double(query.before.ref..qbr.)/2, TRUE ~factor * as.double(query.before.ref..qbr.))))
 ```
 
 
@@ -84,10 +79,7 @@ sp.500.FDTW <- sp.500.FDTW  %>% mutate(query.berfore.ref..qbr. = as.integer(case
 boxplot1 = function(df,name){
   for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
+    #desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
     filename = paste0(name,"_",distance,"_","boxplot_total_distance.jpeg")
     print(filename)
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
@@ -100,10 +92,7 @@ boxplot1 = function(df,name){
 boxplot2 = function(df,name){
   for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
+    #desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
     filename = paste0(name,"_",distance,"_","boxplot_mean_distance.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=mean_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
@@ -115,10 +104,7 @@ boxplot2 = function(df,name){
 boxplot3 = function(df,name){
   for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
+    #desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
     filename = paste0(name,"_",distance,"_","boxplot_median_distance.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=median_distance, x= Block.f, color = speed.f)) + geom_boxplot() + 
@@ -143,10 +129,6 @@ boxplot3(sp.500.FDTW,"FDTW_500Hz")
 boxplot1.2 = function(df,name){
   for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_total_distance_trials.jpeg")
     print(filename)
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
@@ -158,10 +140,6 @@ boxplot1.2 = function(df,name){
 boxplot2.2 = function(df,name){
   for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_mean_distance_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=mean_distance, x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -172,10 +150,6 @@ boxplot2.2 = function(df,name){
 boxplot3.2 = function(df,name){
   for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_median_distance_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=median_distance, x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -200,10 +174,6 @@ boxplot3.2(sp.500.FDTW,"FDTW_500Hz")
 boxplot4 = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_no_overhead.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=zero.overhead.counter, x= Block.f, color = speed.f)) + geom_boxplot() + 
@@ -215,10 +185,6 @@ boxplot4 = function(df,name){
 boxplot5 = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_plus_overhead.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=ref.before.query..rbq., x= Block.f, color = speed.f)) + geom_boxplot() +
@@ -230,10 +196,6 @@ boxplot5 = function(df,name){
 boxplot6 = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_minus_overhead.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=query.before.ref..qbr., x= Block.f, color = speed.f)) + geom_boxplot() + 
@@ -244,15 +206,18 @@ boxplot6 = function(df,name){
 }
 boxplot4(sp.120.DTW,"DTW_120Hz")
 boxplot4(sp.120.FDTW,"FDTW_120Hz")
-#boxplot4(sp.500.FDTW,"FDTW_500Hz")
+
 
 boxplot5(sp.120.DTW,"DTW_120Hz")
 boxplot5(sp.120.FDTW,"FDTW_120Hz")
-#boxplot5(sp.500.FDTW,"FDTW_500Hz")
 
 boxplot6(sp.500.FDTW,"FDTW_500Hz")
 boxplot6(sp.120.DTW,"DTW_120Hz")
-#boxplot6(sp.120.FDTW,"FDTW_120Hz")
+
+#sollte wieder gehen 
+boxplot5(sp.500.FDTW,"FDTW_500Hz")
+boxplot4(sp.500.FDTW,"FDTW_500Hz")
+boxplot6(sp.120.FDTW,"FDTW_120Hz")
 
 ```
 
@@ -260,10 +225,6 @@ boxplot6(sp.120.DTW,"DTW_120Hz")
 boxplot4.2 = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_no_overhead_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=zero.overhead.counter, x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -274,10 +235,6 @@ boxplot4.2 = function(df,name){
 boxplot5.2 = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_plus_overhead_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=ref.before.query..rbq., x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -288,10 +245,6 @@ boxplot5.2 = function(df,name){
 boxplot6.2 = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","boxplot_minus_overhead_trials.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=query.before.ref..qbr., x= Video, color = speed.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -301,25 +254,21 @@ boxplot6.2 = function(df,name){
 }
 boxplot4.2(sp.120.DTW,"DTW_120Hz")
 boxplot4.2(sp.120.FDTW,"FDTW_120Hz")
-#boxplot4.2(sp.500.FDTW,"FDTW_500Hz")
+boxplot4.2(sp.500.FDTW,"FDTW_500Hz")
 
 boxplot5.2(sp.120.DTW,"DTW_120Hz")
 boxplot5.2(sp.120.FDTW,"FDTW_120Hz")
-#boxplot5.2(sp.500.FDTW,"FDTW_500Hz")
+boxplot5.2(sp.500.FDTW,"FDTW_500Hz")
 
 boxplot6.2(sp.120.DTW,"DTW_120Hz")
 boxplot6.2(sp.120.FDTW,"FDTW_120Hz")
-#boxplot6.2(sp.500.FDTW,"FDTW_500Hz")
+boxplot6.2(sp.500.FDTW,"FDTW_500Hz")
 ```
 
 ```{r plots3}
 maxrbq.plot1 = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxrbq_1.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=max.rbq, x= Block.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -330,10 +279,6 @@ maxrbq.plot1 = function(df,name){
 maxrbq.plot2 = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxrbq_2.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=max.rbq, x= Video)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -344,10 +289,6 @@ maxrbq.plot2 = function(df,name){
 maxqbr.plot1  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxqbr_1.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=max.qbr, x= Block.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -358,10 +299,6 @@ maxqbr.plot1  = function(df,name){
 maxqbr.plot2  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxqbr_2.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=max.qbr, x= Video)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -372,10 +309,6 @@ maxqbr.plot2  = function(df,name){
 maxdistance.plot1  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxdistance_1.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=max.distance, x= Block.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -386,10 +319,6 @@ maxdistance.plot1  = function(df,name){
 maxdistance.plot2  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","maxdistance_2.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=max.distance, x= Video)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -400,10 +329,6 @@ maxdistance.plot2  = function(df,name){
 mindistance.plot1  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","mindistance_1.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=min.distance, x= Block.f)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -414,10 +339,6 @@ mindistance.plot1  = function(df,name){
 mindistance.plot2  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     filename = paste0(name,"_",distance,"_","mindistance_2.jpeg")
     jpeg(filename = filename,units="in",width=5,height=5,res=300)
     myplot <- ggplot(df.sub, aes(y=min.distance, x= Video)) + geom_boxplot() + labs(title = paste0("Distanz : ",distance))
@@ -428,35 +349,35 @@ mindistance.plot2  = function(df,name){
 
 maxqbr.plot1(sp.120.DTW,"DTW_120Hz")
 maxqbr.plot1(sp.120.FDTW,"FDTW_120Hz")
-#maxqbr.plot1(sp.500.FDTW,"FDTW_500Hz")
+maxqbr.plot1(sp.500.FDTW,"FDTW_500Hz")
 
 maxqbr.plot2(sp.120.DTW,"DTW_120Hz")
 maxqbr.plot2(sp.120.FDTW,"FDTW_120Hz")
-#maxqbr.plot2(sp.500.FDTW,"FDTW_500Hz")
+maxqbr.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 maxrbq.plot1(sp.120.DTW,"DTW_120Hz")
 maxrbq.plot1(sp.120.FDTW,"FDTW_120Hz")
-#maxrbq.plot1(sp.500.FDTW,"FDTW_500Hz")
+maxrbq.plot1(sp.500.FDTW,"FDTW_500Hz")
 
 maxrbq.plot2(sp.120.DTW,"DTW_120Hz")
 maxrbq.plot2(sp.120.FDTW,"FDTW_120Hz")
-#maxrbq.plot2(sp.500.FDTW,"FDTW_500Hz")
+maxrbq.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 maxdistance.plot1(sp.120.DTW,"DTW_120Hz")
 maxdistance.plot1(sp.120.FDTW,"FDTW_120Hz")
-#maxdistance.plot1(sp.500.FDTW,"FDTW_500Hz")
+maxdistance.plot1(sp.500.FDTW,"FDTW_500Hz")
 
 maxdistance.plot2(sp.120.DTW,"DTW_120Hz")
 maxdistance.plot2(sp.120.FDTW,"FDTW_120Hz")
-#maxdistance.plot2(sp.500.FDTW,"FDTW_500Hz")
+maxdistance.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 mindistance.plot1(sp.120.DTW,"DTW_120Hz")
 mindistance.plot1(sp.120.FDTW,"FDTW_120Hz")
-#mindistance.plot1(sp.500.FDTW,"FDTW_500Hz")
+mindistance.plot1(sp.500.FDTW,"FDTW_500Hz")
 
 mindistance.plot2(sp.120.DTW,"DTW_120Hz")
 mindistance.plot2(sp.120.FDTW,"FDTW_120Hz")
-#mindistance.plot2(sp.500.FDTW,"FDTW_500Hz")
+mindistance.plot2(sp.500.FDTW,"FDTW_500Hz")
 
 ```
 
@@ -467,10 +388,6 @@ mindistance.plot2(sp.120.FDTW,"FDTW_120Hz")
 histogramm.bins.plot_1  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
     df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     names(df.sub)[16:220]<-c(-102:102)
     df.sub.t = df.sub[,-c(16:93,143:220)]
     df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
@@ -489,10 +406,6 @@ colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
 histogramm.bins.plot_2  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
      df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     names(df.sub)[16:220]<-c(-102:102)
     df.sub.t = df.sub[,-c(16:93,143:220)]
     df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
@@ -511,10 +424,6 @@ colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
 histogramm.bins.plot_3  = function(df,name){
    for (distance in c("euklid","winkel","winkellog")){
      df.sub = subset(df,Distancemeasure == distance)
-    desk <- by(df.sub$total_distance, list(df.sub$Block.f, df.sub$speed.f), describe)
-    tmp.desk <- do.call(rbind.data.frame, desk)
-    tmp.desk$Block <- c("Spot", "SL", "CL","Spot", "SL", "CL")
-    tmp.desk$speed <- c("langsam","langsam","langsam","schnell","schnell","schnell")
     names(df.sub)[16:220]<-c(-102:102)
     df.sub.t = df.sub[,-c(16:93,143:220)]
     df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
@@ -537,15 +446,15 @@ colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
 
 histogramm.bins.plot_1(sp.120.DTW,"DTW_120Hz")
 histogramm.bins.plot_1(sp.120.FDTW,"FDTW_120Hz")
-#histogramm.bins.plot_1(sp.500.FDTW,"FDTW_500Hz")
+histogramm.bins.plot_1(sp.500.FDTW,"FDTW_500Hz")
 
 histogramm.bins.plot_2(sp.120.DTW,"DTW_120Hz")
 histogramm.bins.plot_2(sp.120.FDTW,"FDTW_120Hz")
-#histogramm.bins.plot_2(sp.500.FDTW,"FDTW_500Hz")
+histogramm.bins.plot_2(sp.500.FDTW,"FDTW_500Hz")
 
 histogramm.bins.plot_3(sp.120.DTW,"DTW_120Hz")
 histogramm.bins.plot_3(sp.120.FDTW,"FDTW_120Hz")
-#histogramm.bins.plot_3(sp.500.FDTW,"FDTW_500Hz")
+histogramm.bins.plot_3(sp.500.FDTW,"FDTW_500Hz")
 
 
 ```
