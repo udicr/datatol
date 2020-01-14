@@ -415,7 +415,43 @@ colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
     filename = paste0(name,"_",distance,"_","histogramm_bins_median_häufigkeit.jpeg")
     jpeg(filename = filename,units="in",width=11,height=8,res=300)
     q<- ggplot(barplot.eu, aes(x=bin, y=median, fill = Block.f)) + geom_bar(stat = "identity", position = position_dodge()) +
-  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9))  + labs(title = paste0("Distanz : ",distance))
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) + labs(title = paste0("Distanz : ",distance))
+    print(q)
+    dev.off()
+   }
+}
+
+histogramm.bins.plot_1b  = function(df,name){
+   for (distance in c("euklid","winkel","winkellog")){
+     df.sub = subset(df,Distancemeasure == distance)
+    names(df.sub)[16:220]<-c(-102:102)
+    df.sub.t = df.sub[,-c(16:93,143:220)]
+    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+    df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
+colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
+    barplot.eu <- df.sub.hm %>% group_by(Block.f,speed.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
+    filename = paste0(name,"_",distance,"_","histogramm_bins_mw_häufigkeit.jpeg")
+    jpeg(filename = filename,units="in",width=11,height=8,res=300)
+    p<- ggplot(barplot.eu, aes(x=bin, y=mw, fill = Block.f)) + facet_wrap(~ speed.f) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) + labs(title = paste0("Distanz : ",distance))
+    print(p)
+    dev.off()
+   }
+}
+
+histogramm.bins.plot_2b  = function(df,name){
+   for (distance in c("euklid","winkel","winkellog")){
+     df.sub = subset(df,Distancemeasure == distance)
+    names(df.sub)[16:220]<-c(-102:102)
+    df.sub.t = df.sub[,-c(16:93,143:220)]
+    df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
+    df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
+colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
+    barplot.eu <- df.sub.hm %>% group_by(Block.f,speed.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
+    filename = paste0(name,"_",distance,"_","histogramm_bins_median_häufigkeit.jpeg")
+    jpeg(filename = filename,units="in",width=11,height=8,res=300)
+    q<- ggplot(barplot.eu, aes(x=bin, y=median, fill = Block.f)) + facet_wrap(~ speed.f) + geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin=mw-sd, ymax=mw+sd), width=.2, position=position_dodge(.9)) + labs(title = paste0("Distanz : ",distance))
     print(q)
     dev.off()
    }
@@ -429,9 +465,7 @@ histogramm.bins.plot_3  = function(df,name){
     df.sub.h <- subset(df.sub.t, select = -c(Video, IP, Distancemeasure, total_distance, len_of_signal, mean_distance, median_distance, zero.overhead.counter, ref.before.query..rbq., query.before.ref..qbr., max.rbq, max.qbr, max.distance, min.distance, Block, speed, PB))
     df.sub.hm <- melt(df.sub.h, id.vars=c("Proband", "speed.f", "Block.f"))
 colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
-    
-    
-    barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
+    #barplot.eu <- df.sub.hm %>% group_by(Block.f,bin) %>% summarise(mw= mean(value), sd = sd(value, na.rm = T), median = median(value))
     filename = paste0(name,"_",distance,"_","histogramm_bins_häufigkeit.jpeg")
     jpeg(filename = filename,units="in",width=11,height=8,res=300)
     r<- ggplot(df.sub.hm, aes(x=bin, y=value, fill = Block.f)) + geom_boxplot() + facet_wrap(~ speed.f) +labs(title = paste0("Distanz : ",distance))
@@ -444,13 +478,13 @@ colnames(df.sub.hm)[colnames(df.sub.hm)=="variable"] <- "bin"
 
     
 
-histogramm.bins.plot_1(sp.120.DTW,"DTW_120Hz")
-histogramm.bins.plot_1(sp.120.FDTW,"FDTW_120Hz")
-histogramm.bins.plot_1(sp.500.FDTW,"FDTW_500Hz")
+histogramm.bins.plot_1b(sp.120.DTW,"DTW_120Hz")
+histogramm.bins.plot_1b(sp.120.FDTW,"FDTW_120Hz")
+histogramm.bins.plot_1b(sp.500.FDTW,"FDTW_500Hz")
 
-histogramm.bins.plot_2(sp.120.DTW,"DTW_120Hz")
-histogramm.bins.plot_2(sp.120.FDTW,"FDTW_120Hz")
-histogramm.bins.plot_2(sp.500.FDTW,"FDTW_500Hz")
+histogramm.bins.plot_2b(sp.120.DTW,"DTW_120Hz")
+histogramm.bins.plot_2b(sp.120.FDTW,"FDTW_120Hz")
+histogramm.bins.plot_2b(sp.500.FDTW,"FDTW_500Hz")
 
 histogramm.bins.plot_3(sp.120.DTW,"DTW_120Hz")
 histogramm.bins.plot_3(sp.120.FDTW,"FDTW_120Hz")
