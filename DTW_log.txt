@@ -78370,3 +78370,101 @@ Calculating Path Distances
 Saving Results ...
 PB pb13 Alias BGL8 done:
 22.3134765625
+Log_from_DTW:DynTimeWarp at Thu Jan 16 09:01:36 2020Erstelle Ordner fuer Output
+Erstelle Ordner fuer Output-Plots
+53
+Spot1
+Reading Data ...
+Doing first block
+53
+Spot2
+Reading Data ...
+Doing first block
+53
+Spot3
+Reading Data ...
+Doing first block
+53
+Spot4
+Reading Data ...
+Doing first block
+53
+Spot5
+Reading Data ...
+Doing first block
+53
+Spot6
+Reading Data ...
+Doing first block
+53
+Spot7
+Reading Data ...
+Doing first block
+53
+Spot8
+Reading Data ...
+Doing first block
+53
+GL1
+Reading Data ...
+Doing first block
+53
+GL2
+Reading Data ...
+Doing first block
+53
+GL3
+Reading Data ...
+Doing first block
+53
+GL4
+Reading Data ...
+Doing first block
+53
+GL5
+Reading Data ...
+Doing first block
+53
+GL6
+Reading Data ...
+Doing first block
+53
+GL7
+Reading Data ...
+Doing first block
+53
+GL8
+Reading Data ...
+Doing first block
+53
+BGL1
+Reading Data ...
+Doing first block
+53
+BGL2
+Reading Data ...
+Doing first block
+53
+BGL3
+Reading Data ...
+Doing first block
+53
+BGL4
+Reading Data ...
+Doing first block
+53
+BGL5
+Reading Data ...
+Doing first block
+53
+BGL6
+Reading Data ...
+Doing first block
+53
+BGL7
+Reading Data ...
+Doing first block
+53
+BGL8
+Reading Data ...
+Doing first block

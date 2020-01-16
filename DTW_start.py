@@ -89,8 +89,8 @@ def plot_multi():
 
 
 def main2_multi():
-    pool = ThreadPool(4)
-    pbns = ["pb10", "pb11", "pb12","pb13"]#, "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2",
+    pool = ThreadPool(1)
+    pbns = ["pb53"]#, "pb3_2", "pb4", "pb5", "pb5_2", "pb7", "pb7_2", "pb8", "pb9", "pb9_2",
                #"pb10", "pb11", "pb11_2", "pb12", "pb13", "pb13_2"]
     #["pb"+str(i) for i in range(1,54) if i not in [6,23,50,53]] #, "pb35", "pb35_2"] welche dateien fehlen????
     todo = [pb + " " + al for pb in pbns for al in aliases]
