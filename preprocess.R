@@ -18,7 +18,7 @@ print("Doing Preprocess for PBN: ")
 print(pbn)
 
 a <- pbn
-srfile <- paste0("data/sr_",a,".xls")
+srfile <- paste0("data/sr_",a,".xls")  #for 23/53 csv fos
 frfile <- paste0("data/fr_",a,".xls")
 outfile <- paste0("pb",a,".Rda")
 
@@ -136,8 +136,8 @@ Control6 <- f_cut(Control6, "Control6")
 Control7 <- f_cut(Control7, "Control7")
 Control8 <- f_cut(Control8, "Control8")
 
-df_pb <- read_delim(srfile,"\t", escape_double = FALSE, locale =
-                       locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
+df_pb <- read_delim(srfile,",", escape_double = FALSE, locale =    
+                       locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)   #delim for 23 and 53 is "," for others "/t"
 
 f_num_2 <- function(df, video) {
   df <- df[rep(1:nrow(df),each=2),] 
@@ -186,6 +186,7 @@ df_vidco <- rbind(Spot1, Spot2, Spot3, Spot4, Spot5,
                   Spot6, Spot7, Spot8, GL1, GL2, GL3, GL4, GL5, GL6, GL7, GL8, BGL1, BGL2, BGL3, BGL4, BGL5, BGL6, BGL7, BGL8,  Control1, Control2, Control3, Control4, Control5, Control6, Control7, Control8)
 
 f_frame <- function(df){
+  print(names(df))
   df$SAMPLE_MESSAGE[df$SAMPLE_MESSAGE == "."] <- NA
   FNO <- 0
   
@@ -288,7 +289,7 @@ f_video <- function(df) {
 
 
 df_pb <- f_video(df_pb)
-fr_pb <- read_delim(frfile,"\t", escape_double = FALSE, locale =
+fr_pb <- read_delim(frfile,",", escape_double = FALSE, locale =
                        locale(decimal_mark = ".", grouping_mark = "'"), trim_ws = TRUE)
 
 
